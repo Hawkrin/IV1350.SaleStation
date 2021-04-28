@@ -10,18 +10,28 @@ public class Controller {
     private CashRegister cashRegister;
     private AccountingSystem accountingSystem;
     private InventorySystem inventorySystem;
-    private ItemIdentifier itemIdentifier;
+    private ItemCatalog itemCatalog;
     private DiscountCatalog discountCatalog;
     private SalesLog salesLog;
     private RecieptPrinter recieptPrinter;
 
     /**
-     * Creates a new instance
-     * 
+     * Creates a new instance instance of the catalogs
+     * @param catalogHandler gets the classes that handels communication with databases.
      */
-    public Controller(CatalogHandler catalogHandler) {
-         
+    public Controller(CatalogHandler catalogHandler) {  
+        this.itemCatalog = catalogHandler.getItemCatalog();
+        this.discountCatalog = catalogHandler.getDiscountCatalog();
     }
+
+     /**
+     * Creates a new instance of the external systems
+     * @param systemHandler gets the classes that handels communication with external systems.
+     */
+    public Controller(SystemHandler systemHandler) {   
+        this.inventorySystem = systemHandler.getInventorySystem();
+        this.accountingSystem = systemHandler.getAccountingSystem();
+        }
 
     /**
      * A new sale is being created
