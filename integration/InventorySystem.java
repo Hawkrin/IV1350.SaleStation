@@ -16,11 +16,11 @@ public class InventorySystem {
     /**
      * Search for an item via an itemNumber
      */
-    public ItemDTO searchedItem(int itemID) {
+    /*public ItemDTO searchedItem(int itemID) {
         for (ItemDTO item : availableItems) {
             if(itemID = ItemDTO.itemID)
         }
-    }
+    }*/
 
     //Items in stock -> "Name", price, taxRate, ID
     private void addItems() {

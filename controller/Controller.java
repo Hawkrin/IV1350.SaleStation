@@ -30,8 +30,6 @@ public class Controller {
         this.sale = new Sale();
     }
 
-
-
     
     void searchForItem(int itemID, int itemQuantity) {}
     void checkforDiscount(int customerID) {}
