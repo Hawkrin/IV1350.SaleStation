@@ -11,5 +11,13 @@ public class Sale {
     public Sale() {
         this.sum = new Summary();
     }
+
+    /**
+     * Get the summary of all products
+     * @return the calculated sum of the products
+     */
+    public Summary getSummary() {
+        return sum;
+    }
     
 }

@@ -16,10 +16,6 @@ public class Item {
         this.itemInformation = itemInformation;
         this.itemQuantity = itemQuantity;
     }
-
-    void increaseQuantity(int newQuantity) {
-        this.itemQuantity += newQuantity;
-    }
     
 
     
