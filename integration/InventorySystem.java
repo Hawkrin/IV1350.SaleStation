@@ -18,7 +18,7 @@ public class InventorySystem {
      */
     /*public ItemDTO searchedItem(int itemID) {
         for (ItemDTO item : availableItems) {
-            if(itemID = ItemDTO.itemID)
+            if(ItemDTO()==
         }
     }*/
 
