@@ -12,5 +12,13 @@ public class CashRegister {
     public CashRegister() {
         this.balance = new Amount();
     }
+
+    /**
+     * Get the current balance of the cash register
+     *
+     * @return the current balance
+     */
+    public Amount getBalance() { return balance; }
+
     
 }
