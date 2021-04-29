@@ -4,12 +4,14 @@ package model;
  */
 public class Sale {
     private Summary sum;
+    private LocalTime saleTime;
 
     /**
      * Creates a new instance of the Sale
      */
     public Sale() {
         this.sum = new Summary();
+        setTimeOfSale();
     }
 
     /**
@@ -19,5 +21,11 @@ public class Sale {
     public Summary getSummary() {
         return sum;
     }
+
+    private setTimeOfSale() {
+        saleTime = LocalTime.now();
+    }
+
+
     
 }

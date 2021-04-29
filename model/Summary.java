@@ -18,13 +18,13 @@ public class Summary {
      * Get the total amount of tax of the purchase
      * @return  the total amount of tax
      */
-    public Amount totalTax() { return this.totalTax; }
+    public Amount getTotalTax() { return this.totalTax; }
 
     /**
      * Get the total amount of discount of the purchase
      * @return the total amount of discount
      */
-    public Amount totalDiscount() { return this.totalDiscount; }
+    public Amount getTotalDiscount() { return this.totalDiscount; }
 
     /**
      * returns the total price before tax and discount

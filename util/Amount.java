@@ -1,7 +1,7 @@
 package util;
 
 /**
- * The object amount is used to represent different values, such as prices, quantities etc.
+ * The object amount is used to represent different amounts, such as prices, quantities etc.
  */
 public class Amount {
     private final double amount;

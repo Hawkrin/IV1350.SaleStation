@@ -3,8 +3,11 @@ package controller;
 import integration.*;
 import model.*;
 
+/**
+ * This is the applications only controller, all calls to the model passes through
+ * this class
+ */
 public class Controller {
-
     private Sale sale;
     private Reciept reciept;
     private CashRegister cashRegister;
@@ -34,7 +37,6 @@ public class Controller {
         this.sale = new Sale();
     }
 
-    
     void searchForItem(int itemID, int itemQuantity) {}
     void checkforDiscount(int customerID) {}
     void pay(double amount) {}

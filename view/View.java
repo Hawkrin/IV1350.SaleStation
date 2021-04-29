@@ -10,7 +10,6 @@ public class View {
      * Creates a new instance
      * 
      * @param ctrl The controller that is used for all operations
-     * 
      */
     public View(Controller ctrl) {
         this.ctrl = ctrl;
