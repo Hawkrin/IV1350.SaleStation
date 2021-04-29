@@ -1,33 +1,35 @@
 package model;
 
+import util.Amount;
+
 public class Summary {
-    private double runningTotal;
-    private double totalTax;
-    private double totalDiscount;
-    private double summary;
+    private Amount runningTotal;
+    private Amount totalTax;
+    private Amount totalDiscount;
+    private Amount summary;
 
     /**
      * Get the total cost of the purchase
      * @return the total cost of the purchase
      */
-    public double getRunningTotal() { return this.runningTotal; }
+    public Amount getRunningTotal() { return this.runningTotal; }
 
     /**
      * Get the total amount of tax of the purchase
      * @return  the total amount of tax
      */
-    public double totalTax() { return this.totalTax; }
+    public Amount totalTax() { return this.totalTax; }
 
     /**
      * Get the total amount of discount of the purchase
      * @return the total amount of discount
      */
-    public double totalDiscount() { return this.totalDiscount; }
+    public Amount totalDiscount() { return this.totalDiscount; }
 
     /**
      * returns the total price before tax and discount
      * @return total price of products
      */
-    public double sum() { return this.summary; }
+    public Amount sum() { return this.summary; }
 }
 

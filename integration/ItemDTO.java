@@ -1,10 +1,12 @@
 package integration;
 
+import util.Amount;
+
 public class ItemDTO {
 
-    private final int price;
+    private final Amount price;
     private final String itemName;
-    private final double taxRate;
+    private final Amount taxRate;
     private final int itemID;
 
     /**
@@ -14,7 +16,7 @@ public class ItemDTO {
      * @param itemName Name of the product
      * @param taxRate the taxrate of the product
      */
-    public ItemDTO(String itemName, int price, double taxRate, int itemID) {
+    public ItemDTO(String itemName, Amount price, Amount taxRate, int itemID) {
         this.price = price;
         this.itemName = itemName;
         this.taxRate = taxRate;
@@ -26,7 +28,7 @@ public class ItemDTO {
      * 
      * @return the price of the product
      */
-    public int getPrice() { return price; }
+    public Amount getPrice() { return price; }
 
     /**
      * Get the name of the product
@@ -40,7 +42,7 @@ public class ItemDTO {
      * 
      * @return the taxrate of the product
      */
-    public double getTaxRate() { return taxRate; }
+    public Amount getTaxRate() { return taxRate; }
 
     /**
      * Get the itemID of a product

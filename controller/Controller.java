@@ -16,22 +16,16 @@ public class Controller {
     private RecieptPrinter recieptPrinter;
 
     /**
-     * Creates a new instance instance of the catalogs
+     * Creates a new instance instance of the catalogs and systems
      * @param catalogHandler gets the classes that handels communication with databases.
-     */
-    public Controller(CatalogHandler catalogHandler) {  
-        this.itemCatalog = catalogHandler.getItemCatalog();
-        this.discountCatalog = catalogHandler.getDiscountCatalog();
-    }
-
-     /**
-     * Creates a new instance of the external systems
      * @param systemHandler gets the classes that handels communication with external systems.
      */
-    public Controller(SystemHandler systemHandler) {   
+    public Controller(CatalogHandler catalogHandler, SystemHandler systemHandler) {  
+        this.itemCatalog = catalogHandler.getItemCatalog();
+        this.discountCatalog = catalogHandler.getDiscountCatalog();
         this.inventorySystem = systemHandler.getInventorySystem();
         this.accountingSystem = systemHandler.getAccountingSystem();
-        }
+    }
 
     /**
      * A new sale is being created
@@ -44,6 +38,5 @@ public class Controller {
     void searchForItem(int itemID, int itemQuantity) {}
     void checkforDiscount(int customerID) {}
     void pay(double amount) {}
-    void controller() {}  //parametrar saknas
     
 }
