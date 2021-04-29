@@ -43,11 +43,12 @@ public class Item {
      * presents the selected Item as a string
      */
     public String toString() {
-        StringBuilder itemList = new StringBuilder();
-        itemList.append("itemInfo " + this.ItemDTO);
-        itemList.append("item Quantity " + this.itemQuantity);
-        return itemList.toString();
+        StringBuilder itemPresentation = new StringBuilder();
+        itemPresentation.append("itemInfo " + this.ItemDTO);
+        itemPresentation.append("item Quantity " + this.itemQuantity);
+        return itemPresentation.toString();
     }
+
 
     
 }
