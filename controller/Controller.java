@@ -31,13 +31,22 @@ public class Controller {
     }
 
     /**
+     * Creates a new instance of the salesLog and the reciept printer
+     * @param salesLog gets the saleslog
+     * @param recieptPrinter gets reciept printer
+     */
+    public Controller(SalesLog salesLog, RecieptPrinter recieptPrinter) {
+        this.salesLog = salesLog.getSalesLog();
+        this.recieptPrinter = recieptPrinter.getRecieptPrinter();
+    }
+
+    /**
      * A new sale is being created
      */
     public void startNewSale(){
         this.sale = new Sale();
     }
 
-    void searchForItem(int itemID, int itemQuantity) {}
     void checkforDiscount(int customerID) {}
     void pay(double amount) {}
     
