@@ -15,13 +15,22 @@ public class ItemCatalog {
     }
 
     /**
-     * Search for an item via an itemNumber
+     * Checks if the searched itemID is currently in the database
+     * @param itemID the number of the item.
+     * @return If item exists <code>true</code> else <code>false</code>
      */
-    /*public ItemDTO searchedItem(int itemID) {
-        for (ItemDTO item : availableItems) {
-            if(ItemDTO()==
+    public boolean itemInStock(int itemID) {
+        return availableItems.contains(itemID);
+    }
+
+    public Item getItem(ItemDTO itemInformation, Amount itemQuantity, int itemID) {
+        if(itemInStock(itemID)) {
+            return new Item(availableItems.get(itemID), itemQuantity, itemID);
         }
-    }*/
+        return null;
+    }
+
+
 
     //Items in stock -> "Name", price, taxRate, ID
     private void addItems() {

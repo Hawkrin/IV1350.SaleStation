@@ -2,6 +2,7 @@ package controller;
 
 import integration.*;
 import model.*;
+import util.Amount;
 
 /**
  * This is the applications only controller, all calls to the model passes through
@@ -47,6 +48,16 @@ public class Controller {
      */
     public void startNewSale(){
         this.sale = new Sale();
+    }
+
+
+    public String SearchForItem(ItemDTO itemInformation, Amount quantity, int itemID) {
+        if(itemCatalog.itemInStock(itemID)){
+            Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
+            return sale.newSale(newItem) + ", quantity: " + quantity.toString() + 
+                ", running total: " + totalSum();
+        }
+
     }
 
     void checkforDiscount(int customerID) {}
