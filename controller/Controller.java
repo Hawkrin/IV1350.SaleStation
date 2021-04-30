@@ -32,6 +32,7 @@ public class Controller {
         this.discountCatalog = catalogHandler.getDiscountCatalog();
         this.inventorySystem = systemHandler.getInventorySystem();
         this.accountingSystem = systemHandler.getAccountingSystem();
+        this.salesLog = salesLog.getSalesLog();
         this.recieptPrinter = recieptPrinter;
         this.cashRegister = new CashRegister();
     }
