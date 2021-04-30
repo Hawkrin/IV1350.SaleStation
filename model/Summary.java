@@ -11,12 +11,14 @@ public class Summary {
 
     /**
      * Get the total cost of the purchase
+     * 
      * @return the total cost of the purchase
      */
     public Amount getRunningTotal() { return this.runningTotal; }
 
     /**
      * Get the total amount of tax of the purchase
+     * 
      * @return  the total amount of tax
      */
     public Amount getTotalTax() { return this.totalTax; }
@@ -29,10 +31,17 @@ public class Summary {
 
     /**
      * returns the total price before tax and discount
+     * 
      * @return total price of products
      */
     public Amount summary() { return this.summary; }
 
+
+    /**
+     * Updates the price of the items being bought as well as the total tax.
+     * 
+     * @param item The item that is being added to the summary of the sale.
+     */
     public void SummarizeSale(Item item) {
         if(item == null) { 
             throw new IllegalArgumentException("no Items to summerize"); 
