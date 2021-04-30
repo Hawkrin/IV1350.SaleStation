@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package integration;
 
 public class CustomerDTO {
@@ -7,6 +6,7 @@ public class CustomerDTO {
 
     /**
      * Creates a new instance representing a certain customer
+     * 
      * @param name the name of the customer
      * @param id the id of the customer
      */
@@ -17,6 +17,7 @@ public class CustomerDTO {
 
     /**
      * Creates a new instance representing a certain customer
+     * 
      * @param id the id of the customer
      */
     public CustomerDTO(int customerID) {
@@ -25,53 +26,17 @@ public class CustomerDTO {
 
     /**
      * Get the ID of the customer
+     * 
      * @return the ID of the customer
      */
     public int getCustomerID() { return this.customerID; }
 
     /**
      * Get the Name of the customer
+     * 
      * @return the name of the customer
      */
     public String getCustomerName() {return this.customerName; }
     
 }
-=======
-package integration;
 
-public class CustomerDTO {
-    private String customerName;
-    private int customerID;
-
-    /**
-     * Creates a new instance representing a certain customer
-     * @param name the name of the customer
-     * @param id the id of the customer
-     */
-    public CustomerDTO(String customerName, int customerID) {
-        this.customerName = customerName;
-        this.customerID = customerID;
-    }
-
-    /**
-     * Creates a new instance representing a certain customer
-     * @param id the id of the customer
-     */
-    public CustomerDTO(int customerID) {
-        this.customerID = customerID;
-    }
-
-    /**
-     * Get the ID of the customer
-     * @return the ID of the customer
-     */
-    public int getCustomerID() { return this.customerID; }
-
-    /**
-     * Get the Name of the customer
-     * @return the name of the customer
-     */
-    public String getCustomerName() {return this.customerName; }
-    
-}
->>>>>>> 47905a8ada19e0e8d86a0c242fb9d8a2b63b1c8c

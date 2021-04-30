@@ -5,13 +5,11 @@ import model.Reciept;
  * A class that represent the reciept printer
  */
 public class RecieptPrinter {
-    private Reciept reciept;
 
     /**
      * Creates an instance, represented as a printer
      */
     public RecieptPrinter() {
-        this.reciept = reciept;
     }
 
     /**

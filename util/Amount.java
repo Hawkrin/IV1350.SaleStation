@@ -27,7 +27,7 @@ public class Amount {
     * @param other The specified <code>Amount</code>
     * @return The difference between the two <code>Amount</code>
     */
-    public Amount minus(Amount other){
+    public Amount subtract(Amount other){
         return new Amount(this.amount - other.amount);
     }
     
@@ -37,7 +37,7 @@ public class Amount {
     * @param other The specified <code>Amount</code>
     * @return The sum of the two <code>Amount</code>
     */
-    public Amount plus(Amount other){
+    public Amount add(Amount other){
         return new Amount(this.amount + other.amount);
     }
 
@@ -57,5 +57,3 @@ public class Amount {
 
 
 
-    
-}

@@ -23,14 +23,20 @@ public class ItemCatalog {
         return availableItems.contains(itemID);
     }
 
+    /**
+     * if the item is in stock, the information about the item is being retrieved
+     *
+     * @param itemInformation price, VAT and the Name of the Item
+     * @param itemQuantity how many of a certain Item
+     * @param itemID the Item ID
+     * @return all the info about the item if in stock, otherwise return null
+     */
     public Item getItem(ItemDTO itemInformation, Amount itemQuantity, int itemID) {
         if(itemInStock(itemID)) {
             return new Item(availableItems.get(itemID), itemQuantity, itemID);
         }
         return null;
     }
-
-
 
     //Items in stock -> "Name", price, taxRate, ID
     private void addItems() {
