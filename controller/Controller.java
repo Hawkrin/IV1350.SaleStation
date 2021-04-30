@@ -22,22 +22,24 @@ public class Controller {
      * Creates a new instance instance of the catalogs and systems
      * @param catalogHandler gets the classes that handels communication with databases.
      * @param systemHandler gets the classes that handels communication with external systems.
+     * @param recieptPrinter gets reciept printer
      */
-    public Controller(CatalogHandler catalogHandler, SystemHandler systemHandler) {  
+    public Controller(CatalogHandler catalogHandler, SystemHandler systemHandler, RecieptPrinter recieptPrinter) {  
         this.itemCatalog = catalogHandler.getItemCatalog();
         this.discountCatalog = catalogHandler.getDiscountCatalog();
         this.inventorySystem = systemHandler.getInventorySystem();
         this.accountingSystem = systemHandler.getAccountingSystem();
+        this.recieptPrinter = recieptPrinter;
     }
 
     /**
      * Creates a new instance of the salesLog and the reciept printer
      * @param salesLog gets the saleslog
-     * @param recieptPrinter gets reciept printer
+     * @param cashRegister gets the current balance in the cashRegister
      */
-    public Controller(SalesLog salesLog, RecieptPrinter recieptPrinter) {
+    public Controller(SalesLog salesLog, CashRegister cashRegister) {
         this.salesLog = salesLog.getSalesLog();
-        this.recieptPrinter = recieptPrinter.getRecieptPrinter();
+        this.cashRegister = new CashRegister();
     }
 
     /**

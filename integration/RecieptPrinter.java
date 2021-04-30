@@ -1,7 +1,6 @@
 package integration;
 
-import jdk.internal.module.SystemModuleFinders;
-
+import model.Reciept;
 /**
  * A class that represent the reciept printer
  */
@@ -17,12 +16,12 @@ public class RecieptPrinter {
 
     /**
      * Test prints a reciept for the user
-     * It prints to <code>System.out</code>
+     * It prints to <code>System.out</code>, not an actual receipt
      * 
      * @param reciept the reciept made after a sale
      */
     public void printReciept(Reciept reciept) {
-        System.out.println(reciept.toString);
+        System.out.println(reciept.toString());
     }
     
 
