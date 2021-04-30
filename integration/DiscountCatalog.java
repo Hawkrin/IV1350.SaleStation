@@ -1,9 +1,20 @@
 package integration;
 
-public class DiscountCatalog {
-    private double discount;
-    private boolean discountAvailability;
+import model.Sale;
 
-    //public double availableDiscount(int customerID) {}
+public class DiscountCatalog {
+    private CustomerDTO customer;
+    private Sale sale;
+
+
+    /**
+     * 
+     * @param customer
+     * @param sale
+     */
+    public DiscountCatalog(CustomerDTO customer, Sale sale) {
+        this.customer = customer;
+        this.sale = sale;
+    }
     
 }
