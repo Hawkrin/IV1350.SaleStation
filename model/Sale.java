@@ -1,6 +1,7 @@
 package model;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import util.Amount; 
 import java.time.*;
 import integration.Item;
@@ -11,7 +12,7 @@ import integration.ItemCatalog;
 public class Sale {
     private Summary sum;
     private LocalTime saleTime;
-    private HashMap<String, Item> shoppingCart = new HashMap<>();
+    private List shoppingCart = new ArrayList();
 
     /**
      * Creates a new instance of the Sale
@@ -29,9 +30,12 @@ public class Sale {
         return sum;
     }
 
+    public void registerItems(Item item){}
+
     private void setTimeOfSale() {
         saleTime = LocalTime.now();
     }
+
 
     
 }

@@ -1,6 +1,7 @@
 package model;
 
 import util.Amount;
+import integration.Item;
 
 public class Summary {
     private Amount runningTotal;
@@ -30,6 +31,19 @@ public class Summary {
      * returns the total price before tax and discount
      * @return total price of products
      */
-    public Amount sum() { return this.summary; }
+    public Amount summary() { return this.summary; }
+
+    public void SummarizeSale(Item item) {
+        if(item == null) { 
+            throw new IllegalArgumentException("no Items to summerize"); 
+        }
+        Amount numberOfItems = item.getItemQuantity();
+        Amount itemPrice = item.getItemDTO().getItemPrice();
+        Amount itemTaxRate = item.getItemDTO().getTaxRate();
+
+        this.totalTax = this.totalTax.add(numberOfItems.multiply(itemTaxRate));
+        this.summary = this.summary.add(numberOfItems.multiply(itemPrice));
+    }
+
 }
 

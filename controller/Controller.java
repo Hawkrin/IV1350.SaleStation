@@ -24,22 +24,15 @@ public class Controller {
      * @param catalogHandler gets the classes that handels communication with databases.
      * @param systemHandler gets the classes that handels communication with external systems.
      * @param recieptPrinter gets reciept printer
+     * @param salesLog gets the saleslog
+     * @param cashRegister gets the current balance in the cashRegister
      */
-    public Controller(CatalogHandler catalogHandler, SystemHandler systemHandler, RecieptPrinter recieptPrinter) {  
+    public Controller(CatalogHandler catalogHandler, SystemHandler systemHandler, RecieptPrinter recieptPrinter, SalesLog salesLog) {  
         this.itemCatalog = catalogHandler.getItemCatalog();
         this.discountCatalog = catalogHandler.getDiscountCatalog();
         this.inventorySystem = systemHandler.getInventorySystem();
         this.accountingSystem = systemHandler.getAccountingSystem();
         this.recieptPrinter = recieptPrinter;
-    }
-
-    /**
-     * Creates a new instance of the salesLog and the reciept printer
-     * @param salesLog gets the saleslog
-     * @param cashRegister gets the current balance in the cashRegister
-     */
-    public Controller(SalesLog salesLog, CashRegister cashRegister) {
-        this.salesLog = salesLog.getSalesLog();
         this.cashRegister = new CashRegister();
     }
 
@@ -54,7 +47,7 @@ public class Controller {
     public String SearchForItem(ItemDTO itemInformation, Amount quantity, int itemID) {
         if(itemCatalog.itemInStock(itemID)){
             Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
-            return sale.newSale(newItem) + ", quantity: " + quantity.toString() + 
+            return sale.registerItems(newItem) + ", quantity: " + quantity.toString() + 
                 ", running total: " + totalSum();
         }
 

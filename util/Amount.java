@@ -21,6 +21,41 @@ public class Amount {
      */
     public double getAmount() { return amount; }
 
+    /**
+    * Will subtract two <code>Amount</code>
+    *
+    * @param other The specified <code>Amount</code>
+    * @return The difference between the two <code>Amount</code>
+    */
+    public Amount minus(Amount other){
+        return new Amount(this.amount - other.amount);
+    }
+    
+    /**
+    * Will add two <code>Amount</code>
+    *
+    * @param other The specified <code>Amount</code>
+    * @return The sum of the two <code>Amount</code>
+    */
+    public Amount plus(Amount other){
+        return new Amount(this.amount + other.amount);
+    }
+
+    /**
+    * Will multiply two <code>Amount</code>
+    *
+    * @param other The specified <code>Amount</code>
+    * @return The product of the two <code>Amount</code> 
+    */
+    public Amount multiply(Amount other){ 
+        return new Amount(this.amount * other.amount);
+    }
+
+}
+
+
+
+
 
     
 }
