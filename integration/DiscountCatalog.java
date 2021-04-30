@@ -7,14 +7,5 @@ public class DiscountCatalog {
     private Sale sale;
 
 
-    /**
-     * 
-     * @param customer
-     * @param sale
-     */
-    public DiscountCatalog(CustomerDTO customer, Sale sale) {
-        this.customer = customer;
-        this.sale = sale;
-    }
     
 }
