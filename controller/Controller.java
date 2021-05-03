@@ -32,7 +32,7 @@ public class Controller {
         this.discountCatalog = catalogHandler.getDiscountCatalog();
         this.inventorySystem = systemHandler.getInventorySystem();
         this.accountingSystem = systemHandler.getAccountingSystem();
-        this.salesLog = salesLog.getSalesLog();
+        this.salesLog = salesLog;
         this.recieptPrinter = recieptPrinter;
         this.cashRegister = new CashRegister();
     }
@@ -44,7 +44,14 @@ public class Controller {
         this.sale = new Sale();
     }
 
-
+    /**
+     * Search for the requested item
+     * 
+     * @param itemInformation the iteminformation represented as a DTO
+     * @param quantity how many examples of an item to purchase
+     * @param itemID the item number
+     * @return returns the result to the sale methbod registerItems
+     */
     public String SearchForItem(ItemDTO itemInformation, Amount quantity, int itemID) {
         if(itemCatalog.itemInStock(itemID)){
             Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
