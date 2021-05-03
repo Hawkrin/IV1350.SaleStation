@@ -16,6 +16,7 @@ public class ItemCatalog {
 
     /**
      * Checks if the searched itemID is currently in the database
+     * 
      * @param itemID the number of the item.
      * @return If item exists <code>true</code> else <code>false</code>
      */
@@ -35,7 +36,7 @@ public class ItemCatalog {
         if(itemInStock(itemID)) {
             return new Item(availableItems.get(itemID), itemQuantity, itemID);
         }
-        return null;
+        else throw new IllegalArgumentException("No such item in stock");
     }
 
     //Items in stock -> "Name", price, taxRate, ID
