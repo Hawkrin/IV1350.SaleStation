@@ -11,6 +11,7 @@ public class Item {
 
     /**
      * Creates a new instance of an Item
+     * 
      * @param itemInformation The information of an item
      * @param Quantity the amount of each item
      * @param itemID ID number of the item

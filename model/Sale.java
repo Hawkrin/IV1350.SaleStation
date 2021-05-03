@@ -38,7 +38,6 @@ public class Sale {
      */
     public String registerItems(Item item) {
         addItemToShoppingCart(item);
-
     }
 
 
