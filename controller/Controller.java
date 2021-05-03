@@ -52,7 +52,7 @@ public class Controller {
      * @param itemID the item number
      * @return returns the result to the sale methbod registerItems
      */
-    public String SearchForItem(ItemDTO itemInformation, Amount quantity, int itemID) {
+    public String searchForItem(ItemDTO itemInformation, Amount quantity, int itemID) {
         if(itemCatalog.itemInStock(itemID)){
             Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
             return sale.registerItems(newItem) + ", quantity: " + quantity.toString() + 

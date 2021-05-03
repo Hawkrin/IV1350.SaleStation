@@ -24,16 +24,44 @@ public class Sale {
 
     /**
      * Get the summary of all products
+     * 
      * @return the calculated sum of the products
      */
-    public Summary getSummary() {
-        return summary;
+    public Summary getSummary() { return summary; }
+
+
+    /**
+     * Registers items and adds them to the shoppingcart
+     * 
+     * @param item the item and its information
+     * @return the items and price
+     */
+    public String registerItems(Item item) {
+        addItemToShoppingCart(item);
+
+    }
+
+
+    private boolean shoppingCartContains() {
+        return shoppingCart.contains(item.getItemID());
     }
 
     private void setTimeOfSale() {
         saleTime = LocalTime.now();
     }
+    
+    private void addItemToShoppingCart(Item item) {
+        shoppingcart.add(item.getItemID(), item);
+    }
+    
+    private void increaseQuantityOfItem(Item item){
+        if(shoppingCartContains(item)) {
+            addItemToShoppingCart(item);
+        }
+    }
 
+    private void requestedQuantityOfItem(Item item, Amount quantity) {
 
+    }
     
 }
