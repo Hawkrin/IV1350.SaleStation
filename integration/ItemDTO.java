@@ -15,6 +15,7 @@ public class ItemDTO {
      * @param price The price of the product
      * @param itemName Name of the product
      * @param taxRate the taxrate of the product
+     * @param itemID is the ID number of the product
      */
     public ItemDTO(String itemName, Amount price, Amount taxRate, int itemID) {
         this.price = price;
@@ -28,7 +29,7 @@ public class ItemDTO {
      * 
      * @return the price of the product
      */
-    public Amount getPrice() { return price; }
+    public Amount getItemPrice() { return price; }
 
     /**
      * Get the name of the product
@@ -49,7 +50,7 @@ public class ItemDTO {
      * 
      * @return the itemID of a product
      */
-    public double getItemID() { return itemID; }
+    public int getItemID() { return itemID; }
 
     /**
      * Item info represented as a string

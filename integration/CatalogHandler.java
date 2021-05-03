@@ -8,6 +8,7 @@ public class CatalogHandler {
 
     /**
      * Gets the value of discountCatalog
+     * 
      * @return the value of the discountcatalog
      */
     public DiscountCatalog getDiscountCatalog() {
@@ -16,6 +17,7 @@ public class CatalogHandler {
 
     /**
      * Gets the value of itemCatalog
+     * 
      * @return the value of the the itemCatalog
      */
     public ItemCatalog getItemCatalog() {

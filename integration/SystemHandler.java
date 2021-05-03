@@ -3,12 +3,16 @@ package integration;
  * This class initiates all external systems
  */
 public class SystemHandler {
-    private InventorySystem inventorySystem = new InventorySystem();
-    private AccountingSystem accountingSystem = new AccountingSystem();
+    private InventorySystem inventorySystem;
+    private AccountingSystem accountingSystem;
 
-
+    public SystemHandler() {
+        this.accountingSystem = new AccountingSystem();
+        this.inventorySystem = new InventorySystem();
+    }
     /**
      * Get the value of the inventorySystem
+     * 
      * @return the value of the inventorySystem
      */
     public InventorySystem getInventorySystem() {
@@ -17,6 +21,7 @@ public class SystemHandler {
 
     /**
      * Get the value of the accountingSystem
+     * 
      * @return the value of the accountingSystem
      */
     public AccountingSystem getAccountingSystem() {

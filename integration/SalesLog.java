@@ -1,23 +1,16 @@
 package integration;
 
-public class SalesLog {
-    private SalesLog salesLog;
-    private Sale sale;
+import model.Sale;
 
-    /**
-     * Creates an instance of a sales log
-     * 
-     * @param sale the sale information
-     */
-    public SalesLog(Sale sale) {
-        this.sale = sale;
-    }
+public class SalesLog {
+    private SalesLog salesLog = new SalesLog();
+    private Sale sale;
 
     /**
      * Gets the salesLog 
      * 
      * @return return the value of the salesLog
      */
-    public getSalesLog() { return salesLog; }
+    public SalesLog getSalesLog() { return salesLog; }
     
 }
