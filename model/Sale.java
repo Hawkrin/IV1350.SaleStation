@@ -1,18 +1,20 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
 import util.Amount; 
 import java.time.*;
 import integration.Item;
 import integration.ItemCatalog;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 /**
  * Represents the actual sale done in the application
  */
 public class Sale {
     private Summary summary;
     private LocalTime saleTime;
-    private List shoppingCart = new ArrayList();
+    private HashMap<Integer, Item> shoppingCart = new HashMap<>();
 
     /**
      * Creates a new instance of the Sale
@@ -29,6 +31,12 @@ public class Sale {
      */
     public Summary getSummary() { return summary; }
 
+    /**
+     * Get the list of items
+     * 
+     * @return the list of items
+     */
+    public HashMap<String, Item> getShoppingCart() { return shoppingCart; }
 
     /**
      * Registers items and adds them to the shoppingcart
@@ -37,30 +45,35 @@ public class Sale {
      * @return the items and price
      */
     public String registerItems(Item item) {
-        addItemToShoppingCart(item);
-    }
-
-
-    private boolean shoppingCartContains() {
-        return shoppingCart.contains(item.getItemID());
-    }
-
-    private void setTimeOfSale() {
-        saleTime = LocalTime.now();
-    }
-    
-    private void addItemToShoppingCart(Item item) {
-        shoppingcart.add(item.getItemID(), item);
-    }
-    
-    private void increaseQuantityOfItem(Item item){
         if(shoppingCartContains(item)) {
-            addItemToShoppingCart(item);
+            updateItemQuantityAndPrice(item);
+        }
+        else {
+            addNewItem(item);
         }
     }
-
-    private void requestedQuantityOfItem(Item item, Amount quantity) {
-
+  
+    private boolean shoppingCartContains(Item item) {
+        return shoppingCart.containsKey(item.getItemID());
     }
+
+    private void updateItemQuantityAndPrice(Item item) {
+        Item itemAlreadyExist = shoppingCart.get(item.getItemID());
+        itemAlreadyExist.increaseQuantity(item.getItemQuantity());
+        shoppingCart.put(itemAlreadyExist.getItemID(), itemAlreadyExist);
+        summary.SummarizeSale(item);
+    } 
+
+    private void addNewItem(Item item) {
+        shoppingCart.put(item.getItemID(), item);
+        summary.SummarizeSale(item);
+    }
+
+    private void setTimeOfSale(Item item) {
+        saleTime = LocalTime.now();
+    }
+
+    
+    
     
 }
