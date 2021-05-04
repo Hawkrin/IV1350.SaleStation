@@ -64,6 +64,24 @@ public class Item {
         return itemPresentation.toString();
     }
 
+    /**
+     * Will increase the quantity of an item
+     *
+     * @param newQuantity The {@link Amount} that will be added to the quantity.
+     */
+    public void increaseQuantity(Amount newQuantity){
+        this.itemQuantity = this.itemQuantity.add(newQuantity);
+    }
+
+    /**
+     * Will decrease the quantity of an item
+     *
+     * @param newQuantity The {@link Amount} that will be subtracted to the quantity.
+     */
+    public void decreaseQuantity(Amount newQuantity){
+        this.itemQuantity = this.itemQuantity.subtract(newQuantity);
+    }
+
 
     
 }
