@@ -5,7 +5,7 @@ import java.util.List;
 import util.Amount;
 
 /**
- * This class represents the current stock in the inventory
+ * Represents an external inventory system
  */
 public class InventorySystem {
     private List<ItemDTO> inventoryStock = new ArrayList();

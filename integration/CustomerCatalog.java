@@ -9,10 +9,6 @@ import util.Customer;
  */
 public class CustomerCatalog {
     private List<CustomerDTO> customerRegistry = new ArrayList();
-    private Customer customer;
-
-    CustomerCatalog() { }
-    
 
     /**
      * Checks if the customerID is in the database
