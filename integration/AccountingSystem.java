@@ -20,7 +20,7 @@ public class AccountingSystem {
      * 
      * @param sale the recently finishied {@link Sale}
      */
-    public void accountingLog(Sale sale) {
+    public void updateAccounting(Sale sale) {
         timeOfSale = LocalDateTime.now();
         accLog.put(timeOfSale, sale);   
     }  

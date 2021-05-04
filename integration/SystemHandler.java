@@ -18,18 +18,13 @@ public class SystemHandler {
      * 
      * @return the value of the inventorySystem
      */
-    public InventorySystem getInventorySystem() {
-        return inventorySystem;
-    }
+    public InventorySystem getInventorySystem() { return inventorySystem; }
 
     /**
      * Get the value of the accountingSystem
      * 
      * @return the value of the accountingSystem
      */
-    public AccountingSystem getAccountingSystem() {
-        return accountingSystem;
-    }
-    
+    public AccountingSystem getAccountingSystem() { return accountingSystem; }
     
 }

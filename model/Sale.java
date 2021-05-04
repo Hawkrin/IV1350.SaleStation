@@ -41,7 +41,7 @@ public class Sale {
      * @param item the item and its information
      * @return the items and price
      */
-    public String registerItems(Item item) {
+    public String updateItems(Item item) {
         if(shoppingCartContains(item)) {
             updateItemQuantityAndPrice(item);
         }

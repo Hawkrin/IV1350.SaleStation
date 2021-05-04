@@ -6,7 +6,7 @@ import model.Sale;
  * represents a sales log database
  */
 public class SalesLog {
-    private SalesLog salesLog = new SalesLog();
+    private SalesLog salesLog;
     private Sale sale;
 
     /**
