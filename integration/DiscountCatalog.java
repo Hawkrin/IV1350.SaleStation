@@ -12,6 +12,7 @@ public class DiscountCatalog {
     private CustomerDTO customer;
     private float discountPercent;
     private int customerID;
+    private Item itemsToPurchase;
 
     /**
      * Gets the discount percent
@@ -21,14 +22,24 @@ public class DiscountCatalog {
     public float getDiscountPercent() { return this.discountPercent; }
 
     public void calculateDiscountPercent() {
-       if(customerInRegister(customerID)) {
-           switch(Sale.shoppingCart().getItemQuantity()) {
-               case "2":
-               
+        if(customerInRegister(customerID)) {
+            itemsToPurchase.getShoppingCart().getItemQuantity();
+            int itemCounter;
+            for(int i = 0; i < itemsToPurchase; i++) {
+                itemCounter++;
+            }
+            if(itemCounter>1 && itemCounter<=3) {
+    
+            }
+            if(itemCounter>3 && itemCounter<=5) {
 
-           }
+            }
+            if(itemCounter>=10) {
 
-       } 
+            }
+        }
+
+       
     }
 
     private void discounts() {
