@@ -6,14 +6,14 @@ import util.Amount;
  */
 public class Payment {
     private Amount paidAmount;
-    private Amount totalPrice;
+    private Summary totalPrice;
 
     /**
      * Creates an instance, an amount has been used as payment
      * 
      * @param paidAmount the {@link Amount} of cash used to pay
      */
-    public Payment(Amount paidAmount, Amount totalPrice){
+    public Payment(Amount paidAmount, Summary totalPrice){
         this.paidAmount = paidAmount;
         this.totalPrice = totalPrice;
     }
@@ -32,6 +32,6 @@ public class Payment {
      * 
      * @return the {@link Amount} of the purchase 
      */
-    public Amount getSum(){ return totalPrice; }
+    public Summary getSum(){ return totalPrice; }
     
 }
