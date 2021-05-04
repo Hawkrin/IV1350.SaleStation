@@ -10,7 +10,11 @@ import util.Amount;
 public class InventorySystem {
     private List<ItemDTO> inventoryStock = new ArrayList();
 
-    InventorySystem() {
+
+    /**
+     * Creates an instance, represented as a printer
+     */
+    public InventorySystem() {
         itemsInStock();
     }
 
@@ -20,7 +24,7 @@ public class InventorySystem {
      * @param sale the recently finishied {@link Sale}
      */
     public void updateInventory(Sale sale){}
-    
+
     
     private void itemsInStock() {
         inventoryStock.add(new ItemDTO("Hammer", new Amount(300), new Amount(0.25), 11111));
