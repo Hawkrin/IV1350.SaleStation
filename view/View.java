@@ -2,6 +2,9 @@ package view;
 
 import controller.Controller;
 
+/**
+ * represents the user interface
+ */
 public class View {
 
     private Controller ctrl;

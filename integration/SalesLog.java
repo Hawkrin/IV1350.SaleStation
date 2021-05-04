@@ -2,6 +2,9 @@ package integration;
 
 import model.Sale;
 
+/**
+ * represents a sales log database
+ */
 public class SalesLog {
     private SalesLog salesLog = new SalesLog();
     private Sale sale;

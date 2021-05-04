@@ -22,6 +22,7 @@ public class Controller {
 
     /**
      * Creates a new instance instance of the catalogs and systems
+     * 
      * @param catalogHandler gets the classes that handels communication with databases.
      * @param systemHandler gets the classes that handels communication with external systems.
      * @param recieptPrinter gets reciept printer
@@ -69,7 +70,7 @@ public class Controller {
      */
     public String displaySummary() {
         return "the total price after taxes are: " + 
-        sale.getSummary().getTotalTax().toString();
+        sale.getSummary().getSummary().toString();
     }
 
     void checkforDiscount(int customerID) {}

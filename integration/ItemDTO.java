@@ -2,6 +2,9 @@ package integration;
 
 import util.Amount;
 
+/**
+ * Represents the data of an item
+ */
 public class ItemDTO {
 
     private final Amount price;
@@ -12,9 +15,9 @@ public class ItemDTO {
     /**
      * Creates a new instance representing a certain item
      * 
-     * @param price The price of the product
+     * @param price The price of the product {@link Amount}
      * @param itemName Name of the product
-     * @param taxRate the taxrate of the product
+     * @param taxRate the taxrate of the product {@link Amount}
      * @param itemID is the ID number of the product
      */
     public ItemDTO(String itemName, Amount price, Amount taxRate, int itemID) {

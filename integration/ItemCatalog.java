@@ -27,8 +27,8 @@ public class ItemCatalog {
     /**
      * if the item is in stock, the information about the item is being retrieved
      *
-     * @param itemInformation price, VAT and the Name of the Item
-     * @param itemQuantity how many of a certain Item
+     * @param itemInformation price, VAT and the Name of the Item {@link ItemDTO}
+     * @param itemQuantity how many of a certain Item {@link Amount}
      * @param itemID the Item ID
      * @return all the info about the item if in stock, otherwise return null
      */
@@ -39,9 +39,8 @@ public class ItemCatalog {
         else throw new IllegalArgumentException("No such item in stock");
     }
 
-    //Items in stock -> "Name", price, taxRate, ID
     private void addItems() {
-        availableItems.add(new ItemDTO("Hammer",new Amount(300), new Amount(0.25), 11111));
+        availableItems.add(new ItemDTO("Hammer", new Amount(300), new Amount(0.25), 11111));
         availableItems.add(new ItemDTO("Nails", new Amount(50), new Amount(0.06), 11112));
         availableItems.add(new ItemDTO("Saw", new Amount(200), new Amount(0.25), 11113));
         availableItems.add(new ItemDTO("Screwdriver", new Amount(100), new Amount(0.25), 11114));

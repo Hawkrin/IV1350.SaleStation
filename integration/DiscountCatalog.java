@@ -17,5 +17,5 @@ public class DiscountCatalog {
      * @return the discount percent for the customer
      */
     public float getDiscountPercent() { return this.discountPercent; }
-    
+
 }

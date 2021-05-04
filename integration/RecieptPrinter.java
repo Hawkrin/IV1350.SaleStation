@@ -16,13 +16,10 @@ public class RecieptPrinter {
      * Test prints a reciept for the user
      * It prints to <code>System.out</code>, not an actual receipt
      * 
-     * @param reciept the reciept made after a sale
+     * @param reciept the reciept made after a sale {@link Reciept}
      */
     public void printReciept(Reciept reciept) {
         System.out.println(reciept.toString());
     }
-    
-
-    
-    
+     
 }

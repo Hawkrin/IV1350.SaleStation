@@ -3,9 +3,6 @@ package integration;
 import model.Sale;
 import java.time.*;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
 /**
  * Represents an external accounting system
  */
@@ -16,8 +13,7 @@ public class AccountingSystem {
     /**
      * A new instance of an accounting system
      */
-    AccountingSystem() {}
-
+    public AccountingSystem() {}
 
     /**
      * Adds the sale and the saleTime to the accounting logs.

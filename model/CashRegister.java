@@ -14,7 +14,7 @@ public class CashRegister {
      * 
      */
     public void addPayment(Payment payment) {
-        balance = balance.plus(payment.getRunningTotal());
+        balance = balance.add(payment.getSum().getSummary());
     }
     
 

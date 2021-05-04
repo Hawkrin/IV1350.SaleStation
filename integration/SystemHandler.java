@@ -6,6 +6,9 @@ public class SystemHandler {
     private InventorySystem inventorySystem;
     private AccountingSystem accountingSystem;
 
+    /**
+     * Creates a system handler
+     */
     public SystemHandler() {
         this.accountingSystem = new AccountingSystem();
         this.inventorySystem = new InventorySystem();

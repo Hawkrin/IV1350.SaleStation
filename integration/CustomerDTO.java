@@ -1,5 +1,8 @@
 package integration;
 
+/**
+ * Represents the data of a customer
+ */
 public class CustomerDTO {
     private String customerName;
     private int customerID;
@@ -38,5 +41,18 @@ public class CustomerDTO {
      */
     public String getCustomerName() {return this.customerName; }
     
+
+    /**
+     * Customer info represented as a string
+     * 
+     * @return the completed string.
+     */
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Customer Name: " + customerName);
+        builder.append("\nCustomer ID: " + customerID);
+        return builder.toString();
+    }
 }
 

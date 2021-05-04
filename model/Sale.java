@@ -1,7 +1,6 @@
 package model;
 
 import util.Amount; 
-import java.time.*;
 import integration.Item;
 import integration.ItemCatalog;
 import java.util.HashMap;
@@ -12,8 +11,7 @@ import java.util.Set;
  * Represents the actual sale done in the application
  */
 public class Sale {
-    private Summary summary;
-    private LocalTime saleTime;
+    private Summary summary;;
     private HashMap<Integer, Item> shoppingCart = new HashMap<>();
 
     /**
@@ -21,7 +19,6 @@ public class Sale {
      */
     public Sale() {
         this.summary = new Summary();
-        setTimeOfSale();
     }
 
     /**
@@ -36,7 +33,7 @@ public class Sale {
      * 
      * @return the list of items
      */
-    public HashMap<String, Item> getShoppingCart() { return shoppingCart; }
+    public HashMap<Integer, Item> getShoppingCart() { return shoppingCart; }
 
     /**
      * Registers items and adds them to the shoppingcart
@@ -51,6 +48,7 @@ public class Sale {
         else {
             addNewItem(item);
         }
+        return item.getItemDTO().toString();
     }
   
     private boolean shoppingCartContains(Item item) {
@@ -68,12 +66,5 @@ public class Sale {
         shoppingCart.put(item.getItemID(), item);
         summary.SummarizeSale(item);
     }
-
-    private void setTimeOfSale(Item item) {
-        saleTime = LocalTime.now();
-    }
-
-    
-    
     
 }
