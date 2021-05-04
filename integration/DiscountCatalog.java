@@ -29,7 +29,7 @@ public class DiscountCatalog {
                 itemCounter++;
             }
             if(itemCounter>1 && itemCounter<=3) {
-    
+                
             }
             if(itemCounter>3 && itemCounter<=5) {
 
