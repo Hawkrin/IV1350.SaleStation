@@ -54,7 +54,7 @@ public class Amount {
     /**
     * Will multiply an <code>Amount</code> with another speciefied <code>Amount</code>
     *
-    * @param other The specified <code>Amount</code>
+    * @param other The specified <code>Amount</code> 
     * @return The product of the two <code>Amount</code> 
     */
     public Amount multiply(Amount other){ 
