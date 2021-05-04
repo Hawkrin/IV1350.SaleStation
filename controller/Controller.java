@@ -73,7 +73,23 @@ public class Controller {
         sale.getSummary().getSummary().toString();
     }
 
-    void checkforDiscount(int customerID) {}
-    void pay(double amount) {}
+    /**
+     * A payment of an {@link Amount} is made, all external systems are updated, a reciept
+     * is being printed
+     * 
+     * @param amount the amount given by the customer
+     * @return the change to give back to the customer displayed as a string
+     */
+    public String salePayment(Amount paidAmount) {
+        Payment payment = new Payment(paidAmount, sale.getSummary());
+        Receipt receipt = new Receipt(sale);
+        accountingSystem.accountingLog(sale);
+        inventorySystem.updateInventory(sale);
+        RecieptPrinter.printReciept(receipt);
+        cashRegister.addPayment(payment);
+        salesLog.logSale(sale);
+
+        return "Change: " + payment.getChange().toString();
+    }
     
 }
