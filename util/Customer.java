@@ -30,7 +30,7 @@ public class Customer {
      * 
      * @return the information in the form of {@link CustomerDTO}
      */
-    public CustomerDTO getCustomerDTO() { return customerInfo;}
+    public CustomerDTO getCustomerDTO() { return customerInfo; }
 
     /**
      * get the ID number of the customer

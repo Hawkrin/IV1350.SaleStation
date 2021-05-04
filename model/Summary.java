@@ -13,7 +13,7 @@ public class Summary {
     private Amount totalDiscount;
     private Amount summary;
 
- /**
+    /**
      * Get the total cost of the purchase
      * 
      * @return the total cost of the purchase
@@ -29,6 +29,7 @@ public class Summary {
 
     /**
      * Get the total amount of discount of the purchase
+     * 
      * @return the total amount of discount
      */
     public Amount getTotalDiscount() { return this.totalDiscount; }
@@ -39,8 +40,6 @@ public class Summary {
      * @return total price of products with taxes
      */
     public Amount getSummary() { return totalWithoutTax.add(totalTax) ; }
-
-
 
     /**
      * Updates the price of the items being bought as well as the total tax.

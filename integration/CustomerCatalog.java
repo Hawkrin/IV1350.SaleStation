@@ -21,7 +21,7 @@ public class CustomerCatalog {
     }
 
     /**
-     * if the customer's ID is in the database, the information about the customer
+     * if the customers ID is in the database, the information about the customer
      * is retrieved
      * 
      * @param customer information about the customer
