@@ -9,6 +9,9 @@ public class CashRegister {
 
     /**
      * Creates a new instance of a cash register
+     * 
+     * @param payment represents the payment {@link Payment}
+     * 
      */
     public void addPayment(Payment payment) {
         balance = balance.plus(payment.getRunningTotal());

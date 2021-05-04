@@ -3,6 +3,7 @@ package controller;
 import integration.*;
 import model.*;
 import util.Amount;
+import model.Summary;
 
 /**
  * This is the applications only controller, all calls to the model passes through
@@ -47,8 +48,8 @@ public class Controller {
     /**
      * Search for the requested item
      * 
-     * @param itemInformation the iteminformation represented as a DTO
-     * @param quantity how many examples of an item to purchase
+     * @param itemInformation the iteminformation represented as a DTO {@link ItemDTO}
+     * @param quantity how many examples of an item to purchase {@link Amount}
      * @param itemID the item number
      * @return returns the result to the sale methbod registerItems
      */
@@ -56,9 +57,19 @@ public class Controller {
         if(itemCatalog.itemInStock(itemID)){
             Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
             return sale.registerItems(newItem) + ", quantity: " + quantity.toString() + 
-                ", running total: " + totalSum();
+                ", Price Summary: " + displaySummary();
         }
+        return "Price Summary: " + displaySummary();
+    }
 
+    /**
+     * Displays the total price to pay
+     * 
+     * @return the summary displayed as a string
+     */
+    public String displaySummary() {
+        return "the total price after taxes are: " + 
+        sale.getSummary().getTotalTax().toString();
     }
 
     void checkforDiscount(int customerID) {}
