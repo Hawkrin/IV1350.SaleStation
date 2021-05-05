@@ -10,7 +10,6 @@ import static org.junit.Assert.*;
 public class ItemTest {
     private src.integration.Item testItemHammerWithoutQuantity;
     private src.integration.Item testItemNailsWithQuantity;
-    private src.integration.Item itemToIncreadAndDecrease;
 
     @BeforeEach
     void setUp() {
