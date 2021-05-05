@@ -30,7 +30,7 @@ public class CustomerCatalog {
      */
     public Customer getCustomer(CustomerDTO customer, int customerID) {
         if(customerInRegister(customerID)) {
-            return Customer(customerRegistry.get(customerID), customerID);
+            return new Customer(customerRegistry.get(customerID), customerID);
         }
         else throw new IllegalArgumentException("No customer found");
     }

@@ -57,7 +57,7 @@ public class Controller {
     public String searchForItem(ItemDTO itemInformation, Amount quantity, int itemID) {
         if(itemCatalog.itemInStock(itemID)){
             Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
-            return sale.registerItems(newItem) + ", quantity: " + quantity.toString() + 
+            return sale.updateItems(newItem) + ", quantity: " + quantity.toString() + 
                 ", Price Summary: " + displaySummary();
         }
         return "Price Summary: " + displaySummary();
@@ -82,10 +82,10 @@ public class Controller {
      */
     public String salePayment(Amount paidAmount) {
         Payment payment = new Payment(paidAmount, sale.getSummary());
-        Receipt receipt = new Receipt(sale);
-        accountingSystem.accountingLog(sale);
+        Reciept reciept = new Reciept(sale);
+        accountingSystem.updateAccounting(sale);
         inventorySystem.updateInventory(sale);
-        RecieptPrinter.printReciept(receipt);
+        recieptPrinter.printReciept(reciept);
         cashRegister.addPayment(payment);
         salesLog.logSale(sale);
 

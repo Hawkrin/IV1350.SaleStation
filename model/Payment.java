@@ -32,6 +32,6 @@ public class Payment {
      * 
      * @return the {@link Amount} of the purchase 
      */
-    public Summary getSum(){ return totalPrice; }
+    public Summary getFinalSum(){ return totalPrice; }
     
 }
