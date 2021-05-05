@@ -3,8 +3,6 @@ package tests.integration;
 import src.util.Amount;
 import src.integration.*;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import static org.junit.Assert.*;
 public class ItemDTOTest {
 

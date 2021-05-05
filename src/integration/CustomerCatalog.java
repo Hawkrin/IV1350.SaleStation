@@ -2,7 +2,6 @@ package src.integration;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import src.util.Customer;
 
 /**
