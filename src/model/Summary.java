@@ -1,7 +1,7 @@
-package model;
+package src.model;
 
-import util.Amount;
-import integration.Item;
+import src.integration.Item;
+import src.util.Amount;
 
 /**
  * Represents the Summary in price of the purchase

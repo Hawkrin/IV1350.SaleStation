@@ -1,6 +1,6 @@
-package integration;
+package src.integration;
 
-import model.Sale;
+import src.model.Sale;
 
 /**
  * represents a sales log database

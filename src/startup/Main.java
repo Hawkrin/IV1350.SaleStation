@@ -1,11 +1,11 @@
-package startup;
+package src.startup;
 
-import controller.Controller;
-import integration.SystemHandler;
-import integration.CatalogHandler;
-import view.View;
-import integration.RecieptPrinter;
-import integration.SalesLog;
+import src.controller.Controller;
+import src.integration.CatalogHandler;
+import src.integration.RecieptPrinter;
+import src.integration.SalesLog;
+import src.integration.SystemHandler;
+import src.view.View;
 
 /**
  * Contains the <code>main</code> method. Performs all startup of the application.

@@ -1,4 +1,4 @@
-package integration;
+package src.integration;
 /**
  * This class handels all catalogs which are being created
  */

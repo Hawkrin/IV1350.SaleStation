@@ -1,4 +1,4 @@
-package integration;
+package src.integration;
 /**
  * This class initiates all external systems
  */

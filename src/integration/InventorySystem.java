@@ -1,15 +1,16 @@
-package integration;
+package src.integration;
 
 import java.util.ArrayList;
 import java.util.List;
-import util.Amount;
+
+import src.model.Sale;
+import src.util.Amount;
 
 /**
  * Represents an external inventory system
  */
 public class InventorySystem {
     private List<ItemDTO> inventoryStock = new ArrayList();
-
 
     /**
      * Creates an instance, represented as a printer

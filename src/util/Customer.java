@@ -1,6 +1,6 @@
-package util;
+package src.util;
 
-import integration.CustomerDTO;
+import src.integration.CustomerDTO;
 
 /**
  * Represents a customer

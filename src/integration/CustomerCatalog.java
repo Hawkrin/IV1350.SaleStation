@@ -1,8 +1,9 @@
-package integration;
+package src.integration;
 
 import java.util.ArrayList;
 import java.util.List;
-import util.Customer;
+
+import src.util.Customer;
 
 /**
  * Represents a Register for customers

@@ -1,6 +1,6 @@
-package integration;
+package src.integration;
 
-import util.Amount;
+import src.util.Amount;
 /**
  * Represents an Item
  */

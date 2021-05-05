@@ -1,4 +1,4 @@
-package integration;
+package src.integration;
 
 /**
  * Represents the data of a customer

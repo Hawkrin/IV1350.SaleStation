@@ -1,6 +1,6 @@
-package integration;
+package src.integration;
 
-import model.Reciept;
+import src.model.Reciept;
 /**
  * A class that represent the reciept printer
  */

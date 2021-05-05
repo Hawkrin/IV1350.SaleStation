@@ -1,6 +1,6 @@
-package model;
+package src.model;
 
-import util.Amount;
+import src.util.Amount;
 /**
  * Represents the payment done when a product is purchased
  */

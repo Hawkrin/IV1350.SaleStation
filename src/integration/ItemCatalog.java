@@ -1,8 +1,9 @@
-package integration;
+package src.integration;
 
 import java.util.ArrayList;
 import java.util.List;
-import util.Amount;
+
+import src.util.Amount;
 
 /**
  * Contains all the calls to the data store with the products which can be purchased

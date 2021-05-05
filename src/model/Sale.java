@@ -1,12 +1,13 @@
-package model;
+package src.model;
 
-import util.Amount; 
-import integration.Item;
-import integration.ItemCatalog;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+
+import src.integration.Item;
+import src.integration.ItemCatalog;
+import src.util.Amount;
 /**
  * Represents the actual sale done in the application
  */

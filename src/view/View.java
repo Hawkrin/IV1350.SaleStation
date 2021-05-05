@@ -1,6 +1,6 @@
-package view;
+package src.view;
 
-import controller.Controller;
+import src.controller.Controller;
 
 /**
  * represents the user interface
