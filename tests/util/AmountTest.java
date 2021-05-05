@@ -6,20 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AmountTest {
-    private src.util.Amount amountZero;
-    private src.util.Amount amountFive;
-
-    @BeforeEach
-    public void setUp() {
-        amountZero = new src.util.Amount();
-        amountFive = new src.util.Amount(5);
-    }
-
-    @AfterEach
-    public void tearDown() {
-        amountZero = null;
-        amountFive = null;
-    }
 
     @Test
     void testSubtract() {
