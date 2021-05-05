@@ -1,12 +1,10 @@
 package tests.util;
 
 import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AmountTest {
-
+  
     @Test
     void testSubtract() {
         double amount1 = 10;
