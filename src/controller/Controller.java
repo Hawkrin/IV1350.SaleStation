@@ -1,9 +1,8 @@
-package controller;
+package src.controller;
 
-import integration.*;
-import model.*;
-import util.Amount;
-import model.Summary;
+import src.integration.*;
+import src.model.*;
+import src.util.Amount;
 
 /**
  * This is the applications only controller, all calls to the model passes through
@@ -60,7 +59,7 @@ public class Controller {
             return sale.updateItems(newItem) + ", quantity: " + quantity.toString() + 
                 ", Price Summary: " + displaySummary();
         }
-        return "Price Summary: " + displaySummary();
+        else throw new IllegalArgumentException("Item doesn't exist");
     }
 
     /**

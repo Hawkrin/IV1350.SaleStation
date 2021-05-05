@@ -1,6 +1,6 @@
-package model;
+package src.model;
 
-import util.Amount;
+import src.util.Amount;
 /**
  * This class represents the cash register
  */
@@ -14,7 +14,7 @@ public class CashRegister {
      * 
      */
     public void addPayment(Payment payment) {
-        balance = balance.add(payment.getSum().getSummary());
+        balance = balance.add(payment.getFinalSum().getSummary());
     }
     
 
