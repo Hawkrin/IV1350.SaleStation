@@ -87,7 +87,7 @@ public class Controller {
         inventorySystem.updateInventory(sale);
         recieptPrinter.printReciept(reciept);
         cashRegister.addPayment(payment);
-        salesLog.logSale(sale);
+        salesLog.updateSalesLog(sale);
 
         return "Change: " + payment.getChange().toString();
     }

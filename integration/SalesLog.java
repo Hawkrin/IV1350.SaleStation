@@ -15,5 +15,12 @@ public class SalesLog {
      * @return return the value of the salesLog
      */
     public SalesLog getSalesLog() { return salesLog; }
+
+    /**
+     * updates the sales log
+     * 
+     * @param sale the recently finishied {@link Sale}
+     */
+    public void updateSalesLog(Sale sale){}
     
 }
