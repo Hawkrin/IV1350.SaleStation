@@ -23,6 +23,17 @@ public class Item {
     }
 
     /**
+     * Creates a new instance of an Item
+     * 
+     * @param itemInformation The information of an item {@link ItemDTO}
+     * @param Quantity the amount of each item {@link Amount}
+     */
+    public Item(ItemDTO itemInformation, Amount itemQuantity) {
+        this.itemInformation = itemInformation;
+        this.itemQuantity = itemQuantity;
+    }
+
+    /**
      * Creates a new instance of a single Item
      * 
      * @param itemInformation The information of an item {@link ItemDTO}
@@ -60,8 +71,8 @@ public class Item {
     @Override
     public String toString() {
         StringBuilder itemPresentation = new StringBuilder();
-        itemPresentation.append("itemInfo " + this.itemInformation);
-        itemPresentation.append("item Quantity " + this.itemQuantity);
+        itemPresentation.append(this.itemInformation);
+        itemPresentation.append("item Quantity: " + this.itemQuantity);
         return itemPresentation.toString();
     }
 
