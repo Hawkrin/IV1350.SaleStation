@@ -121,7 +121,7 @@ public class AmountTest {
         src.util.Amount amount = new src.util.Amount(StringNumber);
         String expResult = Double.toString(StringNumber);
         String result = amount.toString();
-        assertEquals(expResult, result, "Wrong String returned");
+        assertEquals(expResult, result, "Strings doesn't match");
     }
 
     @Test
@@ -130,7 +130,7 @@ public class AmountTest {
         src.util.Amount amount = new src.util.Amount(StringNumber);
         String expResult = Double.toString(StringNumber);
         String result = amount.toString();
-        assertEquals(expResult, result, "Wrong String returned");
+        assertEquals(expResult, result, "Strings doesn't match");
     }
 
     @Test
@@ -139,7 +139,7 @@ public class AmountTest {
         src.util.Amount amount = new src.util.Amount(StringNumber);
         String expResult = Double.toString(StringNumber);
         String result = amount.toString();
-        assertEquals(expResult, result, "Wrong String returned");
+        assertEquals(expResult, result, "Strings doesn't match");
     }
     
 }
