@@ -1,17 +1,15 @@
 package src.integration;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.HashMap;
 import src.util.Amount;
 
 /**
  * Contains all the calls to the data store with the products which can be purchased
  */
 public class ItemCatalog {
-    private List<ItemDTO> availableItems = new ArrayList();
+    private HashMap<Integer, ItemDTO> availableItems  = new HashMap<>();
 
-    ItemCatalog() {
+    public ItemCatalog() {
         addItems();
     }
 
@@ -22,7 +20,7 @@ public class ItemCatalog {
      * @return If item exists <code>true</code> else <code>false</code>
      */
     public boolean itemInStock(int itemID) {
-        return availableItems.contains(itemID);
+        return availableItems.containsKey(itemID);
     }
 
     /**
@@ -41,12 +39,12 @@ public class ItemCatalog {
     }
 
     private void addItems() {
-        availableItems.add(new ItemDTO("Hammer", new Amount(300), new Amount(0.25), 11111));
-        availableItems.add(new ItemDTO("Nails", new Amount(50), new Amount(0.06), 11112));
-        availableItems.add(new ItemDTO("Saw", new Amount(200), new Amount(0.25), 11113));
-        availableItems.add(new ItemDTO("Screwdriver", new Amount(100), new Amount(0.25), 11114));
-        availableItems.add(new ItemDTO("Drill", new Amount(500), new Amount(0.12), 11115));
-        availableItems.add(new ItemDTO("Screws", new Amount(60), new Amount(0.06), 11116));
+        availableItems.put(11111, new ItemDTO("Hammer", new Amount(300), new Amount(0.25), 11111));
+        availableItems.put(11112, new ItemDTO("Nails", new Amount(50), new Amount(0.06), 11112));
+        availableItems.put(11113, new ItemDTO("Saw", new Amount(200), new Amount(0.25), 11113));
+        availableItems.put(11114, new ItemDTO("Screwdriver", new Amount(100), new Amount(0.25), 11114));
+        availableItems.put(11115, new ItemDTO("Drill", new Amount(500), new Amount(0.12), 11115));
+        availableItems.put(11116, new ItemDTO("Screws", new Amount(60), new Amount(0.06), 11116));
     }
 
 

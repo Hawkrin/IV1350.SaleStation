@@ -9,7 +9,7 @@ import src.model.Sale;
  */
 public class AccountingSystem {
     private LocalDateTime timeOfSale;
-    private HashMap<LocalDateTime, Sale> accLog = new HashMap();
+    private HashMap<LocalDateTime, Sale> accountingLog = new HashMap();
     
     /**
      * A new instance of an accounting system
@@ -23,6 +23,6 @@ public class AccountingSystem {
      */
     public void updateAccounting(Sale sale) {
         timeOfSale = LocalDateTime.now();
-        accLog.put(timeOfSale, sale);   
+        accountingLog.put(timeOfSale, sale);   
     }  
 }

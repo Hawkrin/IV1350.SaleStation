@@ -1,14 +1,17 @@
 package src.integration;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import src.util.Customer;
 
 /**
  * Represents a Register for customers
  */
 public class CustomerCatalog {
-    private List<CustomerDTO> customerRegistry = new ArrayList();
+    private HashMap<Integer, CustomerDTO> customerRegistry = new HashMap();
+
+    public CustomerCatalog() {
+        membership();
+    }
 
     /**
      * Checks if the customerID is in the database
@@ -17,7 +20,7 @@ public class CustomerCatalog {
      * @return If customer exists <code>true</code> else <code>false</code>
      */
     public boolean customerInRegister(int customerID) {
-        return customerRegistry.contains(customerID);
+        return customerRegistry.containsKey(customerID);
     }
 
     /**
@@ -34,6 +37,12 @@ public class CustomerCatalog {
         }
         else throw new IllegalArgumentException("No customer found");
     }
+
+    private void membership() {
+        customerRegistry.put(123456789, new CustomerDTO("Karl Karlsson", 123456789));
+    }
+
+
 }
 
 
