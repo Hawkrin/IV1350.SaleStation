@@ -32,10 +32,6 @@ public class Receipt {
         endSection(builder);
 
         builder.append("Items Bought: ");
-        appendLine(builder, sale.toString());
-        builder.append("Cost: ");
-        appendLine(builder, sale.getSummary().getSummary().toString());
-        endSection(builder);
         return builder.toString();
     }
 

@@ -49,7 +49,7 @@ public class Summary {
      * 
      * @return total price of products with taxes
      */
-    public Amount getSummary() { return totalWithoutTax.add(totalTax) ; }
+    public Amount getSummary() { return summary.add(totalTax) ; }
 
     /**
      * Updates the price of the items being bought as well as the total tax.

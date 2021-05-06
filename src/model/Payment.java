@@ -19,6 +19,14 @@ public class Payment {
     }
 
     /**
+     * Get the price of the purchase
+     * 
+     * @return the {@link Amount} of the purchase 
+     */
+    public Summary getFinalSum(){ return totalPrice; }
+
+
+    /**
      * Calculates the change to return
      * 
      * @return the change to return as a {@link Amount}
@@ -26,12 +34,7 @@ public class Payment {
     public Amount getChange() {
         return paidAmount.subtract(totalPrice.getSummary());
     }
-
-    /**
-     * Get the price of the purchase
-     * 
-     * @return the {@link Amount} of the purchase 
-     */
-    public Summary getFinalSum(){ return totalPrice; }
     
 }
+
+   
