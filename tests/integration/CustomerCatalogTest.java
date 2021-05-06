@@ -16,5 +16,21 @@ public class CustomerCatalogTest {
         assertEquals("The expected customer does not  exist in the catalog.", expectedResult, result);
     }
 
+    @Test
+    public void testcustomerNotInRegister(){
+        src.integration.CustomerCatalog customerCatalog = new src.integration.CustomerCatalog();
+        boolean expectedResult = false;
+        boolean result = customerCatalog.customerInRegister(customerNotExistInSystem);
+        assertEquals("The expected customer does exist in the catalog.", expectedResult, result);
+    }
+
+    @Test
+    public void testcustomerIDisZero(){
+        src.integration.CustomerCatalog customerCatalog = new src.integration.CustomerCatalog();
+        boolean expectedResult = false;
+        boolean result = customerCatalog.customerInRegister(customerIDIsZero);
+        assertEquals("The expected customer does exist in the catalog.", expectedResult, result);
+    }
+
     
 }

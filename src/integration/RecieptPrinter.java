@@ -19,7 +19,7 @@ public class RecieptPrinter {
      * @param reciept the reciept made after a sale {@link Reciept}
      */
     public void printReciept(Reciept reciept) {
-        System.out.println(reciept.toString());
+        System.out.println(reciept.createReciept());
     }
      
 }
