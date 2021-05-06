@@ -20,5 +20,21 @@ public class SaleTest {
         Sale sale = new Sale();
         String result = sale.updateItems(item);
         String expectedResult = item.getItemDTO().toString();
+        assertEquals("The Strings are not equal.", expectedResult, result);
+    }
+
+    @Test
+    public void testUpdateItemsWithNoParameters(){
+        String itemName = "";
+        Amount itemPrice = new Amount(0);
+        Amount taxRate = new Amount(0);
+        int itemID = 0;
+        ItemDTO itemInformation = new ItemDTO(itemName, itemPrice, taxRate, itemID);
+        Amount itemQuantity = new Amount(1);
+        Item item = new Item(itemInformation, itemQuantity, itemID);
+        Sale sale = new Sale();
+        String result = sale.updateItems(item);
+        String expectedResult = item.getItemDTO().toString();
+        assertEquals("The Strings are not equal.", expectedResult, result);
     }
 }

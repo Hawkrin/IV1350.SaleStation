@@ -19,6 +19,8 @@ public class Summary {
     public Summary(){
         this.summary = new Amount();
         this.totalTax = new Amount();
+        this.totalWithoutTax = new Amount();
+        this.totalDiscount = new Amount();
     }
 
     /**
@@ -54,7 +56,7 @@ public class Summary {
      * 
      * @param item The item that is being added to the summary of the sale.
      */
-    public void SummarizeSale(Item item) {
+    public void summarizeSale(Item item) {
         if(item == null) { 
             throw new IllegalArgumentException("no Items to summerize"); 
         }
@@ -64,6 +66,5 @@ public class Summary {
 
         this.totalTax = this.totalTax.add(numberOfItems.multiply(itemTaxRate));
         this.summary = this.summary.add(numberOfItems.multiply(itemPrice));
-    }
-    
+    } 
 }

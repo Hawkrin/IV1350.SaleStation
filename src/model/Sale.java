@@ -1,13 +1,8 @@
 package src.model;
 
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
 import src.integration.Item;
-import src.integration.ItemCatalog;
-import src.util.Amount;
+
 /**
  * Represents the actual sale done in the application
  */
@@ -60,12 +55,12 @@ public class Sale {
         Item itemAlreadyExist = shoppingCart.get(item.getItemID());
         itemAlreadyExist.increaseQuantity(item.getItemQuantity());
         shoppingCart.put(itemAlreadyExist.getItemID(), itemAlreadyExist);
-        summary.SummarizeSale(item);
+        summary.summarizeSale(item);
     } 
 
     private void addNewItem(Item item) {
         shoppingCart.put(item.getItemID(), item);
-        summary.SummarizeSale(item);
+        summary.summarizeSale(item);
     }
     
 }
