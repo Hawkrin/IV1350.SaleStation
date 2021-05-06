@@ -12,7 +12,7 @@ import src.util.Amount;
  * Represents the actual sale done in the application
  */
 public class Sale {
-    private Summary summary;;
+    private Summary summary;
     private HashMap<Integer, Item> shoppingCart = new HashMap<>();
 
     /**

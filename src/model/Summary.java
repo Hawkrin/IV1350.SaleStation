@@ -14,6 +14,14 @@ public class Summary {
     private Amount summary;
 
     /**
+     *  Creates a new instance, representing the total.
+     */
+    public Summary(){
+        this.summary = new Amount();
+        this.totalTax = new Amount();
+    }
+
+    /**
      * Get the total cost of the purchase
      * 
      * @return the total cost of the purchase
