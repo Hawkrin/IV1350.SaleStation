@@ -1,5 +1,6 @@
 package tests.integration;
 
+import src.integration.ItemCatalog;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -10,7 +11,7 @@ public class ItemCatalogTest {
 
     @Test
     public void testItemInStock(){
-        src.integration.ItemCatalog itemCatalog = new src.integration.ItemCatalog();
+        ItemCatalog itemCatalog = new ItemCatalog();
         boolean expectedResult = true;
         boolean result = itemCatalog.itemInStock(testItemIDTrue);
         assertEquals("The expected item does not  exist in the catalog.", expectedResult, result);
@@ -18,7 +19,7 @@ public class ItemCatalogTest {
 
     @Test
     public void testItemNotInStock() {
-        src.integration.ItemCatalog itemCatalog = new src.integration.ItemCatalog();;
+        ItemCatalog itemCatalog = new ItemCatalog();;
         boolean expectedResult = false;
         boolean result = itemCatalog.itemInStock(testItemIDFalse);
         assertEquals("The expected item does not  exist in the catalog", expectedResult, result);
@@ -26,7 +27,7 @@ public class ItemCatalogTest {
 
     @Test
     public void testItemWithIDZero() {
-        src.integration.ItemCatalog itemCatalog = new src.integration.ItemCatalog();;
+        ItemCatalog itemCatalog = new ItemCatalog();;
         boolean expectedResult = false;
         boolean result = itemCatalog.itemInStock(testItemIDZero);
         assertEquals("The expected item does not  exist in the catalog", expectedResult, result);

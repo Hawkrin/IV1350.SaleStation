@@ -1,5 +1,6 @@
 package tests.util;
 
+import src.util.Amount;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
@@ -9,10 +10,10 @@ public class AmountTest {
     void testSubtract() {
         double amount1 = 10;
         double amount2 = 3;
-        src.util.Amount operand1 = new src.util.Amount(amount1);
-        src.util.Amount operand2 = new src.util.Amount(amount2);
-        src.util.Amount expResult = new src.util.Amount(amount1 - amount2);
-        src.util.Amount result = operand1.subtract(operand2);
+        Amount operand1 = new Amount(amount1);
+        Amount operand2 = new Amount(amount2);
+        Amount expResult = new Amount(amount1 - amount2);
+        Amount result = operand1.subtract(operand2);
         assertEquals(expResult, result, "Wrong difference");
     }
 
@@ -20,10 +21,10 @@ public class AmountTest {
     void testSubtractNegativeResult() {
         double amount1 = 10;
         double amount2 = 3;
-        src.util.Amount operand1 = new src.util.Amount(amount1);
-        src.util.Amount operand2 = new src.util.Amount(amount2);
-        src.util.Amount expResult = new src.util.Amount(amount2 - amount1);
-        src.util.Amount result = operand2.subtract(operand1);
+        Amount operand1 = new Amount(amount1);
+        Amount operand2 = new Amount(amount2);
+        Amount expResult = new Amount(amount2 - amount1);
+        Amount result = operand2.subtract(operand1);
         assertEquals(expResult, result, "Wrong difference");
     }
 
@@ -31,10 +32,10 @@ public class AmountTest {
     void testSubtractWithNegativeNumbers() {
         double amount1 = -10;
         double amount2 = -5;
-        src.util.Amount operand1 = new src.util.Amount(amount1);
-        src.util.Amount operand2 = new src.util.Amount(amount2);
-        src.util.Amount expResult = new src.util.Amount(amount2 - amount1);
-        src.util.Amount result = operand2.subtract(operand1);
+        Amount operand1 = new Amount(amount1);
+        Amount operand2 = new Amount(amount2);
+        Amount expResult = new Amount(amount2 - amount1);
+        Amount result = operand2.subtract(operand1);
         assertEquals(expResult, result, "Wrong difference");
     }
 
@@ -42,10 +43,10 @@ public class AmountTest {
     void testAdd() {
         double amount1 = 10;
         double amount2 = 3;
-        src.util.Amount operand1 = new src.util.Amount(amount1);
-        src.util.Amount operand2 = new src.util.Amount(amount2);
-        src.util.Amount expResult = new src.util.Amount(amount1 + amount2);
-        src.util.Amount result = operand1.add(operand2);
+        Amount operand1 = new Amount(amount1);
+        Amount operand2 = new Amount(amount2);
+        Amount expResult = new Amount(amount1 + amount2);
+        Amount result = operand1.add(operand2);
         assertEquals(expResult, result, "Wrong summary");
     }
 
@@ -53,10 +54,10 @@ public class AmountTest {
     void testAddNegativeNumbers() {
         double amount1 = -10;
         double amount2 = -3;
-        src.util.Amount operand1 = new src.util.Amount(amount1);
-        src.util.Amount operand2 = new src.util.Amount(amount2);
-        src.util.Amount expResult = new src.util.Amount(amount1 + amount2);
-        src.util.Amount result = operand1.add(operand2);
+        Amount operand1 = new Amount(amount1);
+        Amount operand2 = new Amount(amount2);
+        Amount expResult = new Amount(amount1 + amount2);
+        Amount result = operand1.add(operand2);
         assertEquals(expResult, result, "Wrong summary");
     }
 
@@ -64,10 +65,10 @@ public class AmountTest {
     void testAddNumbersWithSumOfZero() {
         double amount1 = 3;
         double amount2 = -3;
-        src.util.Amount operand1 = new src.util.Amount(amount1);
-        src.util.Amount operand2 = new src.util.Amount(amount2);
-        src.util.Amount expResult = new src.util.Amount(amount1 + amount2);
-        src.util.Amount result = operand1.add(operand2);
+        Amount operand1 = new Amount(amount1);
+        Amount operand2 = new Amount(amount2);
+        Amount expResult = new Amount(amount1 + amount2);
+        Amount result = operand1.add(operand2);
         assertEquals(expResult, result, "Wrong summary");
     }
 
@@ -75,10 +76,10 @@ public class AmountTest {
     void testMultiply() {
         double amount1 = 3;
         double amount2 = 5;
-        src.util.Amount operand1 = new src.util.Amount(amount1);
-        src.util.Amount operand2 = new src.util.Amount(amount2);
-        src.util.Amount expResult = new src.util.Amount(amount1 * amount2);
-        src.util.Amount result = operand1.multiply(operand2);
+        Amount operand1 = new Amount(amount1);
+        Amount operand2 = new Amount(amount2);
+        Amount expResult = new Amount(amount1 * amount2);
+        Amount result = operand1.multiply(operand2);
         assertEquals(expResult, result, "Wrong product");
     }
 
@@ -86,10 +87,10 @@ public class AmountTest {
     void testMultiplyWithOneNegativeNumber() {
         double amount1 = 3;
         double amount2 = -5;
-        src.util.Amount operand1 = new src.util.Amount(amount1);
-        src.util.Amount operand2 = new src.util.Amount(amount2);
-        src.util.Amount expResult = new src.util.Amount(amount1 * amount2);
-        src.util.Amount result = operand1.multiply(operand2);
+        Amount operand1 = new Amount(amount1);
+        Amount operand2 = new Amount(amount2);
+        Amount expResult = new Amount(amount1 * amount2);
+        Amount result = operand1.multiply(operand2);
         assertEquals(expResult, result, "Wrong product");
     }
 
@@ -97,10 +98,10 @@ public class AmountTest {
     void testMultiplyWithTwoNegativeNumbers() {
         double amount1 = -3;
         double amount2 = -5;
-        src.util.Amount operand1 = new src.util.Amount(amount1);
-        src.util.Amount operand2 = new src.util.Amount(amount2);
-        src.util.Amount expResult = new src.util.Amount(amount1 * amount2);
-        src.util.Amount result = operand1.multiply(operand2);
+        Amount operand1 = new Amount(amount1);
+        Amount operand2 = new Amount(amount2);
+        Amount expResult = new Amount(amount1 * amount2);
+        Amount result = operand1.multiply(operand2);
         assertEquals(expResult, result, "Wrong product");
     }
 
@@ -108,17 +109,17 @@ public class AmountTest {
     void testMultiplyWithZero() {
         double amount1 = 3;
         double amount2 = 0;
-        src.util.Amount operand1 = new src.util.Amount(amount1);
-        src.util.Amount operand2 = new src.util.Amount(amount2);
-        src.util.Amount expResult = new src.util.Amount(amount1 * amount2);
-        src.util.Amount result = operand1.multiply(operand2);
+        Amount operand1 = new Amount(amount1);
+        Amount operand2 = new Amount(amount2);
+        Amount expResult = new Amount(amount1 * amount2);
+        Amount result = operand1.multiply(operand2);
         assertEquals(expResult, result, "Wrong product");
     }
 
     @Test
     public void toStringPositiveNumber() {
         double StringNumber = 20;
-        src.util.Amount amount = new src.util.Amount(StringNumber);
+        Amount amount = new Amount(StringNumber);
         String expResult = Double.toString(StringNumber);
         String result = amount.toString();
         assertEquals(expResult, result, "Strings doesn't match");
@@ -127,7 +128,7 @@ public class AmountTest {
     @Test
     public void toStringNegativeNumber() {
         double StringNumber = -20;
-        src.util.Amount amount = new src.util.Amount(StringNumber);
+        Amount amount = new Amount(StringNumber);
         String expResult = Double.toString(StringNumber);
         String result = amount.toString();
         assertEquals(expResult, result, "Strings doesn't match");
@@ -136,7 +137,7 @@ public class AmountTest {
     @Test
     public void toStringZeroNumber() {
         double StringNumber = 0;
-        src.util.Amount amount = new src.util.Amount(StringNumber);
+        Amount amount = new Amount(StringNumber);
         String expResult = Double.toString(StringNumber);
         String result = amount.toString();
         assertEquals(expResult, result, "Strings doesn't match");

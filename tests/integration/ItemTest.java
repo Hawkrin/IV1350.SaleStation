@@ -1,5 +1,7 @@
 package tests.integration;
 
+import src.integration.Item;
+import src.integration.ItemDTO;
 import src.util.Amount;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,13 +10,13 @@ import static org.junit.Assert.*;
 
 
 public class ItemTest {
-    private src.integration.Item testItemHammerWithoutQuantity;
-    private src.integration.Item testItemNailsWithQuantity;
+    private Item testItemHammerWithoutQuantity;
+    private Item testItemNailsWithQuantity;
 
     @BeforeEach
     void setUp() {
-        testItemHammerWithoutQuantity = new src.integration.Item(new src.integration.ItemDTO("Hammer", new Amount(300), new Amount(0.25), 11111));
-        testItemNailsWithQuantity = new src.integration.Item(new src.integration.ItemDTO("Nails", new Amount(50), new Amount(0.06), 11112), new Amount(5));
+        testItemHammerWithoutQuantity = new Item(new ItemDTO("Hammer", new Amount(300), new Amount(0.25), 11111));
+        testItemNailsWithQuantity = new Item(new ItemDTO("Nails", new Amount(50), new Amount(0.06), 11112), new Amount(5));
     }
 
     @AfterEach
@@ -30,8 +32,8 @@ public class ItemTest {
         Amount taxRate = new Amount(0.25);
         int itemID = 11111;
         Amount itemQuantity = new Amount(20);
-        src.integration.ItemDTO itemDTO = new src.integration.ItemDTO(itemName, price, taxRate, itemID);
-        src.integration.Item testItem = new src.integration.Item(itemDTO, itemQuantity, itemID);
+        ItemDTO itemDTO = new ItemDTO(itemName, price, taxRate, itemID);
+        Item testItem = new Item(itemDTO, itemQuantity, itemID);
         String expectedResult = itemDTO.toString() + "item Quantity: " + itemQuantity;
         String result = testItem.toString();
         assertEquals("Strings are not equal.", expectedResult, result);
@@ -44,8 +46,8 @@ public class ItemTest {
         Amount taxRate = new Amount(0.25);
         int itemID = 11111;
         Amount itemQuantity = new Amount(20);
-        src.integration.ItemDTO itemDTO = new src.integration.ItemDTO(itemName, price, taxRate, itemID);
-        src.integration.Item testItem = new src.integration.Item(itemDTO, itemQuantity, itemID);
+        ItemDTO itemDTO = new ItemDTO(itemName, price, taxRate, itemID);
+        Item testItem = new Item(itemDTO, itemQuantity, itemID);
         String expectedResult = itemDTO.toString() + "HEJ item Quantity: " + itemQuantity;
         String result = testItem.toString();
         assertNotEquals("Strings are not equal.", expectedResult, result);
@@ -58,8 +60,8 @@ public class ItemTest {
         Amount taxRate = new Amount(0.25);
         int itemID = 11111;
         Amount itemQuantity = new Amount(20);
-        src.integration.ItemDTO itemDTO = new src.integration.ItemDTO(itemName, price, taxRate, itemID);
-        src.integration.Item testItem = new src.integration.Item(itemDTO, itemQuantity, itemID);
+        ItemDTO itemDTO = new ItemDTO(itemName, price, taxRate, itemID);
+        Item testItem = new Item(itemDTO, itemQuantity, itemID);
         String expectedResult = itemDTO.toString() + "HEJ item Quantity: " + itemQuantity;
         String result = testItem.toString();
         assertNotEquals("Strings are not empty.", expectedResult, result);

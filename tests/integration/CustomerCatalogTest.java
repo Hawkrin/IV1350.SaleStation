@@ -1,5 +1,6 @@
 package tests.integration;
 
+import src.integration.CustomerCatalog;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -10,7 +11,7 @@ public class CustomerCatalogTest {
 
     @Test
     public void testcustomerInRegister(){
-        src.integration.CustomerCatalog customerCatalog = new src.integration.CustomerCatalog();
+        CustomerCatalog customerCatalog = new CustomerCatalog();
         boolean expectedResult = true;
         boolean result = customerCatalog.customerInRegister(customerExistInSystem);
         assertEquals("The expected customer does not  exist in the catalog.", expectedResult, result);
@@ -18,7 +19,7 @@ public class CustomerCatalogTest {
 
     @Test
     public void testcustomerNotInRegister(){
-        src.integration.CustomerCatalog customerCatalog = new src.integration.CustomerCatalog();
+        CustomerCatalog customerCatalog = new CustomerCatalog();
         boolean expectedResult = false;
         boolean result = customerCatalog.customerInRegister(customerNotExistInSystem);
         assertEquals("The expected customer does exist in the catalog.", expectedResult, result);
@@ -26,7 +27,7 @@ public class CustomerCatalogTest {
 
     @Test
     public void testcustomerIDisZero(){
-        src.integration.CustomerCatalog customerCatalog = new src.integration.CustomerCatalog();
+        CustomerCatalog customerCatalog = new CustomerCatalog();
         boolean expectedResult = false;
         boolean result = customerCatalog.customerInRegister(customerIDIsZero);
         assertEquals("The expected customer does exist in the catalog.", expectedResult, result);

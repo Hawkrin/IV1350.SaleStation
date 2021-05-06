@@ -1,5 +1,5 @@
 package tests.model;
 
-public class RecieptTest {
+public class ReceiptTest {
     
 }

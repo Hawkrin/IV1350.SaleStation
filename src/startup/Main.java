@@ -2,7 +2,7 @@ package src.startup;
 
 import src.controller.Controller;
 import src.integration.CatalogHandler;
-import src.integration.RecieptPrinter;
+import src.integration.ReceiptPrinter;
 import src.integration.SalesLog;
 import src.integration.SystemHandler;
 import src.view.View;
@@ -20,9 +20,9 @@ public class Main {
     public static void main(String[] args) {
         SystemHandler systemHandler = new SystemHandler();
         CatalogHandler catalogHandler = new CatalogHandler();
-        RecieptPrinter recieptPrinter = new RecieptPrinter();
+        ReceiptPrinter receiptPrinter = new ReceiptPrinter();
         SalesLog salesLog = new SalesLog();
-        Controller ctrl = new Controller(catalogHandler, systemHandler, recieptPrinter, salesLog);
+        Controller ctrl = new Controller(catalogHandler, systemHandler, receiptPrinter, salesLog);
         View view = new View(ctrl);
 
         

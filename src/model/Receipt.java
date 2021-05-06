@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 /**
  * Represents a reciept, which contains all info about the sale.
  */
-public class Reciept {
+public class Receipt {
     private Sale sale;
    
     /**
@@ -12,7 +12,7 @@ public class Reciept {
      * 
      * @param sale the information about the {@link Sale}
      */
-    public Reciept(Sale sale){
+    public Receipt(Sale sale){
         this.sale = sale;
     }
 
@@ -21,7 +21,7 @@ public class Reciept {
      *
      * @return a receipt displayed as a string.
      */
-    public String createReciept() {
+    public String createReceipt() {
         StringBuilder builder = new StringBuilder();
         appendLine(builder, "Store Purchase");
         endSection(builder);

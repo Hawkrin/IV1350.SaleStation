@@ -10,14 +10,14 @@ import src.util.Amount;
  */
 public class Controller {
     private Sale sale;
-    private Reciept reciept;
+    private Receipt receipt;
     private CashRegister cashRegister;
     private AccountingSystem accountingSystem;
     private InventorySystem inventorySystem;
     private ItemCatalog itemCatalog;
     private DiscountCatalog discountCatalog;
     private SalesLog salesLog;
-    private RecieptPrinter recieptPrinter;
+    private ReceiptPrinter receiptPrinter;
 
     /**
      * Creates a new instance instance of the catalogs and systems
@@ -28,13 +28,13 @@ public class Controller {
      * @param salesLog gets the saleslog
      * @param cashRegister gets the current balance in the cashRegister
      */
-    public Controller(CatalogHandler catalogHandler, SystemHandler systemHandler, RecieptPrinter recieptPrinter, SalesLog salesLog) {  
+    public Controller(CatalogHandler catalogHandler, SystemHandler systemHandler, ReceiptPrinter receiptPrinter, SalesLog salesLog) {  
         this.itemCatalog = catalogHandler.getItemCatalog();
         this.discountCatalog = catalogHandler.getDiscountCatalog();
         this.inventorySystem = systemHandler.getInventorySystem();
         this.accountingSystem = systemHandler.getAccountingSystem();
         this.salesLog = salesLog;
-        this.recieptPrinter = recieptPrinter;
+        this.receiptPrinter = receiptPrinter;
         this.cashRegister = new CashRegister();
     }
 
@@ -81,10 +81,10 @@ public class Controller {
      */
     public String salePayment(Amount paidAmount) {
         Payment payment = new Payment(paidAmount, sale.getSummary());
-        Reciept reciept = new Reciept(sale);
+        Receipt reciept = new Receipt(sale);
         accountingSystem.updateAccounting(sale);
         inventorySystem.updateInventory(sale);
-        recieptPrinter.printReciept(reciept);
+        receiptPrinter.printReceipt(receipt);
         cashRegister.addPayment(payment);
         salesLog.updateSalesLog(sale);
 
