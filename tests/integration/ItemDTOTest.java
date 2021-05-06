@@ -9,37 +9,37 @@ public class ItemDTOTest {
     @Test
     void testToString() {
         String itemName = "Hammer";
-        Amount price = new Amount(300);
+        Amount itemPrice = new Amount(300);
         Amount taxRate = new Amount(0.25);
         int itemID = 11111;
-        ItemDTO itemDTO = new ItemDTO(itemName, price, taxRate, itemID);
-        String expectedResult = "ItemName: " + itemName + "\nPrice of item: " + price + "\nTaxrate of item: " + taxRate + "\nItemID: " + itemID;
+        ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
+        String expResult = "ItemName: " + itemName + "\nPrice of item: " + itemPrice + "\nTaxrate of item: " + taxRate + "\nItemID: " + itemID;
         String result = itemDTO.toString();
-        assertEquals("ItemDTO string doesnt match the other String", expectedResult, result);
+        assertEquals("ItemDTO string doesnt match the other String", expResult, result);
     }
 
     @Test
     void testToStringWithNullParameters() {
         String itemName = null;
-        Amount price = null;
+        Amount itemPrice = null;
         Amount taxRate = null;
         int itemID = 0;
-        ItemDTO itemDTO = new ItemDTO(itemName, price, taxRate, itemID);
-        String expectedResult = "ItemName: " + itemName + "\nPrice of item: " + price + "\nTaxrate of item: " + taxRate + "\nItemID: " + itemID;
+        ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
+        String expResult = "ItemName: " + itemName + "\nPrice of item: " + itemPrice + "\nTaxrate of item: " + taxRate + "\nItemID: " + itemID;
         String result = itemDTO.toString();
-        assertEquals("ItemDTO string doesnt match the other String", expectedResult, result);
+        assertEquals("ItemDTO string doesnt match the other String", expResult, result);
     }
 
     @Test
     void testToStringEmptyStringParameter() {
         String itemName = "";
-        Amount price = new Amount(300);
+        Amount itemPrice = new Amount(300);
         Amount taxRate = new Amount(0.25);
         int itemID = 11111;
-        ItemDTO itemDTO = new ItemDTO(itemName, price, taxRate, itemID);
-        String expectedResult = "ItemName: " + itemName + "\nPrice of item: " + price + "\nTaxrate of item: " + taxRate + "\nItemID: " + itemID;
+        ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
+        String expResult = "ItemName: " + itemName + "\nPrice of item: " + itemPrice + "\nTaxrate of item: " + taxRate + "\nItemID: " + itemID;
         String result = itemDTO.toString();
-        assertEquals("ItemDTO string doesnt match the other String", expectedResult, result);
+        assertEquals("ItemDTO string doesnt match the other String", expResult, result);
     }
     
 }

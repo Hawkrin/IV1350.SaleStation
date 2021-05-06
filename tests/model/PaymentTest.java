@@ -5,7 +5,7 @@ import src.model.Summary;
 import src.integration.Item;
 import src.integration.ItemDTO;
 import src.util.Amount;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 public class PaymentTest {
 
@@ -22,9 +22,9 @@ public class PaymentTest {
         totalPrice.summarizeSale(item);
         Amount paidAmount = new Amount(500);
         Payment payment = new Payment(paidAmount, totalPrice);
-        Amount expectedResult = paidAmount.subtract(itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity)));
+        Amount expResult = paidAmount.subtract(itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity)));
         Amount result = payment.getChange();
-        assertEquals("The returned change is not the same", expectedResult, result);
+        assertEquals("The returned change is not the same", expResult, result);
     }
 
     @Test
@@ -40,9 +40,9 @@ public class PaymentTest {
         totalPrice.summarizeSale(item);
         Amount paidAmount = new Amount(300.25);
         Payment payment = new Payment(paidAmount, totalPrice);
-        Amount expectedResult = paidAmount.subtract(itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity)));
+        Amount expResult = paidAmount.subtract(itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity)));
         Amount result = payment.getChange();
-        assertEquals("The returned change is not the same", expectedResult, result);
+        assertEquals("The returned change is not the same", expResult, result);
     }
     
 }

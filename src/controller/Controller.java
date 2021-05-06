@@ -56,8 +56,7 @@ public class Controller {
     public String searchForItem(ItemDTO itemInformation, Amount quantity, int itemID) {
         if(itemCatalog.itemInStock(itemID)){
             Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
-            return sale.updateItems(newItem) + ", quantity: " + quantity.toString() + 
-                ", Price Summary: " + displaySummary();
+            return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + displaySummary();
         }
         else throw new IllegalArgumentException("Item doesn't exist");
     }
@@ -81,14 +80,13 @@ public class Controller {
      */
     public String salePayment(Amount paidAmount) {
         Payment payment = new Payment(paidAmount, sale.getSummary());
-        Receipt reciept = new Receipt(sale);
         accountingSystem.updateAccounting(sale);
         inventorySystem.updateInventory(sale);
         receiptPrinter.printReceipt(receipt);
         cashRegister.addPayment(payment);
         salesLog.updateSalesLog(sale);
 
-        return "Change: " + payment.getChange().toString();
+        return "Change the return: " + payment.getChange().toString();
     }
     
 }

@@ -4,7 +4,7 @@ import src.model.Sale;
 import src.integration.Item;
 import src.integration.ItemDTO;
 import src.util.Amount;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 public class SaleTest {
     
@@ -19,8 +19,8 @@ public class SaleTest {
         Item item = new Item(itemInformation, itemQuantity, itemID);
         Sale sale = new Sale();
         String result = sale.updateItems(item);
-        String expectedResult = item.getItemDTO().toString();
-        assertEquals("The Strings are not equal.", expectedResult, result);
+        String expResult = item.getItemDTO().toString();
+        assertEquals("The Strings are not equal.", expResult, result);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class SaleTest {
         Item item = new Item(itemInformation, itemQuantity, itemID);
         Sale sale = new Sale();
         String result = sale.updateItems(item);
-        String expectedResult = item.getItemDTO().toString();
-        assertEquals("The Strings are not equal.", expectedResult, result);
+        String expResult = item.getItemDTO().toString();
+        assertEquals("The Strings are not equal.", expResult, result);
     }
 }

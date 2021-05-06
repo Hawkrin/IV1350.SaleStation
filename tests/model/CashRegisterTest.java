@@ -26,9 +26,9 @@ public class CashRegisterTest {
         Amount paidAmount = new Amount(500);
         Payment payment = new Payment(paidAmount, totalPrice);
         cashRegister.addPayment(payment);
-        Amount expectedResult = new Amount(0).add(payment.getFinalSum().getSummary());
+        Amount expResult = new Amount(0).add(payment.getFinalSum().getSummary());
         Amount result = cashRegister.getCurrentBalance();
-        assertEquals("The balances does not match.", expectedResult, result);
+        assertEquals("The balances does not match.", expResult, result);
     }
         
     }

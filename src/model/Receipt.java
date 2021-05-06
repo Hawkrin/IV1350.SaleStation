@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
  */
 public class Receipt {
     private Sale sale;
+
    
     /**
      * Creates a new instance, representing a reciept
