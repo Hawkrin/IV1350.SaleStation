@@ -2,6 +2,7 @@ package tests.controller;
 
 import src.controller.Controller;
 import src.integration.CatalogHandler;
+import src.integration.InvalidIDException;
 import src.integration.ReceiptPrinter;
 import src.integration.SystemHandler;
 import src.integration.SalesLog;
@@ -17,7 +18,7 @@ public class ControllerTest {
     private Controller controller = new Controller(new CatalogHandler(), new SystemHandler(), new ReceiptPrinter(), new SalesLog());
 
     @Test
-    public void testSearchForItem() {
+    public void testSearchForItem() throws InvalidIDException {
         controller.startNewSale();
         String itemName = "Hammer";
         Amount itemPrice = new Amount(300);
@@ -32,7 +33,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void testDisplaySummary() {
+    public void testDisplaySummary() throws InvalidIDException {
         controller.startNewSale();
         String itemName = "Hammer";
         Amount itemPrice = new Amount(300);
@@ -47,7 +48,7 @@ public class ControllerTest {
     }
 
     @Disabled
-    public void testSalePayment() {
+    public void testSalePayment() throws InvalidIDException {
         controller.startNewSale();
         String itemName = "Hammer";
         Amount itemPrice = new Amount(300);

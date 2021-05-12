@@ -52,8 +52,9 @@ public class Controller {
      * @param quantity how many examples of an item to purchase {@link Amount}
      * @param itemID the item number
      * @return returns the result to the sale methbod registerItems
+     * @throws InvalidIDException
      */
-    public String searchForItem(ItemDTO itemInformation, Amount quantity, int itemID) {
+    public String searchForItem(ItemDTO itemInformation, Amount quantity, int itemID) throws InvalidIDException {
         if(itemCatalog.itemInStock(itemID)){
             Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
             return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + displaySummary();

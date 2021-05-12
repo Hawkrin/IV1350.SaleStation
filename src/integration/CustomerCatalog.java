@@ -30,12 +30,16 @@ public class CustomerCatalog {
      * @param customer information about the customer
      * @param customerID the ID number of the customer
      * @return all the info about the customer if in the database, otherwise an exception
+     * @throws InvalidIDException
      */
-    public Customer getCustomer(CustomerDTO customer, int customerID) {
+    public Customer getCustomer(CustomerDTO customer, int customerID) throws InvalidIDException {
         if(customerInRegister(customerID)) {
             return new Customer(customerRegistry.get(customerID), customerID);
         }
-        throw new CustomerCatalogException("No customer found");
+        if(customerInRegister(customerID) == false) {
+            throw new InvalidIDException("The customer with ID: " + customerID + "doesn't exist in the database");
+        }
+        throw new CustomerCatalogException("Could not reach the database");
     }
 
     private void membership() {

@@ -31,16 +31,16 @@ public class ItemCatalog {
      * @param itemQuantity how many of a certain Item {@link Amount}
      * @param itemID the Item ID
      * @return all the info about the item if in stock, otherwise return null
-     * @throws InvalidItemException if the searched item isn't in stock
+     * @throws InvalidIDException if the searched item isn't in stock
      * @throws ItemCatalogException if the database can't be reached
      *                              
      */
-    public Item getItem(ItemDTO itemInformation, Amount itemQuantity, int itemID) throws InvalidItemException {
+    public Item getItem(ItemDTO itemInformation, Amount itemQuantity, int itemID) throws InvalidIDException {
         if(itemInStock(itemID)) {
             return new Item(availableItems.get(itemID), itemQuantity, itemID);
         }
         if(itemInStock(itemID) == false) {
-            throw new InvalidItemException("No item with the ID: " + itemID + "exists in stock");
+            throw new InvalidIDException("No item with the ID: " + itemID + "exists in stock");
         }
         throw new ItemCatalogException("Could not reach the database");
     }
