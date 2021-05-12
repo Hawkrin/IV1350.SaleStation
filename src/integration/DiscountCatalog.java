@@ -1,10 +1,5 @@
 package src.integration;
 
-import java.util.List;
-import src.util.*;
-
-import java.util.ArrayList;
-
 /**
  * Represents a database for discounts
  */
