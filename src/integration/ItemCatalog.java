@@ -8,6 +8,7 @@ import src.util.Amount;
  */
 public class ItemCatalog {
     private HashMap<Integer, ItemDTO> availableItems  = new HashMap<>();
+    private final int DATABASE_FAILURE = 321;
 
     public ItemCatalog() {
         addItems();
@@ -30,14 +31,18 @@ public class ItemCatalog {
      * @param itemQuantity how many of a certain Item {@link Amount}
      * @param itemID the Item ID
      * @return all the info about the item if in stock, otherwise return null
-     * @throws ItemCatalogException if the searched item isn't in stock or if the database
-     *                              can't be called.
+     * @throws InvalidItemException if the searched item isn't in stock
+     * @throws ItemCatalogException if the database can't be reached
+     *                              
      */
-    public Item getItem(ItemDTO itemInformation, Amount itemQuantity, int itemID) {
+    public Item getItem(ItemDTO itemInformation, Amount itemQuantity, int itemID) throws InvalidItemException {
         if(itemInStock(itemID)) {
             return new Item(availableItems.get(itemID), itemQuantity, itemID);
         }
-        throw new ItemCatalogException("No such item is in stock");
+        if(itemInStock(itemID) == false) {
+            throw new InvalidItemException("No item with the ID: " + itemID + "exists in stock");
+        }
+        throw new ItemCatalogException("Could not reach the database");
     }
 
     private void addItems() {

@@ -1,7 +1,7 @@
 package src.integration;
 
 /**
- * Thrown when a fault occurs in <code>ItemCatalog</code>.
+ * Thrown when the item database can't be reached
  */
 public class ItemCatalogException extends RuntimeException {
     
