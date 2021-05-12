@@ -30,12 +30,13 @@ public class ItemCatalog {
      * @param itemQuantity how many of a certain Item {@link Amount}
      * @param itemID the Item ID
      * @return all the info about the item if in stock, otherwise return null
+     * @throws 
      */
     public Item getItem(ItemDTO itemInformation, Amount itemQuantity, int itemID) {
         if(itemInStock(itemID)) {
             return new Item(availableItems.get(itemID), itemQuantity, itemID);
         }
-        else throw new IllegalArgumentException("No such item in stock");
+        else throw new ItemCatalogException("No such item is in stock");
     }
 
     private void addItems() {
