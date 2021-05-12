@@ -58,7 +58,7 @@ public class Controller {
     public String registerItem(ItemDTO itemInformation, Amount quantity, int itemID) throws InvalidIDException, RegisterFailedException {
         if(itemCatalog.itemInStock(itemID)){
             Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
-            return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + displaySummary();
+            return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + "\nPrice Summary: " + displaySummary();
         }
         if(itemCatalog.itemInStock(itemID) == false) {
             throw new InvalidIDException("The item with the ID: " + itemID + " doesn't exist");
