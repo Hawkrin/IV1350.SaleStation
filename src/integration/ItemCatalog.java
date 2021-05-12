@@ -36,7 +36,7 @@ public class ItemCatalog {
         if(itemInStock(itemID)) {
             return new Item(availableItems.get(itemID), itemQuantity, itemID);
         }
-        else throw new ItemCatalogException("No such item is in stock");
+        throw new ItemCatalogException("No such item is in stock");
     }
 
     private void addItems() {
