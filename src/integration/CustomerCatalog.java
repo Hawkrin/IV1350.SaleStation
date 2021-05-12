@@ -35,7 +35,7 @@ public class CustomerCatalog {
         if(customerInRegister(customerID)) {
             return new Customer(customerRegistry.get(customerID), customerID);
         }
-        else throw new IllegalArgumentException("No customer found");
+        throw new CustomerCatalogException("No customer found");
     }
 
     private void membership() {

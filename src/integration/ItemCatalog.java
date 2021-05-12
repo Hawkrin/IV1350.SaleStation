@@ -30,7 +30,8 @@ public class ItemCatalog {
      * @param itemQuantity how many of a certain Item {@link Amount}
      * @param itemID the Item ID
      * @return all the info about the item if in stock, otherwise return null
-     * @throws 
+     * @throws ItemCatalogException if the searched item isn't in stock or if the database
+     *                              can't be called.
      */
     public Item getItem(ItemDTO itemInformation, Amount itemQuantity, int itemID) {
         if(itemInStock(itemID)) {
