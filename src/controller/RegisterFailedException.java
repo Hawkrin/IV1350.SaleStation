@@ -6,9 +6,9 @@ package src.controller;
 public class RegisterFailedException extends Exception {
     
     /**
-    * Creates a new instance with a specified message
+    * Creates an instance of <code>CatalogException</code> with a given message.
     *
-    * @param
+    * @param msg Information about the reason why the exception is thrown.
     */
     public RegisterFailedException(String msg) {
         super(msg);

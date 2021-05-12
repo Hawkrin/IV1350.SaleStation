@@ -51,7 +51,7 @@ public class Controller {
      * @param itemInformation the iteminformation represented as a DTO {@link ItemDTO}
      * @param quantity how many examples of an item to purchase {@link Amount}
      * @param itemID the item number
-     * @return returns the result to the sale methbod registerItems
+     * @return returns the result to the sale method registerItems
      * @throws InvalidIDException if the itemID doesn't exist in the database
      * @throws RegisterFailedException
      */
