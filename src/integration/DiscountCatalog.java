@@ -1,8 +1,6 @@
 package src.integration;
 
 import java.util.List;
-
-import src.model.Sale;
 import src.util.*;
 
 import java.util.ArrayList;
@@ -11,7 +9,6 @@ import java.util.ArrayList;
  * Represents a database for discounts
  */
 public class DiscountCatalog {
-    private List <Amount> discountLevel = new ArrayList();
     private double discountPercent;
 
     /**
@@ -21,9 +18,6 @@ public class DiscountCatalog {
      */
     public double getDiscountPercent() { return this.discountPercent; }
 
-    public Discount checkForDiscount(int customerID){
-        return null;
-    }
 
 
     
