@@ -52,14 +52,18 @@ public class Controller {
      * @param quantity how many examples of an item to purchase {@link Amount}
      * @param itemID the item number
      * @return returns the result to the sale methbod registerItems
-     * @throws InvalidIDException
+     * @throws InvalidIDException if the itemID doesn't exist in the database
+     * @throws RegisterFailedException
      */
-    public String searchForItem(ItemDTO itemInformation, Amount quantity, int itemID) throws InvalidIDException {
+    public String registerItem(ItemDTO itemInformation, Amount quantity, int itemID) throws InvalidIDException, RegisterFailedException {
         if(itemCatalog.itemInStock(itemID)){
             Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
             return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + displaySummary();
         }
-        else throw new IllegalArgumentException("Item doesn't exist");
+        if(itemCatalog.itemInStock(itemID) == false) {
+            throw new InvalidIDException("The item with the ID: " + itemID + " doesn't exist");
+        }
+        throw new RegisterFailedException("The Item could not be registered");
     }
 
     /**

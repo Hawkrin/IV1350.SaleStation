@@ -32,7 +32,7 @@ public class ItemCatalog {
      * @param itemID the Item ID
      * @return all the info about the item if in stock, otherwise return null
      * @throws InvalidIDException if the searched item isn't in stock
-     * @throws ItemCatalogException if the database can't be reached
+     * @throws CatalogException if the database can't be reached
      *                              
      */
     public Item getItem(ItemDTO itemInformation, Amount itemQuantity, int itemID) throws InvalidIDException {
@@ -42,7 +42,7 @@ public class ItemCatalog {
         if(itemInStock(itemID) == false) {
             throw new InvalidIDException("No item with the ID: " + itemID + "exists in stock");
         }
-        throw new ItemCatalogException("Could not reach the database");
+        throw new CatalogException("Could not reach the database");
     }
 
     private void addItems() {
