@@ -53,17 +53,20 @@ public class Controller {
      * @param itemID the item number
      * @return returns the result to the sale method registerItems
      * @throws InvalidIDException if the itemID doesn't exist in the database
-     * @throws RegisterFailedException
+     * @throws OperationFailedException catches the InvalidIDException
+     * @throws IllegalStateException if the method is called on before the sale is inititated.
      */
-    public String registerItem(ItemDTO itemInformation, Amount quantity, int itemID) throws InvalidIDException, RegisterFailedException {
-        if(itemCatalog.itemInStock(itemID)){
+    public String registerItem(ItemDTO itemInformation, Amount quantity, int itemID) throws InvalidIDException, OperationFailedException, OperationFailedException {
+        if (sale == null){
+            throw new IllegalStateException("Call to registerItem before initiating a new sale.");
+        }
+        try {
             Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
             return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + "\nPrice Summary: " + displaySummary();
         }
-        if(itemCatalog.itemInStock(itemID) == false) {
-            throw new InvalidIDException("The item with the ID: " + itemID + " doesn't exist");
-        }
-        throw new RegisterFailedException("The Item could not be registered");
+        catch(InvalidIDException invItExc) {
+            throw new OperationFailedException("Could not find the requested Item.", invItExc);
+        }    
     }
 
     /**
