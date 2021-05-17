@@ -62,7 +62,7 @@ public class Controller {
         }
         try {
             Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
-            return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + "\nPrice Summary: " + displaySummary();
+            return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + "Price Summary: " + displaySummary();
         }
         catch(InvalidIDException invItExc) {
             throw new OperationFailedException("Could not find the requested Item.", invItExc);
@@ -74,7 +74,7 @@ public class Controller {
      * 
      * @return the summary displayed as a string
      */
-    public String displaySummary() {
+    public String displaySummary() throws IllegalStateException {
         return "the total price after taxes are: " + 
         sale.getSummary().getSummary().toString();
     }
@@ -86,7 +86,7 @@ public class Controller {
      * @param amount the amount given by the customer
      * @return the change to give back to the customer displayed as a string
      */
-    public String salePayment(Amount paidAmount) {
+    public String salePayment(Amount paidAmount) throws IllegalStateException {
         Payment payment = new Payment(paidAmount, sale.getSummary());
         accountingSystem.updateAccounting(sale);
         inventorySystem.updateInventory(sale);
