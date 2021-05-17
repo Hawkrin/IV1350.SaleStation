@@ -20,7 +20,7 @@ public class FileLogger implements LogHandler {
             logFile = new PrintWriter(new FileWriter(NAME_OF_LOG_FILE), true);
         } 
         catch (IOException exception) {
-            System.out.println("Error while creating the logger.");
+            System.out.println("Error while creating the log.");
             exception.printStackTrace();
         }
     }
