@@ -1,8 +1,8 @@
 package main.util;
 
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.IOException;
 
 /**
  * Prints Log messages as a text file
@@ -41,7 +41,7 @@ public class FileLogger implements LogHandler {
     public void log(Exception exception) {
         StringBuilder logBuilder = new StringBuilder();
         logBuilder.append("An Error Occured");
-        logBuilder.append("\n @ " + timeRightNow);
+        logBuilder.append("\n @ " + getDateAndTime());
         logBuilder.append("\n and an Exception was thrown: ");
         logBuilder.append(exception.getMessage());
         logFile.println(logBuilder.toString());

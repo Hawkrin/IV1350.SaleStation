@@ -27,7 +27,7 @@ public class ConsoleLogger implements LogHandler {
     public void log(Exception exception) {
         StringBuilder logBuilder = new StringBuilder();
         logBuilder.append("An Error Occured");
-        logBuilder.append("\n @ " + timeRightNow);
+        logBuilder.append("\n @ " + getDateAndTime());
         logBuilder.append("\n and an Exception was thrown: ");
         logBuilder.append(exception.getMessage());
         System.out.println(logBuilder.toString());
