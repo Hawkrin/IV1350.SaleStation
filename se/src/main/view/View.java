@@ -3,7 +3,6 @@ package main.view;
 import main.controller.*;
 import main.util.*;
 import main.integration.*;
-import main.model.*;
 
 /**
  * represents the user interface
@@ -24,8 +23,7 @@ public class View {
 
     /**
      * Makes a sample run of the application
-     * @throws OperationFailedException
-     * @throws InvalidIDException
+     * 
      */
     public void sampleRun() throws InvalidIDException, OperationFailedException{
         System.out.println("New Sale Started:");
@@ -41,6 +39,10 @@ public class View {
         System.out.println(ctrl.salePayment(new Amount(1500)));
     }
 
+
+    /**
+     * Makes a sample run of the application
+     */
     public void sampleRunWithExceptions() throws InvalidIDException, OperationFailedException {
         System.out.println("New Sale Started:");
         ctrl.startNewSale();
@@ -56,7 +58,14 @@ public class View {
             errorMsgHandler.displayErrorMessage("A new sale haven't been started");
         }
         try {
-    }
+            System.out.println("\nCashier enters the amount paid by the customer.\n");
+            System.out.println("\nA Receipt is Printed: \n");
+            System.out.println(ctrl.salePayment(new Amount(1500)));
+        }
+        catch(IllegalStateException exception) {
+            errorMsgHandler.displayErrorMessage("A new sale haven't been started");
+        }
 
+    }
     
 }

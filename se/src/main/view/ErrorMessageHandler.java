@@ -16,9 +16,7 @@ public class ErrorMessageHandler {
      * 
      * @return the error message
      */
-    public static ErrorMessageHandler getErrorMessage(){
-        return ERROR_MESSAGE;
-    }
+    public static ErrorMessageHandler getErrorMessage(){ return ERROR_MESSAGE; }
 
     /**
      * Gets the date and time of today
