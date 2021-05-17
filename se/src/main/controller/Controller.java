@@ -48,7 +48,6 @@ public class Controller {
     /**
      * Search for the requested item
      * 
-     * @param itemInformation the iteminformation represented as a DTO {@link ItemDTO}
      * @param quantity how many examples of an item to purchase {@link Amount}
      * @param itemID the item number
      * @return returns the result to the sale method registerItems
@@ -56,13 +55,13 @@ public class Controller {
      * @throws OperationFailedException catches the InvalidIDException
      * @throws IllegalStateException if the method is called on before the sale is inititated.
      */
-    public String registerItem(ItemDTO itemInformation, Amount quantity, int itemID) throws InvalidIDException, OperationFailedException, OperationFailedException {
+    public String registerItem(int itemID, Amount quantity) throws InvalidIDException, OperationFailedException, OperationFailedException {
         if (sale == null){
             throw new IllegalStateException("Call to registerItem before initiating a new sale.");
         }
         try {
-            Item newItem = itemCatalog.getItem(itemInformation, quantity, itemID);
-            return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + "Price Summary: " + displaySummary();
+            Item newItem = itemCatalog.getItem(itemID, quantity);
+            return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + "\nPrice Summary: " + displaySummary();
         }
         catch(InvalidIDException invItExc) {
             throw new OperationFailedException("Could not find the requested Item.", invItExc);
@@ -76,8 +75,7 @@ public class Controller {
      * @throws IllegalStateException If this method is called before <code>startNewSale</code>
      */
     public String displaySummary() throws IllegalStateException {
-        return "the total price after taxes are: " + 
-        sale.getSummary().getSummary().toString();
+        return sale.getSummary().getSummary().toString();
     }
 
     /**
@@ -90,13 +88,15 @@ public class Controller {
      */
     public String salePayment(Amount paidAmount) throws IllegalStateException {
         Payment payment = new Payment(paidAmount, sale.getSummary());
+        Receipt receipt = new Receipt(sale);
         accountingSystem.updateAccounting(sale);
         inventorySystem.updateInventory(sale);
         receiptPrinter.printReceipt(receipt);
         cashRegister.addPayment(payment);
         salesLog.updateSalesLog(sale);
+        sale = null;
 
-        return "Change the return: " + payment.getChange().toString();
+        return "Change to return: " + payment.getChange().toString();
     }
     
 }

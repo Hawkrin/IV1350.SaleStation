@@ -35,7 +35,7 @@ public class ItemCatalog {
      * @throws CatalogException if the database can't be reached
      *                              
      */
-    public Item getItem(ItemDTO itemInformation, Amount itemQuantity, int itemID) throws InvalidIDException {
+    public Item getItem(int itemID, Amount itemQuantity) throws InvalidIDException {
         if(itemInStock(itemID)) {
             return new Item(availableItems.get(itemID), itemQuantity, itemID);
         }

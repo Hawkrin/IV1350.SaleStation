@@ -72,7 +72,7 @@ public class Item {
     public String toString() {
         StringBuilder itemPresentation = new StringBuilder();
         itemPresentation.append(this.itemInformation);
-        itemPresentation.append("item Quantity: " + this.itemQuantity);
+        itemPresentation.append("\nItem Quantity: " + this.itemQuantity + "\n");
         return itemPresentation.toString();
     }
 

@@ -33,7 +33,7 @@ public class ControllerTest {
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         try {
         String expResult = "Item Name: " + itemName + "\nItem Price: " + itemPrice + "\ntaxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + " the total price after taxes are: " + runningTotal;
-        String result = controller.registerItem(itemDTO, itemQuantity, itemID);
+        String result = controller.registerItem(itemID, itemQuantity);
         assertEquals("Strings doesnt match.", expResult, result);
         }
         catch (OperationFailedException exception){}
@@ -52,7 +52,7 @@ public class ControllerTest {
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         try {
         String expResult = "Item Name: " + itemName + "\nItem Price: " + itemPrice + "\ntaxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + "the total price after taxes are: " + runningTotal;
-        String result = controller.registerItem(itemDTO, itemQuantity, itemID);
+        String result = controller.registerItem(itemID, itemQuantity);
         assertNotEquals("Strings doesnt match.", expResult, result);
         }
         catch (OperationFailedException exception){}
@@ -70,7 +70,7 @@ public class ControllerTest {
         Amount runningTotal = itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity));
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         String expResult = "Item Name: " + itemName + "\nItem Price: " + itemPrice + "\ntaxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + "the total price after taxes are: " + runningTotal;
-        String result = controller.registerItem(itemDTO, itemQuantity, itemID);
+        String result = controller.registerItem(itemID, itemQuantity);
         assertEquals("Strings doesnt match.", expResult, result);
     }
 
@@ -84,7 +84,7 @@ public class ControllerTest {
         Amount itemQuantity = new Amount(1);
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         try{
-        controller.registerItem(itemDTO, itemQuantity, itemID);
+        controller.registerItem(itemID, itemQuantity);
         String expResult = "the total price after taxes are: " + itemPrice.add(taxRate);
         String result = controller.displaySummary();
         assertEquals("The sums doesnt match.", expResult, result);
@@ -102,7 +102,7 @@ public class ControllerTest {
         int itemID = 11111;
         Amount itemQuantity = new Amount(1);
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
-        controller.registerItem(itemDTO, itemQuantity, itemID);
+        controller.registerItem(itemID, itemQuantity);
         String expResult = "the total price after taxes are: " + itemPrice.add(taxRate);
         String result = controller.displaySummary();
         assertEquals("The sums doesnt match.", expResult, result);
@@ -119,7 +119,7 @@ public class ControllerTest {
         Amount runningTotal = itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity));
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         try {
-        controller.registerItem(itemDTO, itemQuantity, itemID);
+        controller.registerItem(itemID, itemQuantity);
         Amount paidAmount = new Amount(500);
         String expResult = "Change the return: " + paidAmount.subtract(runningTotal);
         String result = controller.salePayment(paidAmount);
@@ -139,7 +139,7 @@ public class ControllerTest {
         Amount itemQuantity = new Amount(1);
         Amount runningTotal = itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity));
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
-        controller.registerItem(itemDTO, itemQuantity, itemID);
+        controller.registerItem(itemID, itemQuantity);;
         Amount paidAmount = new Amount(500);
         String expResult = "Change the return: " + paidAmount.subtract(runningTotal);
         String result = controller.salePayment(paidAmount);

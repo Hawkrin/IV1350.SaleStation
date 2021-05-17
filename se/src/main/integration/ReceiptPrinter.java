@@ -5,7 +5,6 @@ import main.model.Receipt;
  * A class that represent the reciept printer
  */
 public class ReceiptPrinter {
-    private Receipt receipt;
 
     /**
      * Creates an instance, represented as a printer

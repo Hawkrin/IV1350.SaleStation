@@ -1,11 +1,16 @@
 package main.model;
 
+import main.controller.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 /**
  * Represents a reciept, which contains all info about the sale.
  */
 public class Receipt {
     private Sale sale;
+    private Controller ctrl;
+    LocalDateTime timeofSale = LocalDateTime.now();
 
    
     /**
@@ -15,6 +20,7 @@ public class Receipt {
      */
     public Receipt(Sale sale){
         this.sale = sale;
+
     }
 
     /**
@@ -24,17 +30,25 @@ public class Receipt {
      */
     public String createReceipt() {
         StringBuilder builder = new StringBuilder();
-        appendLine(builder, "Store Purchase");
+        appendLine(builder, "********RECIEPT*********\n");
+        builder.append("Purchase was made: ");
+        appendLine(builder, getDateAndTime().toString());
+        builder.append("\nItems Bought: \n\n");
+        appendLine(builder, sale.getShoppingCart().toString());
+        appendLine(builder, "\n*******RECIEPT END******");
         endSection(builder);
-
-        LocalDateTime purchaseMadeAtTime = LocalDateTime.now();
-        builder.append("Purchase Made: ");
-        appendLine(builder, purchaseMadeAtTime.toString());
-        endSection(builder);
-
-        builder.append("Items Bought: ");
         return builder.toString();
     }
+
+    /**
+     * Gets the date and time of today
+     * 
+     * @return the date and time of today
+     */
+    public String getDateAndTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+        return timeofSale.format(formatter); 
+    }   
 
     private void appendLine(StringBuilder builder, String newLine) {
         builder.append(newLine);

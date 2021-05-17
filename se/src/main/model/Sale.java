@@ -46,7 +46,7 @@ public class Sale {
         }
         return item.getItemDTO().toString();
     }
-  
+
     private boolean shoppingCartContains(Item item) {
         return shoppingCart.containsKey(item.getItemID());
     }
