@@ -73,6 +73,7 @@ public class Controller {
      * Displays the total price to pay
      * 
      * @return the summary displayed as a string
+     * @throws IllegalStateException If this method is called before <code>startNewSale</code>
      */
     public String displaySummary() throws IllegalStateException {
         return "the total price after taxes are: " + 
@@ -85,6 +86,7 @@ public class Controller {
      * 
      * @param amount the amount given by the customer
      * @return the change to give back to the customer displayed as a string
+     * @throws IllegalStateException If this method is called before <code>startNewSale</code>
      */
     public String salePayment(Amount paidAmount) throws IllegalStateException {
         Payment payment = new Payment(paidAmount, sale.getSummary());
