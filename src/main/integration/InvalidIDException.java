@@ -1,7 +1,7 @@
 package src.integration;
 
 /**
- * Thrown when an itemID is unknown
+ * Thrown when an item or customer ID is unknown
  */
 public class InvalidIDException extends Exception {
 

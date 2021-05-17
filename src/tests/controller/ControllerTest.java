@@ -19,7 +19,7 @@ public class ControllerTest {
     private Controller controller = new Controller(new CatalogHandler(), new SystemHandler(), new ReceiptPrinter(), new SalesLog());
 
     @Test
-    public void testSearchForItem() throws InvalidIDException, RegisterFailedException {
+    public void registerItem() throws InvalidIDException, RegisterFailedException {
         controller.startNewSale();
         String itemName = "Hammer";
         Amount itemPrice = new Amount(300);
@@ -28,9 +28,13 @@ public class ControllerTest {
         Amount itemQuantity = new Amount(2);
         Amount runningTotal = itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity));
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
+        try {
         String expResult = "Item Name: " + itemName + "\nItem Price: " + itemPrice + "\ntaxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + "the total price after taxes are: " + runningTotal;
         String result = controller.registerItem(itemDTO, itemQuantity, itemID);
         assertEquals("Strings doesnt match.", expResult, result);
+        }
+        catch (OperationFailedException exception){}
+        catch (InvalidIDException exception){}
     }
 
     @Test
