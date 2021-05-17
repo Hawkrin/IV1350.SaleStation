@@ -26,6 +26,13 @@ public class FileLogger implements LogHandler {
     }
 
     /**
+     * Gets the file logger
+     * 
+     * @return the file logger
+     */
+    public static FileLogger getFileLogger() { return FILE_LOGGER; }
+
+    /**
      * Prints and logs the specified string to a txt file.
      * 
      * @param message the string that will be logged
