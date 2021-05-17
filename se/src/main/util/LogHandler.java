@@ -19,9 +19,7 @@ public class LogHandler {
      * 
      * @return the logged instance
      */
-    public static LogHandler getLog() {
-        return LOG_INSTANCE;
-    }
+    public static LogHandler getLog() { return LOG_INSTANCE; }
 
     /**
      * Writes a log entry describing a thrown exception.
@@ -31,7 +29,7 @@ public class LogHandler {
     public void logException(Exception exception) {
         StringBuilder logBuilder = new StringBuilder();
         logBuilder.append("An Error Occured");
-        logBuilder.append(timeRightNow);
+        logBuilder.append("\n @ " + timeRightNow);
         logBuilder.append("\n and an Exception was thrown: ");
         logBuilder.append(exception.getMessage());
         logFile.println(logBuilder);

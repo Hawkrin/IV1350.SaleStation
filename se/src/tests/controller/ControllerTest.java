@@ -20,7 +20,6 @@ import static org.junit.Assert.assertNotEquals;
 public class ControllerTest {
     private Controller controller = new Controller(new CatalogHandler(), new SystemHandler(), new ReceiptPrinter(), new SalesLog());
     private final int INVALID_ITEM_ID = 01010;
-    private final int VALID_ITEM_ID = 11111;
 
     @Test
     public void registerItemWithException() throws InvalidIDException, OperationFailedException {
@@ -110,7 +109,7 @@ public class ControllerTest {
     }
 
     @Disabled
-    public void testSalePaymentWithoutException() throws InvalidIDException, OperationFailedException {
+    public void testSalePaymentWithException() throws InvalidIDException, OperationFailedException {
         controller.startNewSale();
         String itemName = "Hammer";
         Amount itemPrice = new Amount(300);
@@ -131,7 +130,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void testSalePaymentWithException() throws InvalidIDException, OperationFailedException {
+    public void testSalePaymentWithoutException() throws InvalidIDException, OperationFailedException {
         controller.startNewSale();
         String itemName = "Hammer";
         Amount itemPrice = new Amount(300);
