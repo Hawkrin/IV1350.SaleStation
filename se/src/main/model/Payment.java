@@ -25,7 +25,6 @@ public class Payment {
      */
     public Summary getFinalSum(){ return totalPrice; }
 
-
     /**
      * Calculates the change to return
      * 

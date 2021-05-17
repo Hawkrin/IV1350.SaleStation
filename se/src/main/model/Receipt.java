@@ -1,6 +1,5 @@
 package main.model;
 
-import main.controller.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -9,9 +8,7 @@ import java.time.format.FormatStyle;
  */
 public class Receipt {
     private Sale sale;
-    private Controller ctrl;
     LocalDateTime timeofSale = LocalDateTime.now();
-
    
     /**
      * Creates a new instance, representing a reciept
@@ -20,8 +17,17 @@ public class Receipt {
      */
     public Receipt(Sale sale){
         this.sale = sale;
-
     }
+
+    /**
+     * Gets the date and time of today
+     * 
+     * @return the date and time of today
+     */
+    public String getDateAndTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+        return timeofSale.format(formatter); 
+    } 
 
     /**
      * Creates an exampel reciept.
@@ -38,17 +44,7 @@ public class Receipt {
         appendLine(builder, "\n*******RECIEPT END******");
         endSection(builder);
         return builder.toString();
-    }
-
-    /**
-     * Gets the date and time of today
-     * 
-     * @return the date and time of today
-     */
-    public String getDateAndTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
-        return timeofSale.format(formatter); 
-    }   
+    }  
 
     private void appendLine(StringBuilder builder, String newLine) {
         builder.append(newLine);
