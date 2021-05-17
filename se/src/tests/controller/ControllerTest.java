@@ -32,7 +32,7 @@ public class ControllerTest {
         Amount runningTotal = itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity));
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         try {
-        String expResult = "Item Name: " + itemName + "\nItem Price: " + itemPrice + "\ntaxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + " the total price after taxes are: " + runningTotal;
+        String expResult = "\nItem Name: " + itemName + "\nItem Price: " + itemPrice + "\nItem taxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + "\nPrice Summary: " + runningTotal;
         String result = controller.registerItem(itemID, itemQuantity);
         assertEquals("Strings doesnt match.", expResult, result);
         }
@@ -51,9 +51,9 @@ public class ControllerTest {
         Amount runningTotal = itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity));
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         try {
-        String expResult = "Item Name: " + itemName + "\nItem Price: " + itemPrice + "\ntaxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + "the total price after taxes are: " + runningTotal;
+        String expResult = "Item Name: " + itemName + "\nItem Price: " + itemPrice + "\nItem taxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + "Total Price: " + runningTotal;
         String result = controller.registerItem(itemID, itemQuantity);
-        assertNotEquals("Strings doesnt match.", expResult, result);
+        assertEquals("Strings doesnt match.", expResult, result);
         }
         catch (OperationFailedException exception){}
         catch (InvalidIDException exception){}
@@ -69,7 +69,7 @@ public class ControllerTest {
         Amount itemQuantity = new Amount(2);
         Amount runningTotal = itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity));
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
-        String expResult = "Item Name: " + itemName + "\nItem Price: " + itemPrice + "\ntaxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + "the total price after taxes are: " + runningTotal;
+        String expResult = "Item Name: " + itemName + "\nItem Price: " + itemPrice + "\nItem taxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + "Total Price: " + runningTotal;
         String result = controller.registerItem(itemID, itemQuantity);
         assertEquals("Strings doesnt match.", expResult, result);
     }
@@ -85,7 +85,7 @@ public class ControllerTest {
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         try{
         controller.registerItem(itemID, itemQuantity);
-        String expResult = "the total price after taxes are: " + itemPrice.add(taxRate);
+        String expResult ="" + itemPrice.add(taxRate);
         String result = controller.displaySummary();
         assertEquals("The sums doesnt match.", expResult, result);
         } 
@@ -103,7 +103,7 @@ public class ControllerTest {
         Amount itemQuantity = new Amount(1);
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         controller.registerItem(itemID, itemQuantity);
-        String expResult = "the total price after taxes are: " + itemPrice.add(taxRate);
+        String expResult = "" + itemPrice.add(taxRate);
         String result = controller.displaySummary();
         assertEquals("The sums doesnt match.", expResult, result);
     }
@@ -121,7 +121,7 @@ public class ControllerTest {
         try {
         controller.registerItem(itemID, itemQuantity);
         Amount paidAmount = new Amount(500);
-        String expResult = "Change the return: " + paidAmount.subtract(runningTotal);
+        String expResult = "Change to return: " + paidAmount.subtract(runningTotal);
         String result = controller.salePayment(paidAmount);
         assertEquals("The change returned doesnt match", expResult, result);
         }
@@ -141,7 +141,7 @@ public class ControllerTest {
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         controller.registerItem(itemID, itemQuantity);;
         Amount paidAmount = new Amount(500);
-        String expResult = "Change the return: " + paidAmount.subtract(runningTotal);
+        String expResult = "Change to return: " + paidAmount.subtract(runningTotal);
         String result = controller.salePayment(paidAmount);
         assertEquals("The change returned doesnt match", expResult, result);
     }
