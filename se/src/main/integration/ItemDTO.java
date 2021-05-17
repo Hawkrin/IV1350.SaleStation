@@ -1,6 +1,6 @@
-package src.integration;
+package main.integration;
 
-import src.util.Amount;
+import main.util.Amount;
 
 /**
  * Represents the data of an item

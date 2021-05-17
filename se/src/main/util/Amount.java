@@ -1,4 +1,4 @@
-package src.util;
+package main.util;
 
 /**
  * The object amount is used to represent different amounts, such as prices, quantities etc.

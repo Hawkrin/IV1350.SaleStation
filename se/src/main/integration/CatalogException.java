@@ -1,4 +1,4 @@
-package src.integration;
+package main.integration;
 
 /**
  * Thrown when a database can't be reached

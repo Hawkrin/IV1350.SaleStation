@@ -1,7 +1,7 @@
-package src.integration;
+package main.integration;
 
 import java.util.HashMap;
-import src.util.Amount;
+import main.util.Amount;
 
 /**
  * Contains all the calls to the data store with the products which can be purchased

@@ -1,4 +1,4 @@
-package src.integration;
+package main.integration;
 
 /**
  * Thrown when an item or customer ID is unknown

@@ -1,11 +1,11 @@
 package tests.integration;
 
-import src.integration.ReceiptPrinter;
-import src.model.Receipt;
-import src.integration.Item;
-import src.model.Sale;
-import src.util.Amount;
-import src.integration.ItemDTO;
+import main.integration.ReceiptPrinter;
+import main.model.Receipt;
+import main.integration.Item;
+import main.model.Sale;
+import main.util.Amount;
+import main.integration.ItemDTO;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.time.LocalDateTime;

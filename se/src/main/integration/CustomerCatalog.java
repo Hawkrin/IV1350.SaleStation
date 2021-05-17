@@ -1,7 +1,7 @@
-package src.integration;
+package main.integration;
 
 import java.util.HashMap;
-import src.util.Customer;
+import main.util.Customer;
 
 /**
  * Represents a Register for customers

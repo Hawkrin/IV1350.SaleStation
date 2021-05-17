@@ -1,6 +1,6 @@
 package tests.integration;
 
-import src.integration.CustomerCatalog;
+import main.integration.CustomerCatalog;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 

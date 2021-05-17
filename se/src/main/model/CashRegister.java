@@ -1,6 +1,6 @@
-package src.model;
+package main.model;
 
-import src.util.Amount;
+import main.util.Amount;
 /**
  * This class represents the cash register
  */

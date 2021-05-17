@@ -1,4 +1,4 @@
-package src.util;
+package main.util;
 
 /**
  * A helping class for discounts

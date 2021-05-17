@@ -1,6 +1,6 @@
-package src.integration;
+package main.integration;
 
-import src.model.Receipt;
+import main.model.Receipt;
 /**
  * A class that represent the reciept printer
  */

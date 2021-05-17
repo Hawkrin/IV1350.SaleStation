@@ -1,15 +1,15 @@
 package tests.controller;
 
-import src.controller.Controller;
-import src.controller.RegisterFailedException;
-import src.integration.CatalogHandler;
-import src.integration.InvalidIDException;
-import src.integration.ReceiptPrinter;
-import src.integration.SystemHandler;
-import src.integration.SalesLog;
-import src.util.Amount;
-import src.integration.ItemDTO;
-import src.integration.Item;
+import main.controller.Controller;
+import main.controller.RegisterFailedException;
+import main.integration.CatalogHandler;
+import main.integration.InvalidIDException;
+import main.integration.ReceiptPrinter;
+import main.integration.SystemHandler;
+import main.integration.SalesLog;
+import main.util.Amount;
+import main.integration.ItemDTO;
+import main.integration.Item;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;

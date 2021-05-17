@@ -1,10 +1,10 @@
 package tests.model;
 
-import src.model.Payment;
-import src.model.Summary;
-import src.integration.Item;
-import src.integration.ItemDTO;
-import src.util.Amount;
+import main.model.Payment;
+import main.model.Summary;
+import main.integration.Item;
+import main.integration.ItemDTO;
+import main.util.Amount;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 public class PaymentTest {

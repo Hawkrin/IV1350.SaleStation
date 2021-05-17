@@ -1,6 +1,6 @@
 package tests.util;
 
-import src.util.Amount;
+import main.util.Amount;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 

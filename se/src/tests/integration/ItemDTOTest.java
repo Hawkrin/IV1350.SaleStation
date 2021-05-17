@@ -1,7 +1,7 @@
 package tests.integration;
 
-import src.util.Amount;
-import src.integration.ItemDTO;
+import main.util.Amount;
+import main.integration.ItemDTO;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 public class ItemDTOTest {

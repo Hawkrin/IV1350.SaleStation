@@ -1,7 +1,7 @@
-package src.model;
+package main.model;
 
 import java.util.HashMap;
-import src.integration.Item;
+import main.integration.Item;
 
 /**
  * Represents the actual sale done in the application

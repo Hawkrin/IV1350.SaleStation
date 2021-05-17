@@ -1,9 +1,9 @@
 package tests.model;
 
-import src.model.Sale;
-import src.integration.Item;
-import src.integration.ItemDTO;
-import src.util.Amount;
+import main.model.Sale;
+import main.integration.Item;
+import main.integration.ItemDTO;
+import main.util.Amount;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 public class SaleTest {

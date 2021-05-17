@@ -1,11 +1,11 @@
 package tests.model;
 
-import src.model.Payment;
-import src.util.Amount;
-import src.integration.ItemDTO;
-import src.integration.Item;
-import src.model.Summary;
-import src.model.CashRegister;
+import main.model.Payment;
+import main.util.Amount;
+import main.integration.ItemDTO;
+import main.integration.Item;
+import main.model.Summary;
+import main.model.CashRegister;
 import static org.junit.Assert.assertEquals;
 import org.junit.jupiter.api.Test;
 

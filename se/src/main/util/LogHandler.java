@@ -1,5 +1,4 @@
-package src.util;
-
+package main.util;
 
 import java.io.FileWriter;
 import java.io.IOException;

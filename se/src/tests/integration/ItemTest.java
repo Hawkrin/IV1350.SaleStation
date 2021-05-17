@@ -1,8 +1,8 @@
 package tests.integration;
 
-import src.integration.Item;
-import src.integration.ItemDTO;
-import src.util.Amount;
+import main.integration.Item;
+import main.integration.ItemDTO;
+import main.util.Amount;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

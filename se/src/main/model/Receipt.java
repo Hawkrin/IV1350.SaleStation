@@ -1,4 +1,4 @@
-package src.model;
+package main.model;
 
 import java.time.LocalDateTime;
 /**

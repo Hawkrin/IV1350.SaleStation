@@ -1,4 +1,4 @@
-package src.integration;
+package main.integration;
 
 /**
  * Represents a database for discounts

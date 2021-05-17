@@ -1,11 +1,11 @@
 package tests.model;
 
-import src.integration.Item;
+import main.integration.Item;
 
-import src.model.Summary;
-import src.util.Amount;
-import src.integration.Item;
-import src.integration.ItemDTO;
+import main.model.Summary;
+import main.util.Amount;
+import main.integration.Item;
+import main.integration.ItemDTO;
 import org.junit.jupiter.api.Disabled;
 import static org.junit.Assert.*;
 

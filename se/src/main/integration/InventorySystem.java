@@ -1,10 +1,10 @@
-package src.integration;
+package main.integration;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import src.model.Sale;
-import src.util.Amount;
+import main.model.Sale;
+import main.util.Amount;
 
 /**
  * Represents an external inventory system

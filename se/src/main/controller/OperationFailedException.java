@@ -1,4 +1,4 @@
-package src.controller;
+package main.controller;
 
 /**
  * Thrown if the controller fails while registering items

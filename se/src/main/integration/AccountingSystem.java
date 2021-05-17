@@ -1,9 +1,8 @@
-package src.integration;
+package main.integration;
 
 import java.time.*;
 import java.util.HashMap;
-
-import src.model.Sale;
+import main.model.Sale;
 /**
  * Represents an external accounting system
  */

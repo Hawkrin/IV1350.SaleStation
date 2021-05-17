@@ -1,8 +1,8 @@
-package src.controller;
+package main.controller;
 
-import src.integration.*;
-import src.model.*;
-import src.util.Amount;
+import main.integration.*;
+import main.model.*;
+import main.util.Amount;
 
 /**
  * This is the applications only controller, all calls to the model passes through
