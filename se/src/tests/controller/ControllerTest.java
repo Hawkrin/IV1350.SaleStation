@@ -33,7 +33,7 @@ public class ControllerTest {
         Amount runningTotal = itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity));
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         try {
-        String expResult = "Item Name: " + itemName + "\nItem Price: " + itemPrice + "\ntaxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + "the total price after taxes are: " + runningTotal;
+        String expResult = "Item Name: " + itemName + "\nItem Price: " + itemPrice + "\ntaxRate: " + taxRate + "\nItem ID: " + itemID + "\nItem Quantity: " + itemQuantity + " the total price after taxes are: " + runningTotal;
         String result = controller.registerItem(itemDTO, itemQuantity, itemID);
         assertEquals("Strings doesnt match.", expResult, result);
         }
