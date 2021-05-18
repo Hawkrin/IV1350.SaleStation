@@ -9,7 +9,7 @@ import main.model.Summary;
 /**
  * Displays the total revenue via a logfile when a payment is done.
  */
-public class TotalRevenueFileOutput implements PaymentObserver {
+public class TotalRevenueFileOutput implements PaymentObserver, LogHandler {
     private Summary RevenueFileOutput;
     private LogHandler logger;
     private static final String NAME_OF_LOG_FILE = "TotalRevenue.txt";
@@ -61,6 +61,17 @@ public class TotalRevenueFileOutput implements PaymentObserver {
         logBuilder.append("\n");  
         logBuilder.append("*************FILE LOGGER ENDS************\n");
         logFile.println(logBuilder);  
+    }
+
+    @Override
+    public void logException(Exception exception) {
+        // TODO Auto-generated method stub   
+    }
+
+    @Override
+    public void log(String string) {
+        // TODO Auto-generated method stub
+        
     }
 
 }
