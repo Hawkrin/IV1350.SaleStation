@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 /**
- * This class is responsible for the log.
+ * This class is responsible for logging.
  */
 public interface LogHandler {
     LocalDateTime timeRightNow = LocalDateTime.now();
@@ -23,8 +23,8 @@ public interface LogHandler {
      * @return the date and time of today
      */
     public default String getDateAndTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
-        return timeRightNow.format(formatter); 
+        DateTimeFormatter format = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+        return timeRightNow.format(format); 
     } 
 }
 

@@ -9,6 +9,9 @@ public class ErrorMessageHandler {
     LocalDateTime timeRightNow = LocalDateTime.now();
     private static final ErrorMessageHandler ERROR_MESSAGE = new ErrorMessageHandler();
 
+    /**
+     * Creates an instance of the ErrorMessageHandler
+     */
     public ErrorMessageHandler() {}
 
     /**
@@ -23,7 +26,10 @@ public class ErrorMessageHandler {
      * 
      * @return the date and time of today
      */
-    public String getDateAndTime() { return timeRightNow.toString(); }
+    public String getDateAndTime() {
+        DateTimeFormatter format = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+        return timeRightNow.format(format); 
+    } 
     
     /**
      * Displays the specified error message.

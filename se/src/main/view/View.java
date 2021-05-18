@@ -39,7 +39,6 @@ public class View {
         System.out.println(ctrl.salePayment(new Amount(1500)));
     }
 
-
     /**
      * Makes a sample run of the application
      */
@@ -51,7 +50,7 @@ public class View {
         System.out.println("\n");
         System.out.println(ctrl.registerItem(11110, new Amount(3)));
         try{
-            System.out.println("\nCashier displays the total with taxes:");
+            System.out.println("\nCashier displays the total price with taxes:");
             System.out.println(ctrl.displaySummary());
         }
         catch(IllegalStateException exception) {
