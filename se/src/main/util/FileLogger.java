@@ -2,6 +2,7 @@ package main.util;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import main.util.Amount;
 import java.io.IOException;
 
 /**
@@ -33,12 +34,12 @@ public class FileLogger implements LogHandler {
     public static FileLogger getFileLogger() { return FILE_LOGGER; }
 
     /**
-     * Prints and logs the specified string to a txt file.
+     * Logs the specified exception to a txt file.
      * 
-     * @param message the string that will be logged
+     * @param exception the exception that will be logged
      */
     @Override
-    public void log(Exception exception) {
+    public void logException(Exception exception) {
         StringBuilder logBuilder = new StringBuilder();
         logBuilder.append("An Error Occured");
         logBuilder.append("\n @ " + getDateAndTime());
@@ -47,5 +48,13 @@ public class FileLogger implements LogHandler {
         logFile.println(logBuilder.toString());
         exception.printStackTrace(logFile);  
     }
+
+     /**
+     * Prints and logs the specified string to a txt file.
+     * 
+     * @param amount the amount that will be logged
+     */
+    @Override
+    public void log(Amount amount) {}
     
 }

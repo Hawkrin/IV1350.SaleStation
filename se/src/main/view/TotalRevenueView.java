@@ -28,9 +28,10 @@ public class TotalRevenueView implements PaymentObserver {
     }
 
     private void printTotalRevenue(){
-        System.out.println("**********Total Revenue After Sale**********");
-        System.out.println("Revenue: " + totalRevenue.getSummary().toString());
-        System.out.println("********************************************\n");
+        System.out.println("***************CONSOLE LOGGER****************\n\n");
+        System.out.println("Total Revenue After Sale: " + totalRevenue.getSummary().toString());
+        System.out.println("\n");
+        System.out.println("*************CONSOLE LOGGER ENDS************\n");
     }
     
 }

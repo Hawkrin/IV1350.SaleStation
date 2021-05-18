@@ -1,7 +1,6 @@
 package main.startup;
 
 import java.io.IOException;
-
 import main.controller.Controller;
 import main.controller.OperationFailedException;
 import main.integration.CatalogHandler;
@@ -9,6 +8,8 @@ import main.integration.InvalidIDException;
 import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
 import main.integration.SystemHandler;
+import main.util.FileLogger;
+import main.util.TotalRevenueFileOutput;
 import main.view.TotalRevenueView;
 import main.view.View;
 
@@ -33,6 +34,9 @@ public class Main {
         Controller ctrl = new Controller(catalogHandler, systemHandler, receiptPrinter, salesLog);
         View view = new View(ctrl);
         view.sampleRun();
+        TotalRevenueFileOutput client = new TotalRevenueFileOutput();
+        client.setLogger(new FileLogger());
+    
         
 
         

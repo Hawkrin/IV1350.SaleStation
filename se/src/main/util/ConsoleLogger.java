@@ -24,7 +24,7 @@ public class ConsoleLogger implements LogHandler {
      * @param message the string that will be output
      */
     @Override
-    public void log(Exception exception) {
+    public void logException(Exception exception) {
         StringBuilder logBuilder = new StringBuilder();
         logBuilder.append("An Error Occured");
         logBuilder.append("\n @ " + getDateAndTime());
@@ -33,6 +33,9 @@ public class ConsoleLogger implements LogHandler {
         System.out.println(logBuilder.toString());
         exception.printStackTrace(System.out);  
     }
+
+    @Override
+    public void log(Amount amount) {}
         
 }
     

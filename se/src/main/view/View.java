@@ -12,7 +12,8 @@ import main.model.*;
 public class View {
     private Controller ctrl;
     private ErrorMessageHandler errorMsgHandler =  ErrorMessageHandler.getErrorMessage();
-    private ConsoleLogger logger = ConsoleLogger.getConsoleLogger();
+    private ConsoleLogger consoleLogger = ConsoleLogger.getConsoleLogger();
+    private FileLogger fileLogger = FileLogger.getFileLogger();
 
     /**
      * Creates a new instance
@@ -22,6 +23,7 @@ public class View {
     public View(Controller ctrl) throws IOException {
         this.ctrl = ctrl;
         ctrl.addPaymentObserver(new TotalRevenueView());
+        ctrl.addPaymentObserver(new TotalRevenueFileOutput());
     }
 
     /**
