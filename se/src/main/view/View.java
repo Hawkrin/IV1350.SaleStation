@@ -1,8 +1,10 @@
 package main.view;
 
+import java.io.IOException;
 import main.controller.*;
 import main.util.*;
 import main.integration.*;
+import main.model.*;
 
 /**
  * represents the user interface
@@ -17,8 +19,9 @@ public class View {
      * 
      * @param ctrl The controller that is used for all operations
      */
-    public View(Controller ctrl) {
+    public View(Controller ctrl) throws IOException {
         this.ctrl = ctrl;
+        ctrl.addPaymentObserver(new TotalRevenueView());
     }
 
     /**

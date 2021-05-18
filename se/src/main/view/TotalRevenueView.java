@@ -6,8 +6,15 @@ import main.model.Summary;
 /**
  * Displays the total revenue after a payment is done
  */
-public class TotalRevenueView implements PaymentObserver  {
+public class TotalRevenueView implements PaymentObserver {
     private Summary totalRevenue;
+
+    /**
+     * Creates a new instance of TotalRevenue
+     */
+    public TotalRevenueView(){
+        totalRevenue = new Summary();
+    }
 
     /**
      * Updates the total revenue when a payment is done

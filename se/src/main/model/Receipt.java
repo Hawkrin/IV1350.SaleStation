@@ -41,7 +41,7 @@ public class Receipt {
         appendLine(builder, getDateAndTime().toString());
         builder.append("\nItems Bought: \n\n");
         appendLine(builder, sale.getShoppingCart().toString());
-        appendLine(builder, "\n*******RECIEPT END******");
+        appendLine(builder, "\n*******RECIEPT END*******");
         endSection(builder);
         return builder.toString();
     }  

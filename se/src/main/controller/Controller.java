@@ -1,5 +1,7 @@
 package main.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import main.integration.*;
 import main.model.*;
 import main.util.Amount;
@@ -18,6 +20,7 @@ public class Controller {
     private DiscountCatalog discountCatalog;
     private SalesLog salesLog;
     private ReceiptPrinter receiptPrinter;
+    private List<PaymentObserver> paymentObservers = new ArrayList<>();
 
     /**
      * Creates a new instance instance of the catalogs and systems
@@ -94,9 +97,18 @@ public class Controller {
         receiptPrinter.printReceipt(receipt);
         cashRegister.addPayment(payment);
         salesLog.updateSalesLog(sale);
-        sale = null;
+        payment.addPaymentObservers(paymentObservers);
 
         return "Change to return: " + payment.getChange().toString();
+    }
+
+    /**
+     * The specified observer will be notified when a payment is made.
+     * 
+     * @param observers The observers to notify.
+     */
+    public void addPaymentObserver(PaymentObserver obs) {
+        paymentObservers.add(obs);
     }
     
 }
