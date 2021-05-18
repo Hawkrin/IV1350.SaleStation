@@ -6,11 +6,11 @@ package main.model;
  */
 public interface PaymentObserver {
 
-
     /**
-     * Invoked when a payment is made.
-     * @param total the total of the made payment.
+     * Can be called upon when a payment has been made
+     * 
+     * @param summary the payment summary
      */
-    void summarizeSale(Item item);
+    void updateTotal(Summary summary);
     
 }
