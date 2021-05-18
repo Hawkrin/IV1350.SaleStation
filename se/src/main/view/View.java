@@ -12,8 +12,7 @@ import main.model.*;
 public class View {
     private Controller ctrl;
     private ErrorMessageHandler errorMsgHandler =  ErrorMessageHandler.getErrorMessage();
-    private ConsoleLogger consoleLogger = ConsoleLogger.getConsoleLogger();
-    private FileLogger fileLogger = FileLogger.getFileLogger();
+    private LogHandler loghandler = FileLogger.getFileLogger();
 
     /**
      * Creates a new instance
@@ -53,13 +52,13 @@ public class View {
         System.out.println("\nCashier enter items:\n");
         System.out.println(ctrl.registerItem(11111, new Amount(2)));
         System.out.println("\n");
-        System.out.println(ctrl.registerItem(11110, new Amount(3)));
+        System.out.println(ctrl.registerItem(11112, new Amount(3)));
         try{
             System.out.println("\nCashier displays the total price with taxes:");
             System.out.println(ctrl.displaySummary());
         }
         catch(IllegalStateException exception) {
-            errorMsgHandler.displayErrorMessage("A new sale haven't been started");
+            handleException("A new sale have to be started", exception);
         }
         try {
             System.out.println("\nCashier enters the amount paid by the customer.\n");
@@ -67,9 +66,12 @@ public class View {
             System.out.println(ctrl.salePayment(new Amount(1500)));
         }
         catch(IllegalStateException exception) {
-            errorMsgHandler.displayErrorMessage("A new sale haven't been started");
+            handleException("A new sale have to be started", exception);
         }
-
+    }
+    private void handleException(String message, Exception exception){
+        errorMsgHandler.displayErrorMessage(message);;
+        loghandler.logException(exception);
     }
     
 }

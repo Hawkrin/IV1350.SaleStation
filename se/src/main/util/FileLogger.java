@@ -2,7 +2,6 @@ package main.util;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import main.util.Amount;
 import java.io.IOException;
 
 /**
@@ -10,7 +9,7 @@ import java.io.IOException;
  */
 public class FileLogger implements LogHandler {
     private static final FileLogger FILE_LOGGER = new FileLogger();
-    private static final String NAME_OF_LOG_FILE = "SaleStation-log.txt";
+    private static final String NAME_OF_LOG_FILE = "SaleException-log.txt";
     private PrintWriter logFile;
     
     /**
@@ -47,6 +46,7 @@ public class FileLogger implements LogHandler {
         logBuilder.append(exception.getMessage());
         logFile.println(logBuilder.toString());
         exception.printStackTrace(logFile);  
+        logFile.println("***************");
     }
 
      /**
@@ -55,6 +55,8 @@ public class FileLogger implements LogHandler {
      * @param amount the amount that will be logged
      */
     @Override
-    public void log(Amount amount) {}
+    public void log(String string) {
+        logFile.println(string);
+    }
     
 }

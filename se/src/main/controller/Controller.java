@@ -109,6 +109,5 @@ public class Controller {
      */
     public void addPaymentObserver(PaymentObserver obs) {
         paymentObservers.add(obs);
-    }
-    
+    }   
 }

@@ -1,5 +1,8 @@
 package main.util;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import main.model.PaymentObserver;
 import main.model.Summary;
 
@@ -9,6 +12,18 @@ import main.model.Summary;
 public class TotalRevenueFileOutput implements PaymentObserver {
     private Summary RevenueFileOutput;
     private LogHandler logger;
+    private static final String NAME_OF_LOG_FILE = "TotalRevenue.txt";
+    private PrintWriter logFile;
+
+    /**
+     * Creates an instance of the FileLogger
+     * @throws IOException
+     */
+    public TotalRevenueFileOutput() throws IOException {
+        RevenueFileOutput = new Summary();
+        FileWriter fileWriter = new FileWriter(NAME_OF_LOG_FILE);
+        logFile = new PrintWriter(fileWriter, true);
+    }
 
     /**
      * Creates a new instance and writes log messages to the specified logger
@@ -27,14 +42,7 @@ public class TotalRevenueFileOutput implements PaymentObserver {
     public void setLogger(LogHandler logger) {
         this.logger = logger;
     }
-
-    /**
-     * Creates a new instance of TotalRevenueFileOutPut
-     */
-    public TotalRevenueFileOutput(){
-        RevenueFileOutput = new Summary();
-    }
-
+   
     /**
      * Updates the total revenue when a payment is done
      * 
@@ -47,7 +55,12 @@ public class TotalRevenueFileOutput implements PaymentObserver {
     }
 
     private void createTotalRevenueFile(){
-        logger.log(RevenueFileOutput.getSummary());    
+        StringBuilder logBuilder = new StringBuilder();
+        logBuilder.append("***************FILE LOGGER****************\n\n");
+        logBuilder.append("Total Revenue After Sale: " + RevenueFileOutput.getSummary().toString());
+        logBuilder.append("\n");  
+        logBuilder.append("*************FILE LOGGER ENDS************\n");
+        logFile.println(logBuilder);  
     }
-    
+
 }

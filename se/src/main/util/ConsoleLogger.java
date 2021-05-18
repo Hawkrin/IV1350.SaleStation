@@ -35,7 +35,7 @@ public class ConsoleLogger implements LogHandler {
     }
 
     @Override
-    public void log(Amount amount) {}
+    public void log(String string) {}
         
 }
     

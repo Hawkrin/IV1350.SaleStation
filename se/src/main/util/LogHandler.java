@@ -21,7 +21,7 @@ public interface LogHandler {
      * 
      * @return the string that has been logged
      */
-    public void log(Amount amount);
+    public void log(String string);
 
     /**
      * Gets the date and time of today

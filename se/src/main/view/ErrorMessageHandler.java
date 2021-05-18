@@ -38,7 +38,7 @@ public class ErrorMessageHandler {
      * 
      * @param msg The error message to display.
      */
-    void displayErrorMessage(String msg) {
+    public void displayErrorMessage(String msg) {
         StringBuilder occuredError = new StringBuilder();
         occuredError.append(getDateAndTime());
         occuredError.append("\n");
@@ -46,6 +46,6 @@ public class ErrorMessageHandler {
         occuredError.append("\n");
         occuredError.append(msg);
         occuredError.append("\n");
-        System.out.println(occuredError);
+        System.out.println(occuredError.toString());
     }
 }

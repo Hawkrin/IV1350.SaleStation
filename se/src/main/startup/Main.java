@@ -33,7 +33,8 @@ public class Main {
         SalesLog salesLog = new SalesLog();
         Controller ctrl = new Controller(catalogHandler, systemHandler, receiptPrinter, salesLog);
         View view = new View(ctrl);
-        view.sampleRun();
+        //view.sampleRun();
+        view.sampleRunWithExceptions();
         TotalRevenueFileOutput client = new TotalRevenueFileOutput();
         client.setLogger(new FileLogger());
     

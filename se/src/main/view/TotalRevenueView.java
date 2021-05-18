@@ -15,7 +15,7 @@ public class TotalRevenueView implements PaymentObserver {
     public TotalRevenueView(){
         totalRevenue = new Summary();
     }
-
+    
     /**
      * Updates the total revenue when a payment is done
      * 
