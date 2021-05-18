@@ -40,12 +40,14 @@ public class ErrorMessageHandler {
      */
     public void displayErrorMessage(String msg) {
         StringBuilder occuredError = new StringBuilder();
+        occuredError.append("******WARNING******\n");
         occuredError.append(getDateAndTime());
         occuredError.append("\n");
-        occuredError.append(" ERROR: ");
+        occuredError.append("ERROR OCCURED ");
         occuredError.append("\n");
         occuredError.append(msg);
         occuredError.append("\n");
+        occuredError.append("*******************");
         System.out.println(occuredError.toString());
     }
 }
