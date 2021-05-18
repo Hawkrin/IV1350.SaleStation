@@ -52,6 +52,16 @@ public class Summary {
     public Amount getSummary() { return summary.add(totalTax) ; }
 
     /**
+     * Updates the total and the totalTax by adding it with another total.
+     *
+     * @param summary The total that will be added to this total.
+     */
+    public void updateTotal(Summary summary){
+        this.summary = this.summary.plus(summary.getSummary());
+        this.totalTax = this.totalTax.plus(total.getTotalTax());
+    }
+
+    /**
      * Updates the price of the items being bought as well as the total tax.
      * 
      * @param item The item that is being added to the summary of the sale.
