@@ -57,8 +57,8 @@ public class Summary {
      * @param summary The total that will be added to this total.
      */
     public void updateTotal(Summary summary){
-        this.summary = this.summary.plus(summary.getSummary());
-        this.totalTax = this.totalTax.plus(total.getTotalTax());
+        this.summary = this.summary.add(summary.getSummary());
+        this.totalTax = this.totalTax.add(summary.getTotalTax());
     }
 
     /**
