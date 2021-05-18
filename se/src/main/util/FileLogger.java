@@ -46,7 +46,6 @@ public class FileLogger implements LogHandler {
         logBuilder.append(exception.getMessage());
         logFile.println(logBuilder.toString());
         exception.printStackTrace(logFile);  
-        logFile.println("***************");
     }
 
      /**

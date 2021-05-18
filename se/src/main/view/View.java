@@ -4,7 +4,6 @@ import java.io.IOException;
 import main.controller.*;
 import main.util.*;
 import main.integration.*;
-import main.model.*;
 
 /**
  * represents the user interface
