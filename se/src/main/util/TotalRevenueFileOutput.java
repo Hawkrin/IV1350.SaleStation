@@ -7,7 +7,7 @@ import main.model.PaymentObserver;
 import main.model.Summary;
 
 /**
- * Displays the total revenue via a logfile when a payment is done.
+ * Prints Log Revenue messages as a text file
  */
 public class TotalRevenueFileOutput implements PaymentObserver, LogHandler {
     private Summary RevenueFileOutput;

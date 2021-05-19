@@ -12,7 +12,7 @@ public class View {
     private SampleHelpMethods sample;
     private Controller ctrl;
     private ErrorMessageHandler errorMsgHandler =  ErrorMessageHandler.getErrorMessage();
-    private LogHandler loghandler = FileLogger.getFileLogger();
+    private LogHandler loghandler = FileErrorLogger.getFileErrorLogger();
 
     /**
      * Creates a new instance

@@ -11,7 +11,7 @@ import main.view.ErrorMessageHandler;
 public class SampleHelpMethods {
     Controller ctrl;
     private ErrorMessageHandler errorMsgHandler =  ErrorMessageHandler.getErrorMessage();
-    private LogHandler loghandler = FileLogger.getFileLogger();
+    private LogHandler loghandler = FileErrorLogger.getFileErrorLogger();
 
     /**
      * Creates a new instance

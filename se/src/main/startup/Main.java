@@ -8,7 +8,7 @@ import main.integration.InvalidIDException;
 import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
 import main.integration.SystemHandler;
-import main.util.FileLogger;
+import main.util.FileErrorLogger;
 import main.util.SampleHelpMethods;
 import main.util.TotalRevenueFileOutput;
 import main.view.TotalRevenueView;
@@ -38,7 +38,7 @@ public class Main {
         //view.sampleRun();
         view.sampleRunWithExceptions();
         TotalRevenueFileOutput client = new TotalRevenueFileOutput();
-        client.setLogger(new FileLogger());
+        client.setLogger(new FileErrorLogger());
     
         
 

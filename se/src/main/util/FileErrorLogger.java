@@ -5,17 +5,17 @@ import java.io.PrintWriter;
 import java.io.IOException;
 
 /**
- * Prints Log messages as a text file
+ * Prints Log Error messages as a text file
  */
-public class FileLogger implements LogHandler {
-    private static final FileLogger FILE_LOGGER = new FileLogger();
+public class FileErrorLogger implements LogHandler {
+    private static final FileErrorLogger FILE_LOGGER = new FileErrorLogger();
     private static final String NAME_OF_LOG_FILE = "SaleException-log.txt";
     private PrintWriter logFile;
     
     /**
      * Creates an instance of the FileLogger
      */
-    public FileLogger() {
+    public FileErrorLogger() {
         try {
             logFile = new PrintWriter(new FileWriter(NAME_OF_LOG_FILE), true);
         } 
@@ -30,7 +30,7 @@ public class FileLogger implements LogHandler {
      * 
      * @return the file logger
      */
-    public static FileLogger getFileLogger() { return FILE_LOGGER; }
+    public static FileErrorLogger getFileErrorLogger() { return FILE_LOGGER; }
 
     /**
      * Logs the specified exception to a txt file.
@@ -48,7 +48,7 @@ public class FileLogger implements LogHandler {
         exception.printStackTrace(logFile);  
     }
 
-     /**
+    /**
      * Prints and logs the specified string to a txt file.
      * 
      * @param amount the amount that will be logged
