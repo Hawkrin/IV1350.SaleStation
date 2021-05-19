@@ -24,10 +24,10 @@ public class DiscountCatalog {
     public HashMap<String, Amount> getDiscountPercent() { return this.discountList; }
 
     protected void availableDiscount() {
-        discountList.put("Bronze tier", new Amount(0.05));
-        discountList.put("Silver tier", new Amount(0.10));
-        discountList.put("Gold tier", new Amount(0.15));
-        discountList.put("Diamond tier",new Amount(0.25));
+        discountList.put("Discount Bronze tier", new Amount(0.05));
+        discountList.put("Discount Silver tier", new Amount(0.10));
+        discountList.put("Discount Gold tier", new Amount(0.15));
+        discountList.put("Discount Diamond tier",new Amount(0.25));
     }
 
 
