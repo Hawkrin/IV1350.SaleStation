@@ -38,9 +38,9 @@ public class Main {
         View view = new View(ctrl, sample);
         CatalogInformationDisplayer catalogInformationDisplayer = new CatalogInformationDisplayer();
         //view.sampleRun();
-        view.sampleRunWithExceptions();
+        //view.sampleRunWithExceptions();
         TotalRevenueFileOutput client = new TotalRevenueFileOutput();
-        client.setLogger(new FileErrorLogger());
+        client.setLogger(new TotalRevenueFileOutput());
         catalogInformationDisplayer.printData();
     
         

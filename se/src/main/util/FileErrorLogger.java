@@ -15,7 +15,7 @@ public class FileErrorLogger implements LogHandler {
     /**
      * Creates an instance of the FileLogger
      */
-    public FileErrorLogger() {
+    private FileErrorLogger() {
         try {
             logFile = new PrintWriter(new FileWriter(NAME_OF_LOG_FILE), true);
         } 
