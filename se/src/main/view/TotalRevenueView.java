@@ -8,14 +8,12 @@ import main.util.LogHandler;
  * Displays the total revenue after a payment is done
  */
 public class TotalRevenueView implements PaymentObserver, LogHandler {
-    private Summary totalRevenue;
+    private Summary totalRevenue = new Summary();
 
     /**
      * Creates a new instance of TotalRevenue
      */
-    public TotalRevenueView(){
-        totalRevenue = new Summary();
-    }
+    public TotalRevenueView(){}
 
     @Override
     public void logException(Exception exception) {

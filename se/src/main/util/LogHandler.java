@@ -16,7 +16,7 @@ public interface LogHandler {
      */
     public void logException(Exception exception);
 
-     /**
+    /**
      * Logs a string
      * 
      * @return the string that has been logged

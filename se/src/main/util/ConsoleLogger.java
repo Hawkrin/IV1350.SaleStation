@@ -9,7 +9,7 @@ public class ConsoleLogger implements LogHandler {
     /**
      * Creates an instance of the FileLogger
      */
-    public ConsoleLogger() {}
+    private ConsoleLogger() {}
 
     /**
      * Gets the console logger

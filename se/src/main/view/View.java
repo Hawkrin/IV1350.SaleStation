@@ -12,7 +12,8 @@ public class View {
     private SampleHelpMethods sample;
     private Controller ctrl;
     private ErrorMessageHandler errorMsgHandler =  ErrorMessageHandler.getErrorMessage();
-    private LogHandler loghandler = FileErrorLogger.getFileErrorLogger();
+    private LogHandler fileLoghandler = FileErrorLogger.getFileErrorLogger();
+    private LogHandler consolLoghandler = ConsoleLogger.getConsoleLogger();
 
     /**
      * Creates a new instance
@@ -22,8 +23,8 @@ public class View {
     public View(Controller ctrl, SampleHelpMethods sample) throws IOException {
         this.sample = sample;
         this.ctrl = ctrl;
-        ctrl.addPaymentObserver(new TotalRevenueView());
-        ctrl.addPaymentObserver(new TotalRevenueFileOutput());
+        this.ctrl.addPaymentObserver(new TotalRevenueView());
+        this.ctrl.addPaymentObserver(new TotalRevenueFileOutput());
     }
 
     /**
@@ -72,7 +73,8 @@ public class View {
 
     private void handleException(String message, Exception exception){
         errorMsgHandler.displayErrorMessage(message);;
-        loghandler.logException(exception);
+        fileLoghandler.logException(exception);
+        consolLoghandler.logException(exception);
     }
     
 }
