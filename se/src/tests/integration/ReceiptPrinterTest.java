@@ -45,7 +45,7 @@ public class ReceiptPrinterTest {
         sale.updateItems(item);
         Receipt receipt = new Receipt(sale);
         LocalDateTime saleTime = LocalDateTime.now();
-        ReceiptPrinter receiptPrinter = new ReceiptPrinter();
+        ReceiptPrinter receiptPrinter = ReceiptPrinter.getReceiptPrinter();
         receiptPrinter.printReceipt(receipt);
         String result = outContent.toString();
         assertEquals("Output is not equal to string with the same state.", result);
