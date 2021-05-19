@@ -7,7 +7,7 @@ import main.util.Customer;
  * Represents a Register for customers
  */
 public class CustomerCatalog {
-    private HashMap<Integer, CustomerDTO> customerRegistry = new HashMap();
+    private HashMap<Integer, CustomerDTO> customerRegistry = new HashMap<>();
 
     public CustomerCatalog() {
         membership();

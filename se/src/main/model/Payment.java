@@ -9,7 +9,7 @@ import main.util.Amount;
 public class Payment {
     private Amount paidAmount;
     private Summary summary;
-    private List<PaymentObserver> paymentObservers = new ArrayList();
+    private List<PaymentObserver> paymentObservers = new ArrayList<>();
 
     /**
      * Creates an instance, an amount has been used as payment

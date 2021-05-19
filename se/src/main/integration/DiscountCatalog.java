@@ -7,8 +7,7 @@ import main.util.Amount;
  * Represents a database for discounts
  */
 public class DiscountCatalog {
-    private Amount discountPercent;
-    private HashMap<String, Amount> discountList = new HashMap();
+    private HashMap<String, Amount> discountList = new HashMap<>();
 
     /**
      * Creates an instance of a DiscountCatalog

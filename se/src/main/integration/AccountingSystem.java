@@ -10,7 +10,7 @@ import main.model.Sale;
  */
 public class AccountingSystem {
     LocalDateTime timeOfSale = LocalDateTime.now();
-    private HashMap<LocalDateTime, Sale> accountingLog = new HashMap();
+    private HashMap<LocalDateTime, Sale> accountingLog = new HashMap<>();
     
     /**
      * A new instance of an accounting system

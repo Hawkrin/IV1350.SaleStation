@@ -9,7 +9,7 @@ import main.util.Amount;
  * Represents an external inventory system
  */
 public class InventorySystem {
-    private List<ItemDTO> inventoryStock = new ArrayList();
+    private List<ItemDTO> inventoryStock = new ArrayList<>();
 
     /**
      * Creates an instance, represented as a printer

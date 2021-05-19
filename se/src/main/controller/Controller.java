@@ -12,7 +12,6 @@ import main.util.Amount;
  */
 public class Controller {
     private Sale sale;
-    private Receipt receipt;
     private CashRegister cashRegister;
     private AccountingSystem accountingSystem;
     private InventorySystem inventorySystem;
