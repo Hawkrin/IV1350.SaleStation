@@ -13,6 +13,13 @@ public class CustomerCatalog {
         membership();
     }
 
+     /**
+     * Get the list of customers
+     * 
+     * @return the list of customers
+     */
+    public HashMap<Integer, CustomerDTO> getCustomerRegistry() { return customerRegistry; }
+
     /**
      * Checks if the customerID is in the database
      * 
@@ -43,8 +50,10 @@ public class CustomerCatalog {
         throw new CatalogException("Could not reach the database");
     }
 
-    private void membership() {
+    public void membership() {
         customerRegistry.put(123456789, new CustomerDTO("Karl Karlsson", 123456789));
+        customerRegistry.put(98765321, new CustomerDTO("Mikael Mikaelsson", 123456789));
+        customerRegistry.put(11111111, new CustomerDTO("Daniel Danielsson", 111111111));
     }
 
 

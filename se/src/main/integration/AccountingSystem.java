@@ -9,7 +9,7 @@ import main.model.Sale;
  * Represents an external accounting system. Created as a singelton
  */
 public class AccountingSystem {
-    private LocalDateTime timeOfSale;
+    LocalDateTime timeOfSale = LocalDateTime.now();
     private HashMap<LocalDateTime, Sale> accountingLog = new HashMap();
     
     /**

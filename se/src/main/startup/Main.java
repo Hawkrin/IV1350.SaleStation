@@ -4,6 +4,7 @@ import java.io.IOException;
 import main.controller.Controller;
 import main.controller.OperationFailedException;
 import main.integration.CatalogHandler;
+import main.integration.CatalogInformationDisplayer;
 import main.integration.InvalidIDException;
 import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
@@ -35,10 +36,12 @@ public class Main {
         Controller ctrl = new Controller(catalogHandler, systemHandler, receiptPrinter, salesLog);
         SampleHelpMethods sample = new SampleHelpMethods(ctrl);
         View view = new View(ctrl, sample);
+        CatalogInformationDisplayer catalogInformationDisplayer = new CatalogInformationDisplayer();
         //view.sampleRun();
-        view.sampleRunWithExceptions();
+        //view.sampleRunWithExceptions();
         TotalRevenueFileOutput client = new TotalRevenueFileOutput();
         client.setLogger(new FileErrorLogger());
+        catalogInformationDisplayer.printData();
     
         
 
