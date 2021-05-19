@@ -25,7 +25,6 @@ public class InventorySystem {
      */
     public void updateInventory(Sale sale){}
 
-    
     private void itemsInStock() {
         inventoryStock.add(new ItemDTO("Hammer", new Amount(300), new Amount(0.25), 11111));
         inventoryStock.add(new ItemDTO("Nails", new Amount(50), new Amount(0.06), 11112));

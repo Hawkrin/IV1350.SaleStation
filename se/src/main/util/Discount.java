@@ -23,7 +23,7 @@ public class Discount {
      */
     public Amount getDiscount() { return availableDiscount; }
     
-      /**
+    /**
      * Customer info represented as a string
      * 
      * @return the completed string.

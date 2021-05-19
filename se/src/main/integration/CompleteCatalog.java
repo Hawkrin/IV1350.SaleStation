@@ -17,8 +17,7 @@ public class CompleteCatalog {
     public void setData(String customerData, String itemData, String discountData) {
         itemcatalog.addItems();
         customercatalog.membership();
-        discountcatalog.availableDiscount();
-        
+        discountcatalog.availableDiscount();    
     }
 
     /**
