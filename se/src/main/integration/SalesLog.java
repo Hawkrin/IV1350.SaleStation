@@ -3,18 +3,17 @@ package main.integration;
 import main.model.Sale;
 
 /**
- * represents a sales log database
+ * represents a sales log database. Created as a singelton
  */
 public class SalesLog {
-    private SalesLog salesLog;
-    private Sale sale;
+    private static final SalesLog INSTANCE = new SalesLog();
 
     /**
      * Gets the salesLog 
      * 
      * @return return the value of the salesLog
      */
-    public SalesLog getSalesLog() { return salesLog; }
+    public static SalesLog getSalesLog() { return INSTANCE; }
 
     /**
      * updates the sales log

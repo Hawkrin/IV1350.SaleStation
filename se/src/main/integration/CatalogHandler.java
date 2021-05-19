@@ -3,9 +3,19 @@ package main.integration;
  * This class handels all catalogs which are being created
  */
 public class CatalogHandler {
+    private static CatalogHandler INSTANCE = new CatalogHandler();
     private DiscountCatalog discountCatalog = new DiscountCatalog();
     private ItemCatalog itemCatalog = new ItemCatalog();
     private CustomerCatalog customerCatalog = new CustomerCatalog();
+
+    private CatalogHandler() {}
+
+    /**
+     * Get the instance of a CatalogHandler
+     * 
+     * @return the <code>CatalogHandler</code>
+     */
+    public static CatalogHandler getCatalogHandler(){ return INSTANCE; }
 
     /**
      * Gets the value of discountCatalog

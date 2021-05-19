@@ -28,8 +28,8 @@ public class Main {
      * @throws IOException
      */
     public static void main(String[] args) throws InvalidIDException, OperationFailedException, IOException {
-        SystemHandler systemHandler = new SystemHandler();
-        CatalogHandler catalogHandler = new CatalogHandler();
+        SystemHandler systemHandler = SystemHandler.getSystemHandler();
+        CatalogHandler catalogHandler = CatalogHandler.getCatalogHandler();
         ReceiptPrinter receiptPrinter = new ReceiptPrinter();
         SalesLog salesLog = new SalesLog();
         Controller ctrl = new Controller(catalogHandler, systemHandler, receiptPrinter, salesLog);

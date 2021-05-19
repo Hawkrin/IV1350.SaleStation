@@ -1,18 +1,21 @@
 package main.integration;
 /**
- * This class initiates all external systems
+ * This class initiates all external systems. Created as a singelton
  */
 public class SystemHandler {
-    private InventorySystem inventorySystem;
-    private AccountingSystem accountingSystem;
+    private static final SystemHandler INSTANCE = new SystemHandler();
+    private InventorySystem inventorySystem = new InventorySystem();
+    private AccountingSystem accountingSystem = new AccountingSystem();
 
+    private SystemHandler() {}
+    
     /**
-     * Creates a system handler
+     * Gets the instance of a SystemHandler
+     * 
+     * @return The <code>SystemHandler</code>
      */
-    public SystemHandler() {
-        this.accountingSystem = new AccountingSystem();
-        this.inventorySystem = new InventorySystem();
-    }
+    public static SystemHandler getSystemHandler(){ return INSTANCE; }
+       
     /**
      * Get the value of the inventorySystem
      * 

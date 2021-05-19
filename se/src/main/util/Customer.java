@@ -9,7 +9,7 @@ public class Customer {
     private CustomerDTO customerInfo;
     private int customerID;
     
-     /**
+    /**
      * Creates a new instance of a customer
      * 
      * @param itemInformation The information of a customer {@link CustomerDTO}

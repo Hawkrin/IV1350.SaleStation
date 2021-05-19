@@ -1,10 +1,12 @@
 package main.integration;
 
-import java.time.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.HashMap;
 import main.model.Sale;
 /**
- * Represents an external accounting system
+ * Represents an external accounting system. Created as a singelton
  */
 public class AccountingSystem {
     private LocalDateTime timeOfSale;
@@ -21,7 +23,12 @@ public class AccountingSystem {
      * @param sale the recently finishied {@link Sale}
      */
     public void updateAccounting(Sale sale) {
-        timeOfSale = LocalDateTime.now();
+        getDateAndTime();
         accountingLog.put(timeOfSale, sale);   
-    }  
+    }
+    
+    public String getDateAndTime() {
+        DateTimeFormatter format = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+        return timeOfSale.format(format); 
+    } 
 }
