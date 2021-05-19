@@ -1,7 +1,7 @@
 package main.controller;
 
 /**
- * Thrown if the controller fails while registering items
+ * Thrown when an operation fails, with the reason unknown.
  */
 public class OperationFailedException extends Exception {
     

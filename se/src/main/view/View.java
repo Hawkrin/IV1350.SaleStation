@@ -51,7 +51,7 @@ public class View {
         System.out.println("New Sale Started:");
         ctrl.startNewSale();
         System.out.println("\nCashier enter items:\n");
-        sample.registerItem(22222, new Amount(2));
+        sample.registerItem(11111, new Amount(2));
         sample.registerItem(11112, new Amount(3));
         try{
             System.out.println("\nCashier displays the total price with taxes:");
