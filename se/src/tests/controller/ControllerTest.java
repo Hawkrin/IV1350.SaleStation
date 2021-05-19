@@ -18,7 +18,7 @@ import static org.junit.Assert.assertNotEquals;
 
 
 public class ControllerTest {
-    private Controller controller = new Controller(new CatalogHandler(), new SystemHandler(), new ReceiptPrinter(), new SalesLog());
+    private Controller controller = new Controller(CatalogHandler.getCatalogHandler(), SystemHandler.getSystemHandler(), ReceiptPrinter.getReceiptPrinter(), SalesLog.getSalesLog());
     private final int INVALID_ITEM_ID = 01010;
 
     @Test

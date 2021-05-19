@@ -2,15 +2,19 @@ package main.integration;
 
 import main.model.Receipt;
 /**
- * A class that represent the reciept printer
+ * A class that represent the reciept printer. Created as a singelton
  */
 public class ReceiptPrinter {
+    private static ReceiptPrinter INSTANCE = new ReceiptPrinter();
+
+    private ReceiptPrinter() {}
 
     /**
-     * Creates an instance, represented as a printer
+     * Gets the instance of a ReceiptPrinter
+     * 
+     * @return The <code>RecieptPrinter</code>
      */
-    public ReceiptPrinter() {
-    }
+    public static ReceiptPrinter getReceiptPrinter() { return INSTANCE; }
 
     /**
      * Test prints a receipt for the user

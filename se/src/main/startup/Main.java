@@ -30,8 +30,8 @@ public class Main {
     public static void main(String[] args) throws InvalidIDException, OperationFailedException, IOException {
         SystemHandler systemHandler = SystemHandler.getSystemHandler();
         CatalogHandler catalogHandler = CatalogHandler.getCatalogHandler();
-        ReceiptPrinter receiptPrinter = new ReceiptPrinter();
-        SalesLog salesLog = new SalesLog();
+        ReceiptPrinter receiptPrinter = ReceiptPrinter.getReceiptPrinter();
+        SalesLog salesLog = SalesLog.getSalesLog();
         Controller ctrl = new Controller(catalogHandler, systemHandler, receiptPrinter, salesLog);
         SampleHelpMethods sample = new SampleHelpMethods(ctrl);
         View view = new View(ctrl, sample);

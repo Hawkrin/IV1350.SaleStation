@@ -8,6 +8,8 @@ import main.model.Sale;
 public class SalesLog {
     private static final SalesLog INSTANCE = new SalesLog();
 
+    private SalesLog(){}
+    
     /**
      * Gets the salesLog 
      * 
