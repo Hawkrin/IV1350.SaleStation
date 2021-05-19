@@ -24,17 +24,16 @@ public class SampleHelpMethods {
     }
 
     /**
-     * Search for the requested item
+     * Search for the requested item. This method implements the registerItem method
+     * from the controller class.
      * 
      * @param quantity how many examples of an item to purchase {@link Amount}
      * @param itemID the item number
      * @return returns the result to the sale method registerItems
      */
     public void registerItem(int itemID, Amount quantity){
-        String out;
         try {
-            out = ctrl.registerItem(itemID, quantity);
-            System.out.println(out);
+            System.out.println(ctrl.registerItem(itemID, quantity));
         }catch (InvalidIDException exception) {
             handleException("The ID: " + itemID +  " doesn't exist, please try again.", exception);
         }catch (OperationFailedException exception) {
