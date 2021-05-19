@@ -54,6 +54,16 @@ public class TotalRevenueFileOutput implements PaymentObserver, LogHandler {
         createTotalRevenueFile();
     }
 
+    @Override
+    public void logException(Exception exception) {
+        // TODO Auto-generated method stub   
+    }
+
+    @Override
+    public void log(String string) {
+        // TODO Auto-generated method stub 
+    }
+
     private void createTotalRevenueFile(){
         StringBuilder logBuilder = new StringBuilder();
         logBuilder.append("***************FILE LOGGER****************\n\n");
@@ -62,16 +72,4 @@ public class TotalRevenueFileOutput implements PaymentObserver, LogHandler {
         logBuilder.append("*************FILE LOGGER ENDS************\n");
         logFile.println(logBuilder);  
     }
-
-    @Override
-    public void logException(Exception exception) {
-        // TODO Auto-generated method stub   
-    }
-
-    @Override
-    public void log(String string) {
-        // TODO Auto-generated method stub
-        
-    }
-
 }
