@@ -9,6 +9,7 @@ import main.integration.*;
  * represents the user interface
  */
 public class View {
+    private SampleHelpMethods sample;
     private Controller ctrl;
     private ErrorMessageHandler errorMsgHandler =  ErrorMessageHandler.getErrorMessage();
     private LogHandler loghandler = FileLogger.getFileLogger();
@@ -18,7 +19,8 @@ public class View {
      * 
      * @param ctrl The controller that is used for all operations
      */
-    public View(Controller ctrl) throws IOException {
+    public View(Controller ctrl, SampleHelpMethods sample) throws IOException {
+        this.sample = sample;
         this.ctrl = ctrl;
         ctrl.addPaymentObserver(new TotalRevenueView());
         ctrl.addPaymentObserver(new TotalRevenueFileOutput());
@@ -49,8 +51,8 @@ public class View {
         System.out.println("New Sale Started:");
         ctrl.startNewSale();
         System.out.println("\nCashier enter items:\n");
-        registerItem(22222, new Amount(2));
-        registerItem(11112, new Amount(3));
+        sample.registerItem(22222, new Amount(2));
+        sample.registerItem(11112, new Amount(3));
         try{
             System.out.println("\nCashier displays the total price with taxes:");
             System.out.println((ctrl.displaySummary()));
@@ -65,20 +67,6 @@ public class View {
         }
         catch(IllegalStateException exception) {
             handleException("A new sale have to be started", exception);
-        }
-    }
-
-    private void registerItem(int itemID, Amount amount){
-        String out;
-        try {
-            out = ctrl.registerItem(itemID, amount);
-            System.out.println(out);
-        }catch (InvalidIDException exception) {
-            handleException("The ID: " + itemID +  " doesn't exist, please try again.", exception);
-        }catch (OperationFailedException exception) {
-            handleException("Failed to register item, try again.", exception);
-        }catch (IllegalStateException exception){
-            handleException("Have to start new sale.", exception);
         }
     }
 

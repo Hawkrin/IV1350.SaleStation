@@ -9,6 +9,7 @@ import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
 import main.integration.SystemHandler;
 import main.util.FileLogger;
+import main.util.SampleHelpMethods;
 import main.util.TotalRevenueFileOutput;
 import main.view.TotalRevenueView;
 import main.view.View;
@@ -32,7 +33,8 @@ public class Main {
         ReceiptPrinter receiptPrinter = new ReceiptPrinter();
         SalesLog salesLog = new SalesLog();
         Controller ctrl = new Controller(catalogHandler, systemHandler, receiptPrinter, salesLog);
-        View view = new View(ctrl);
+        SampleHelpMethods sample = new SampleHelpMethods(ctrl);
+        View view = new View(ctrl, sample);
         //view.sampleRun();
         view.sampleRunWithExceptions();
         TotalRevenueFileOutput client = new TotalRevenueFileOutput();
