@@ -51,7 +51,7 @@ public class ItemCatalog {
         throw new CatalogException("Could not reach the database");
     }
 
-    public void addItems() {
+    protected void addItems() {
         availableItems.put(11111, new ItemDTO("Hammer", new Amount(300), new Amount(0.25), 11111));
         availableItems.put(11112, new ItemDTO("Nails", new Amount(50), new Amount(0.06), 11112));
         availableItems.put(11113, new ItemDTO("Saw", new Amount(200), new Amount(0.25), 11113));

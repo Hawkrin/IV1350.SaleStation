@@ -50,7 +50,7 @@ public class CustomerCatalog {
         throw new CatalogException("Could not reach the database");
     }
 
-    public void membership() {
+    protected void membership() {
         customerRegistry.put(123456789, new CustomerDTO("Karl Karlsson", 123456789));
         customerRegistry.put(98765321, new CustomerDTO("Mikael Mikaelsson", 123456789));
         customerRegistry.put(11111111, new CustomerDTO("Daniel Danielsson", 111111111));

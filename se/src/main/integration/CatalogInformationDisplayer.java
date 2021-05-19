@@ -21,8 +21,8 @@ public class CatalogInformationDisplayer {
      * @param customerData the customer data
      * @param itemData the item data
      */
-    public void setData(String customerData, String itemData){
-        catalog.setData(customerData, itemData);
+    public void setData(String customerData, String itemData, String discountData){
+        catalog.setData(customerData, itemData, discountData);
      }
     
 }

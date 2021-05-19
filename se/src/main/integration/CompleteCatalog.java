@@ -6,6 +6,7 @@ package main.integration;
 public class CompleteCatalog {
     CustomerCatalog customercatalog = new CustomerCatalog();
     ItemCatalog itemcatalog = new ItemCatalog();
+    DiscountCatalog discountcatalog = new DiscountCatalog();
 
     /**
      * Sets the data
@@ -13,9 +14,11 @@ public class CompleteCatalog {
      * @param customerData the data in the addItems Hashmap
      * @param itemData the data in the membership Hashmap
      */
-    public void setData(String customerData, String itemData) {
+    public void setData(String customerData, String itemData, String discountData) {
         itemcatalog.addItems();
         customercatalog.membership();
+        discountcatalog.availableDiscount();
+        
     }
 
     /**
@@ -26,7 +29,8 @@ public class CompleteCatalog {
     public String[] getData() {
         return new String[] {
         customercatalog.getCustomerRegistry().toString(), 
-        itemcatalog.getAvailabelItems().toString()
+        itemcatalog.getAvailabelItems().toString(),
+        discountcatalog.getDiscountPercent().toString()
         };
     }
     
