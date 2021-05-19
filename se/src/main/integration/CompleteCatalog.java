@@ -1,14 +1,28 @@
 package main.integration;
 
+/**
+ * A composite entity class of the classes ItemCatalog and CustomerCatalog
+ */
 public class CompleteCatalog {
     CustomerCatalog customercatalog = new CustomerCatalog();
     ItemCatalog itemcatalog = new ItemCatalog();
 
+    /**
+     * Sets the data
+     * 
+     * @param customerData the data in the addItems Hashmap
+     * @param itemData the data in the membership Hashmap
+     */
     public void setData(String customerData, String itemData) {
         itemcatalog.addItems();
         customercatalog.membership();
     }
 
+    /**
+     * Gets the data.
+     * 
+     * @return the current data represented as a string
+     */
     public String[] getData() {
         return new String[] {
         customercatalog.getCustomerRegistry().toString(), 
