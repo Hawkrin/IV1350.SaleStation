@@ -9,9 +9,8 @@ import main.model.Summary;
 /**
  * Prints Log Revenue messages as a text file
  */
-public class TotalRevenueFileOutput implements PaymentObserver, LogHandler {
-    private Summary RevenueFileOutput;
-    private LogHandler logger;
+public class TotalRevenueFileOutput implements PaymentObserver {
+    private Summary RevenueFileOutput = new Summary();
     private static final String NAME_OF_LOG_FILE = "TotalRevenue.txt";
     private PrintWriter logFile;
 
@@ -20,27 +19,8 @@ public class TotalRevenueFileOutput implements PaymentObserver, LogHandler {
      * @throws IOException
      */
     public TotalRevenueFileOutput() throws IOException {
-        RevenueFileOutput = new Summary();
         FileWriter fileWriter = new FileWriter(NAME_OF_LOG_FILE);
         logFile = new PrintWriter(fileWriter, true);
-    }
-
-    /**
-     * Creates a new instance and writes log messages to the specified logger
-     * 
-     * @param logger The logger used for log messages
-     */
-    public TotalRevenueFileOutput(LogHandler logger) {
-        this.logger = logger;
-    }
-
-    /**
-     * Changes type of logger to use
-     * 
-     * @param logger The logger used for log messages
-     */
-    public void setLogger(LogHandler logger) {
-        this.logger = logger;
     }
    
     /**
@@ -54,16 +34,6 @@ public class TotalRevenueFileOutput implements PaymentObserver, LogHandler {
         createTotalRevenueFile();
     }
 
-    @Override
-    public void logException(Exception exception) {
-        // TODO Auto-generated method stub   
-    }
-
-    @Override
-    public void log(String string) {
-        // TODO Auto-generated method stub 
-    }
-
     private void createTotalRevenueFile(){
         StringBuilder logBuilder = new StringBuilder();
         logBuilder.append("***************FILE LOGGER****************\n\n");
@@ -73,3 +43,4 @@ public class TotalRevenueFileOutput implements PaymentObserver, LogHandler {
         logFile.println(logBuilder);  
     }
 }
+
