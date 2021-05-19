@@ -1,6 +1,9 @@
 package main.startup;
 
 import java.io.IOException;
+
+import javax.annotation.processing.FilerException;
+
 import main.controller.Controller;
 import main.controller.OperationFailedException;
 import main.integration.CatalogHandler;
@@ -41,6 +44,8 @@ public class Main {
         //view.sampleRunWithExceptions();
         TotalRevenueFileOutput client = new TotalRevenueFileOutput();
         client.setLogger(new TotalRevenueFileOutput());
+        FileErrorLogger error = new FileErrorLogger();
+        error.setLogger(new FileErrorLogger());
         catalogInformationDisplayer.printData();
     
         

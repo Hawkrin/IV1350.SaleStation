@@ -8,6 +8,7 @@ import java.io.IOException;
  * Prints Log Error messages as a text file
  */
 public class FileErrorLogger implements LogHandler {
+    private LogHandler logger;
     private static final FileErrorLogger FILE_LOGGER = new FileErrorLogger();
     private static final String NAME_OF_LOG_FILE = "SaleException-log.txt";
     private PrintWriter logFile;
@@ -15,7 +16,7 @@ public class FileErrorLogger implements LogHandler {
     /**
      * Creates an instance of the FileLogger
      */
-    private FileErrorLogger() {
+    public FileErrorLogger() {
         try {
             logFile = new PrintWriter(new FileWriter(NAME_OF_LOG_FILE), true);
         } 
@@ -23,6 +24,15 @@ public class FileErrorLogger implements LogHandler {
             System.out.println("Error while creating the log.");
             exception.printStackTrace();
         }
+    }
+
+    /**
+     * Changes type of logger to use
+     * 
+     * @param logger The logger used for log messages
+     */
+    public void setLogger(LogHandler logger) {
+        this.logger = logger;
     }
 
     /**
