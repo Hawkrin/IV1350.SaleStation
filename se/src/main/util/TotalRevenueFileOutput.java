@@ -9,7 +9,7 @@ import main.model.Summary;
 /**
  * Prints Log Revenue messages as a text file
  */
-public class TotalRevenueFileOutput implements PaymentObserver, LogHandler {
+public class TotalRevenueFileOutput implements PaymentObserver {
     private Summary RevenueFileOutput = new Summary();
     private static final String NAME_OF_LOG_FILE = "TotalRevenue.txt";
     private PrintWriter logFile;
@@ -27,23 +27,7 @@ public class TotalRevenueFileOutput implements PaymentObserver, LogHandler {
             exception.printStackTrace();
         }
     }
-
-    /**
-     * Logs an exception
-     * 
-     * @return the exception that has been logged
-     */
-    @Override
-    public void logException(Exception exception) {}
-
-    /**
-     * Logs a string
-     * 
-     * @return the string that has been logged
-     */
-    @Override
-    public void log(String string) {}
-   
+    
     /**
      * Updates the total revenue when a payment is done
      * 

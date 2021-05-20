@@ -1,7 +1,7 @@
 package main.integration;
 
 /**
- * A composite entity class of the classes ItemCatalog and CustomerCatalog
+ * A composite entity class of the classes ItemCatalog, DiscountCatalog and CustomerCatalog
  */
 public class CompleteCatalog {
     CustomerCatalog customercatalog = new CustomerCatalog();
@@ -13,6 +13,7 @@ public class CompleteCatalog {
      * 
      * @param customerData the data in the addItems Hashmap
      * @param itemData the data in the membership Hashmap
+     * @param customerData the data of available discounts
      */
     public void setData(String customerData, String itemData, String discountData) {
         itemcatalog.addItems();

@@ -39,7 +39,6 @@ public class Main {
         CatalogInformationDisplayer catalogInformationDisplayer = new CatalogInformationDisplayer();
         //view.sampleRun();
         view.sampleRunWithExceptions();
-        TotalRevenueFileOutput client = new TotalRevenueFileOutput();
         catalogInformationDisplayer.printData();
     
         

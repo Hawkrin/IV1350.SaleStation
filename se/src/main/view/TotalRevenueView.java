@@ -1,5 +1,8 @@
 package main.view;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import main.model.PaymentObserver;
 import main.model.Summary;
 import main.util.LogHandler;
@@ -7,7 +10,8 @@ import main.util.LogHandler;
 /**
  * Displays the total revenue after a payment is done
  */
-public class TotalRevenueView implements PaymentObserver, LogHandler {
+public class TotalRevenueView implements PaymentObserver {
+    LocalDateTime timeRightNow = LocalDateTime.now();
     private Summary totalRevenue = new Summary();
 
     /**
@@ -15,16 +19,6 @@ public class TotalRevenueView implements PaymentObserver, LogHandler {
      */
     public TotalRevenueView(){}
 
-    @Override
-    public void logException(Exception exception) {
-        // TODO Auto-generated method stub   
-    }
-
-    @Override
-    public void log(String string) {
-        // TODO Auto-generated method stub   
-    }
-    
     /**
      * Updates the total revenue when a payment is done
      * 
@@ -44,5 +38,14 @@ public class TotalRevenueView implements PaymentObserver, LogHandler {
         System.out.println("*************CONSOLE LOGGER ENDS************\n");
     }
 
+    /**
+     * Gets the date and time of today
+     * 
+     * @return the date and time of today
+     */
+    public String getDateAndTime() {
+        DateTimeFormatter format = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+        return timeRightNow.format(format); 
+    }
     
 }
