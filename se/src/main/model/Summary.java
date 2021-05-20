@@ -67,9 +67,6 @@ public class Summary {
      * @param item The item that is being added to the summary of the sale.
      */
     public void summarizeSale(Item item) {
-        if(item == null) { 
-            throw new IllegalArgumentException("no Items to summerize"); 
-        }
         Amount numberOfItems = item.getItemQuantity();
         Amount itemPrice = item.getItemDTO().getItemPrice();
         Amount itemTaxRate = item.getItemDTO().getTaxRate();

@@ -28,7 +28,7 @@ public class Main {
      * @throws InvalidIDException
      * @throws IOException
      */
-    public static void main(String[] args) throws InvalidIDException, OperationFailedException, IOException {
+    public static void main(String[] args) {
         SystemHandler systemHandler = SystemHandler.getSystemHandler();
         CatalogHandler catalogHandler = CatalogHandler.getCatalogHandler();
         ReceiptPrinter receiptPrinter = ReceiptPrinter.getReceiptPrinter();

@@ -1,6 +1,6 @@
 package main.util;
 
-import java.io.IOException;
+
 import main.controller.*;
 import main.integration.InvalidIDException;
 import main.view.ErrorMessageHandler;
@@ -19,7 +19,7 @@ public class SampleHelpMethods {
      * @param ctrl The controller that is used for all operations
      * @throws IOException if interrupted
      */
-    public SampleHelpMethods(Controller ctrl) throws IOException {
+    public SampleHelpMethods(Controller ctrl) {
         this.ctrl = ctrl;
     }
 

@@ -20,7 +20,7 @@ public class View {
      * 
      * @param ctrl The controller that is used for all operations
      */
-    public View(Controller ctrl, SampleHelpMethods sample) throws IOException {
+    public View(Controller ctrl, SampleHelpMethods sample) {
         this.sample = sample;
         this.ctrl = ctrl;
         this.ctrl.addPaymentObserver(new TotalRevenueView());
@@ -31,13 +31,13 @@ public class View {
      * Makes a sample run of the application
      * 
      */
-    public void sampleRun() throws InvalidIDException, OperationFailedException{
+    public void sampleRun() {
         System.out.println("New Sale Started:");
         ctrl.startNewSale();
         System.out.println("\nCashier enter items:\n");
-        System.out.println(ctrl.registerItem(11111, new Amount(2)));
+        sample.registerItem(11111, new Amount(2));
         System.out.println("\n");
-        System.out.println(ctrl.registerItem(11112, new Amount(3)));
+        sample.registerItem(11112, new Amount(3));
         System.out.println("\nCashier displays the total with taxes:");
         System.out.println(ctrl.displaySummary());
         System.out.println("\nCashier enters the amount paid by the customer.\n");
@@ -48,7 +48,7 @@ public class View {
     /**
      * Makes a sample run of the application
      */
-    public void sampleRunWithExceptions() throws InvalidIDException, OperationFailedException {
+    public void sampleRunWithExceptions() {
         System.out.println("New Sale Started:");
         ctrl.startNewSale();
         System.out.println("\nCashier enter items:\n");

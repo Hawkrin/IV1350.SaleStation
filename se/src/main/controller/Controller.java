@@ -57,16 +57,16 @@ public class Controller {
      * @throws OperationFailedException catches the InvalidIDException
      * @throws IllegalStateException if the method is called on before the sale is inititated.
      */
-    public String registerItem(int itemID, Amount quantity) throws InvalidIDException, OperationFailedException, OperationFailedException {
+    public String registerItem(int itemID, Amount quantity) throws InvalidIDException, OperationFailedException {
         if (sale == null){
-            throw new IllegalStateException("Call to registerItem before initiating a new sale.");
+            throw new IllegalStateException("Call to registerItem was made before initiating a new sale.");
         }
         try {
             Item newItem = itemCatalog.getItem(itemID, quantity);
             return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + "\nPrice Summary: " + displaySummary();
         }
-        catch(InvalidIDException invItExc) {
-            throw new OperationFailedException("Could not find the requested Item.", invItExc);
+        catch(CatalogException CataExc) {
+            throw new OperationFailedException("Could not find the requested Item.", CataExc);
         }    
     }
 
@@ -77,6 +77,9 @@ public class Controller {
      * @throws IllegalStateException If this method is called before <code>startNewSale</code>
      */
     public String displaySummary() throws IllegalStateException {
+        if (sale == null){
+            throw new IllegalStateException("displaySummary was called before a new sale was initiated.");
+        }
         return sale.getSummary().getSummary().toString();
     }
 
@@ -89,6 +92,9 @@ public class Controller {
      * @throws IllegalStateException If this method is called before <code>startNewSale</code>
      */
     public String salePayment(Amount paidAmount) throws IllegalStateException {
+        if (sale == null){
+            throw new IllegalStateException("salePayment was called before a new sale was initiated.");
+        }
         Payment payment = new Payment(paidAmount, sale.getSummary());
         Receipt receipt = new Receipt(sale);
         accountingSystem.updateAccounting(sale);

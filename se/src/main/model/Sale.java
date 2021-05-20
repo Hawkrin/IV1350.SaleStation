@@ -1,6 +1,8 @@
 package main.model;
 
 import java.util.HashMap;
+
+import main.integration.InvalidIDException;
 import main.integration.Item;
 
 /**
@@ -51,14 +53,14 @@ public class Sale {
         return shoppingCart.containsKey(item.getItemID());
     }
 
-    private void updateItemQuantityAndPrice(Item item) {
+    private void updateItemQuantityAndPrice(Item item)  {
         Item itemAlreadyExist = shoppingCart.get(item.getItemID());
         itemAlreadyExist.increaseQuantity(item.getItemQuantity());
         shoppingCart.put(itemAlreadyExist.getItemID(), itemAlreadyExist);
         summary.summarizeSale(item);
     } 
 
-    private void addNewItem(Item item) {
+    private void addNewItem(Item item)  {
         shoppingCart.put(item.getItemID(), item);
         summary.summarizeSale(item);
     }
