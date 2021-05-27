@@ -17,6 +17,7 @@ public class Controller {
     private InventorySystem inventorySystem;
     private ItemCatalog itemCatalog;
     private DiscountCatalog discountCatalog;
+    private CustomerCatalog customercatalog;
     private SalesLog salesLog;
     private ReceiptPrinter receiptPrinter;
     private List<PaymentObserver> paymentObservers = new ArrayList<>();
@@ -33,6 +34,7 @@ public class Controller {
     public Controller(CatalogHandler catalogHandler, SystemHandler systemHandler, ReceiptPrinter receiptPrinter, SalesLog salesLog) {  
         this.itemCatalog = catalogHandler.getItemCatalog();
         this.discountCatalog = catalogHandler.getDiscountCatalog();
+        this.customercatalog = catalogHandler.getCustomerCatalog();
         this.inventorySystem = systemHandler.getInventorySystem();
         this.accountingSystem = systemHandler.getAccountingSystem();
         this.salesLog = salesLog;

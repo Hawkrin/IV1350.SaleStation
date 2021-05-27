@@ -6,7 +6,6 @@ import main.util.Amount;
  * Represents the data of an item
  */
 public class ItemDTO {
-
     private final Amount price;
     private final String itemName;
     private final Amount taxRate;

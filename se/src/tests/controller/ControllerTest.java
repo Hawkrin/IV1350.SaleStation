@@ -7,14 +7,12 @@ import main.integration.InvalidIDException;
 import main.integration.ReceiptPrinter;
 import main.integration.SystemHandler;
 import main.integration.SalesLog;
-import main.integration.Item;
-import main.integration.ItemCatalog;
 import main.util.Amount;
 import main.integration.ItemDTO;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+
 
 
 public class ControllerTest {

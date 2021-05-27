@@ -18,6 +18,7 @@ public class CatalogInformationDisplayer {
     /**
      * Sets the data
      * 
+     * @param discountData the discount data
      * @param customerData the customer data
      * @param itemData the item data
      */

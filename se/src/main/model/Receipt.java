@@ -1,14 +1,13 @@
 package main.model;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
+import main.util.DateAndTime;
 /**
  * Represents a reciept, which contains all info about the sale.
  */
 public class Receipt {
     private Sale sale;
-    LocalDateTime timeofSale = LocalDateTime.now();
+    private  DateAndTime saleTime = new DateAndTime();
+    
    
     /**
      * Creates a new instance, representing a reciept
@@ -20,16 +19,6 @@ public class Receipt {
     }
 
     /**
-     * Gets the date and time of today
-     * 
-     * @return the date and time of today
-     */
-    public String getDateAndTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
-        return timeofSale.format(formatter); 
-    } 
-
-    /**
      * Creates an exampel reciept.
      *
      * @return a receipt displayed as a string.
@@ -38,7 +27,7 @@ public class Receipt {
         StringBuilder builder = new StringBuilder();
         appendLine(builder, "********RECIEPT*********\n");
         builder.append("Purchase was made: ");
-        appendLine(builder, getDateAndTime().toString());
+        appendLine(builder, saleTime.getDateAndTime().toString());
         builder.append("\nItems Bought: \n\n");
         appendLine(builder, sale.getShoppingCart().toString());
         appendLine(builder, "\n*******RECIEPT END*******");

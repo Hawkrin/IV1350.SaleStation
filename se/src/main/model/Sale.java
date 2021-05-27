@@ -1,8 +1,6 @@
 package main.model;
 
 import java.util.HashMap;
-
-import main.integration.InvalidIDException;
 import main.integration.Item;
 
 /**

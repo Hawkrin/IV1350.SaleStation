@@ -9,10 +9,7 @@ import main.integration.InvalidIDException;
 import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
 import main.integration.SystemHandler;
-import main.util.FileErrorLogger;
-import main.util.SampleHelpMethods;
-import main.util.TotalRevenueFileOutput;
-import main.view.TotalRevenueView;
+import main.view.SampleHelpMethods;
 import main.view.View;
 
 /**

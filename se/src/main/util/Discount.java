@@ -12,8 +12,7 @@ public class Discount {
      * @param availableDiscount the discount available
      */
     public Discount(Amount availableDiscount) {
-        this.availableDiscount = availableDiscount;
-        
+        this.availableDiscount = availableDiscount;   
     }
 
     /**

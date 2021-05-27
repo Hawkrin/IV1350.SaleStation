@@ -1,9 +1,8 @@
-package main.util;
-
+package main.view;
 
 import main.controller.*;
 import main.integration.InvalidIDException;
-import main.view.ErrorMessageHandler;
+import main.util.Amount;
 
 /**
  * This class exists to help executing a sample of the application in the View class.
@@ -11,7 +10,8 @@ import main.view.ErrorMessageHandler;
 public class SampleHelpMethods {
     Controller ctrl;
     private ErrorMessageHandler errorMsgHandler =  ErrorMessageHandler.getErrorMessage();
-    private LogHandler loghandler = FileErrorLogger.getFileErrorLogger();
+    private TotalRevenueView revenueView = new TotalRevenueView();
+    private TotalRevenueFileOutput reveueViewFile = new TotalRevenueFileOutput();
 
     /**
      * Creates a new instance
@@ -44,8 +44,8 @@ public class SampleHelpMethods {
     }
 
     private void handleException(String message, Exception exception){
-        errorMsgHandler.displayErrorMessage(message);;
-        loghandler.logException(exception);
-    }
-    
+        errorMsgHandler.displayErrorMessage(message);
+        revenueView.handleErrors(exception);
+        reveueViewFile.handleErrors(exception);
+    }        
 }

@@ -11,6 +11,5 @@ public interface PaymentObserver {
      * 
      * @param summary the payment summary
      */
-    void updateTotal(Summary summary);
-    
+    void updateTotal(Summary summary);   
 }

@@ -1,9 +1,7 @@
 package main.view;
 
-import java.io.IOException;
 import main.controller.*;
 import main.util.*;
-import main.integration.*;
 
 /**
  * represents the user interface
@@ -12,8 +10,8 @@ public class View {
     private SampleHelpMethods sample;
     private Controller ctrl;
     private ErrorMessageHandler errorMsgHandler =  ErrorMessageHandler.getErrorMessage();
-    private LogHandler fileLoghandler = FileErrorLogger.getFileErrorLogger();
-    private LogHandler consolLoghandler = ConsoleLogger.getConsoleLogger();
+    private TotalRevenueView revenueView = new TotalRevenueView();
+    private TotalRevenueFileOutput revenueViewFile = new TotalRevenueFileOutput();
 
     /**
      * Creates a new instance
@@ -73,8 +71,8 @@ public class View {
 
     private void handleException(String message, Exception exception){
         errorMsgHandler.displayErrorMessage(message);;
-        fileLoghandler.logException(exception);
-        consolLoghandler.logException(exception);
+        revenueViewFile.handleErrors(exception);
+        revenueView.handleErrors(exception);
     }
     
 }

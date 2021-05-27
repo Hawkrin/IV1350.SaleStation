@@ -1,51 +1,50 @@
 package main.view;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import main.model.PaymentObserver;
-import main.model.Summary;
-import main.util.LogHandler;
+import main.model.ObserverTemplateClass;
+import main.util.DateAndTime;
+
 
 /**
  * Displays the total revenue after a payment is done
  */
-public class TotalRevenueView implements PaymentObserver {
-    LocalDateTime timeRightNow = LocalDateTime.now();
-    private Summary totalRevenue = new Summary();
-
+public class TotalRevenueView extends ObserverTemplateClass {
+    private  DateAndTime saleTime = new DateAndTime();
+    
     /**
      * Creates a new instance of TotalRevenue
      */
     public TotalRevenueView(){}
 
     /**
-     * Updates the total revenue when a payment is done
+     * Shows total income after a sale in the console
      * 
-     * @param summary the summary of the revenue
+     * @throws Exception if a sale hasn't been made
      */
     @Override
-    public void updateTotal(Summary summary) {
-        totalRevenue.updateTotal(summary);
-        printTotalRevenue();    
-    }
-
-    private void printTotalRevenue(){
-        System.out.println("***************CONSOLE LOGGER****************\n\n");
-        System.out.println("A sale was made at: " + getDateAndTime() + "\n");
-        System.out.println("Total Revenue After Sale: " + totalRevenue.getSummary().toString());
-        System.out.println("\n");
-        System.out.println("*************CONSOLE LOGGER ENDS************\n");
+    protected void doShowTotalIncome() {
+        print("***************CONSOLE LOGGER****************\n\n");
+        print("A sale was made at: " + saleTime.getDateAndTime() + "\n");
+        print("Total Revenue After Sale: " +  getCalculatedIncome().getSummary().toString());
+        print("\n");
+        print("*************CONSOLE LOGGER ENDS************\n");
     }
 
     /**
-     * Gets the date and time of today
+     * Displays an error in the console if a sale cant be done
      * 
-     * @return the date and time of today
+     * @param exception if an error occured which stopped the sale
      */
-    public String getDateAndTime() {
-        DateTimeFormatter format = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
-        return timeRightNow.format(format); 
+    @Override
+    protected void handleErrors(Exception exception) {
+        print("***************CONSOLE LOGGER****************\n\n");;
+        print("An error occured @ " + saleTime.getDateAndTime() + "\n");
+        print("The following happend: \n");
+        print(exception.getMessage());
+        print("*************CONSOLE LOGGER ENDS************\n"); 
     }
-    
+
+    private void print(String output) {
+        System.out.println(output);
+    }
+ 
 }
