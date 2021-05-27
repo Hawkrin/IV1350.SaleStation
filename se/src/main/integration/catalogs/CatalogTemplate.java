@@ -1,5 +1,8 @@
 package main.integration.catalogs;
 
+/**
+ * A composite entity interface of the classes ItemCatalog, DiscountCatalog and CustomerCatalog and CompleteCatalog
+ */
 public interface CatalogTemplate {
 
     /**
@@ -10,6 +13,11 @@ public interface CatalogTemplate {
      */
     void setData();
 
+    /**
+     * Gets the data
+     * 
+     * @return the data
+     */
     String getData();
 
 
