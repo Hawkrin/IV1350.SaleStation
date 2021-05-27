@@ -1,13 +1,18 @@
-package main.integration;
+package main.integration.catalogs;
 
 import java.util.HashMap;
+
+import main.integration.InvalidIDException;
+import main.integration.Item;
+import main.integration.ItemDTO;
 import main.util.Amount;
 
 /**
  * Contains all the calls to the data store with the products which can be purchased
  */
-public class ItemCatalog {
+public class ItemCatalog implements CatalogTemplate {
     private HashMap<Integer, ItemDTO> availableItems  = new HashMap<>();
+    ItemCatalog itemcatalog;
 
     public ItemCatalog() {
         addItems();
@@ -49,6 +54,16 @@ public class ItemCatalog {
             throw new InvalidIDException("No item with the ID: " + itemID + "exists in stock");
         }
         throw new CatalogException("Could not reach the database");
+    }
+
+    @Override
+    public void setData() {
+        itemcatalog.addItems();   
+    }
+
+    @Override
+    public String getData() {
+        return availableItems.toString();   
     }
 
     protected void addItems() {

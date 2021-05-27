@@ -3,12 +3,12 @@ package main.startup;
 import java.io.IOException;
 import main.controller.Controller;
 import main.controller.OperationFailedException;
-import main.integration.CatalogHandler;
-import main.integration.CatalogInformationDisplayer;
 import main.integration.InvalidIDException;
 import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
 import main.integration.SystemHandler;
+import main.integration.catalogs.CatalogHandler;
+import main.integration.catalogs.CatalogInformationDisplayer;
 import main.view.SampleHelpMethods;
 import main.view.View;
 

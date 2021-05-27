@@ -3,6 +3,11 @@ package main.controller;
 import java.util.ArrayList;
 import java.util.List;
 import main.integration.*;
+import main.integration.catalogs.CatalogException;
+import main.integration.catalogs.CatalogHandler;
+import main.integration.catalogs.CustomerCatalog;
+import main.integration.catalogs.DiscountCatalog;
+import main.integration.catalogs.ItemCatalog;
 import main.model.*;
 import main.util.Amount;
 

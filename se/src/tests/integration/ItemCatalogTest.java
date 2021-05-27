@@ -1,7 +1,9 @@
 package tests.integration;
 
-import main.integration.ItemCatalog;
 import org.junit.jupiter.api.Test;
+
+import main.integration.catalogs.ItemCatalog;
+
 import static org.junit.Assert.*;
 
 public class ItemCatalogTest {
@@ -19,7 +21,7 @@ public class ItemCatalogTest {
 
     @Test
     public void testItemNotInStock() {
-        ItemCatalog itemCatalog = new ItemCatalog();;
+        ItemCatalog itemCatalog = new ItemCatalog();
         boolean expResult = false;
         boolean result = itemCatalog.itemInStock(testItemIDFalse);
         assertEquals("The expected item does not  exist in the catalog", expResult, result);
@@ -27,11 +29,9 @@ public class ItemCatalogTest {
 
     @Test
     public void testItemWithIDZero() {
-        ItemCatalog itemCatalog = new ItemCatalog();;
+        ItemCatalog itemCatalog = new ItemCatalog();
         boolean expResult = false;
         boolean result = itemCatalog.itemInStock(testItemIDZero);
         assertEquals("The expected item does not  exist in the catalog", expResult, result);
     }
-    
-
 }

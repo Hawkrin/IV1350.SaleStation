@@ -1,19 +1,23 @@
-package main.integration;
+package main.integration.catalogs;
 
 import java.util.HashMap;
+
+import main.integration.CustomerDTO;
+import main.integration.InvalidIDException;
 import main.util.Customer;
 
 /**
  * Represents a Register for customers
  */
-public class CustomerCatalog {
+public class CustomerCatalog implements CatalogTemplate {
     private HashMap<Integer, CustomerDTO> customerRegistry = new HashMap<>();
+    CustomerCatalog customerCatalog;
 
     public CustomerCatalog() {
         membership();
     }
 
-     /**
+    /**
      * Get the list of customers
      * 
      * @return the list of customers
@@ -50,11 +54,24 @@ public class CustomerCatalog {
         throw new CatalogException("Could not reach the database");
     }
 
+    @Override
+    public void setData() {
+        customerCatalog.membership();   
+    }
+
+    @Override
+    public String getData() {
+        return customerRegistry.toString();
+        
+    }
+
     protected void membership() {
         customerRegistry.put(123456789, new CustomerDTO("Karl Karlsson", 123456789));
         customerRegistry.put(98765321, new CustomerDTO("Mikael Mikaelsson", 123456789));
         customerRegistry.put(11111111, new CustomerDTO("Daniel Danielsson", 111111111));
     }
+
+  
 
 
 }

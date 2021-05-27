@@ -1,4 +1,4 @@
-package main.integration;
+package main.integration.catalogs;
 
 /**
  * Thrown when a database can't be reached

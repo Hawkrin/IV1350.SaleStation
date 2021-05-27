@@ -1,4 +1,4 @@
-package main.integration;
+package main.integration.catalogs;
 
 import java.util.HashMap;
 import main.util.Amount;
@@ -6,8 +6,9 @@ import main.util.Amount;
 /**
  * Represents a database for discounts
  */
-public class DiscountCatalog {
+public class DiscountCatalog implements CatalogTemplate {
     private HashMap<String, Amount> discountList = new HashMap<>();
+    DiscountCatalog discountCatalog;
 
     /**
      * Creates an instance of a DiscountCatalog
@@ -22,6 +23,17 @@ public class DiscountCatalog {
      * @return the discount percent for the customer
      */
     public HashMap<String, Amount> getDiscountPercent() { return this.discountList; }
+
+    @Override
+    public void setData() {
+        discountCatalog.availableDiscount();   
+    }
+
+    @Override
+    public String getData() {
+        return discountList.toString();
+        
+    }
 
     protected void availableDiscount() {
         discountList.put("Discount Bronze tier", new Amount(0.05));

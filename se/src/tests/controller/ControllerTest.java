@@ -2,10 +2,10 @@ package tests.controller;
 
 import main.controller.Controller;
 import main.controller.OperationFailedException;
-import main.integration.CatalogHandler;
 import main.integration.InvalidIDException;
 import main.integration.ReceiptPrinter;
 import main.integration.SystemHandler;
+import main.integration.catalogs.CatalogHandler;
 import main.integration.SalesLog;
 import main.util.Amount;
 import main.integration.ItemDTO;

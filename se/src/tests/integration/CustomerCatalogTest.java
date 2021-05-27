@@ -1,7 +1,9 @@
 package tests.integration;
 
-import main.integration.CustomerCatalog;
 import org.junit.jupiter.api.Test;
+
+import main.integration.catalogs.CustomerCatalog;
+
 import static org.junit.Assert.*;
 
 public class CustomerCatalogTest {

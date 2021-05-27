@@ -1,6 +1,7 @@
-package main.integration;
+package main.integration.catalogs;
+
 /**
- * This class handels all catalogs which are being created
+ * This class handles all catalogs which are being created
  */
 public class CatalogHandler {
     private static CatalogHandler INSTANCE = new CatalogHandler();
