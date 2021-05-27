@@ -1,7 +1,6 @@
 package main.integration.catalogs;
 
 import java.util.HashMap;
-
 import main.integration.InvalidIDException;
 import main.integration.Item;
 import main.integration.ItemDTO;

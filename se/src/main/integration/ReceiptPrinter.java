@@ -7,7 +7,7 @@ import main.model.Receipt;
 public class ReceiptPrinter {
     private static ReceiptPrinter INSTANCE = new ReceiptPrinter();
 
-    private ReceiptPrinter() {}
+    public ReceiptPrinter() {}
 
     /**
      * Gets the instance of a ReceiptPrinter

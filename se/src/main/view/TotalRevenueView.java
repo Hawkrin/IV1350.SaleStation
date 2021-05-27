@@ -21,7 +21,7 @@ public class TotalRevenueView extends ObserverTemplateClass {
      * @throws Exception if a sale hasn't been made
      */
     @Override
-    protected void doShowTotalIncome() {
+    public void doShowTotalIncome() {
         print("***************CONSOLE LOGGER****************\n\n");
         print("A sale was made at: " + saleTime.getDateAndTime() + "\n");
         print("Total Revenue After Sale: " +  getCalculatedIncome().getSummary().toString());
@@ -35,7 +35,7 @@ public class TotalRevenueView extends ObserverTemplateClass {
      * @param exception if an error occured which stopped the sale
      */
     @Override
-    protected void handleErrors(Exception exception) {
+    public void handleErrors(Exception exception) {
         print("***************CONSOLE LOGGER****************\n\n");;
         print("An error occured @ " + saleTime.getDateAndTime() + "\n");
         print("The following happend: \n");

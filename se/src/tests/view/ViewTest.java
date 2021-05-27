@@ -1,64 +1,97 @@
 package tests.view;
 
 import static org.junit.Assert.assertEquals;
-
+import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
 import main.controller.Controller;
 import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
 import main.integration.SystemHandler;
 import main.integration.catalogs.CatalogHandler;
-import main.util.Amount;
+import main.model.Sale;
+import main.util.DateAndTime;
 import main.view.SampleHelpMethods;
 import main.view.View;
+import main.model.Receipt;
 
 public class ViewTest {
-    private Controller controller = new Controller(CatalogHandler.getCatalogHandler(), SystemHandler.getSystemHandler(), ReceiptPrinter.getReceiptPrinter(), SalesLog.getSalesLog());
-    private SampleHelpMethods sample = new SampleHelpMethods(controller);
-    private View view = new View(controller, sample);
-    private ByteArrayOutputStream outContent;
-    private PrintStream originalSysOut;
+    ByteArrayOutputStream outContent;
+    PrintStream originalSysOut;
+    View instance;
+    Sale sale; 
+    DateAndTime saleTime;
+    Receipt receipt;
 
     @Before
     public void setUp() {
+        Controller controller = new Controller(CatalogHandler.getCatalogHandler(), SystemHandler.getSystemHandler(), ReceiptPrinter.getReceiptPrinter(), SalesLog.getSalesLog());
+        SampleHelpMethods sample = new SampleHelpMethods(controller);
+        sale = new Sale();
+        saleTime = new DateAndTime();
+        receipt = new Receipt(sale);
         originalSysOut = System.out;
         outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
+        instance = new View(controller, sample);
     }
 
     @After
     public void tearDown() {
         outContent = null;
         System.setOut(originalSysOut);
+        instance = null;
     }
 
     @Test
-    public void testSampleRunWithExceptions() {
-        print("New Sale Started:");
-        controller.startNewSale();
-        print("\nCashier enter items:\n");
-        sample.registerItem(11111, new Amount(2));
-        sample.registerItem(11112, new Amount(3));
-        print("\nCashier displays the total price with taxes:");
-        print(controller.displaySummary());
-        print("\nCashier enters the amount paid by the customer.\n");
-        print("\nA Receipt is Printed: \n");
-        print(controller.salePayment(new Amount(1500)));
-        String expResult = "New Sale Started:" + "\nCashier enter items:\n" + 
-                           "\nCashier displays the total price with taxes:" +
-                           "\nCashier enters the amount paid by the customer.\n" +
-                           "\nA Receipt is Printed: \n";
-        String result = outContent.toString();
-        assertEquals(expResult, result);
+    public void testSampleRunWithExceptionsRegisterItem() {
+        instance.sampleRunWithExceptions();
+        String printout = outContent.toString();
+        String expResult =  "\nItem Name: Hammer" +
+                            "\nItem Price: 300.0" +
+                            "\nItem taxRate: 0.25" +
+                            "\nItem ID: 11111" + 
+                            "\nItem Quantity: 2.0" + "\n" +
+                            "Price Summary: 600.5";
+        assertTrue(printout.contains(expResult));
     }
 
-    private void print(String output) {
-        System.out.println(output);
+    @Test
+    public void testSampleRunDisplayTotal(){
+        instance.sampleRunWithExceptions();
+        String printout = outContent.toString();
+        String expRes = "\nCashier displays the total price with taxes:";
+        assertTrue(printout.contains(expRes));
     }
 
-    
+    @Test
+    public void testSampleRunConsoleLog(){
+        instance.sampleRunWithExceptions();
+        String printout = outContent.toString();
+        String expRes = "***************CONSOLE LOGGER****************\n\n";
+        assertTrue(printout.contains(expRes));
+    }
+
+    @Test
+    public void testSampleRunConsoleLogEnd(){
+        instance.sampleRunWithExceptions();
+        String printout = outContent.toString();
+        String expRes = "*************CONSOLE LOGGER ENDS************\n";
+        assertTrue(printout.contains(expRes));
+    }
+
+    @Test
+    public void testSampleRunRecieptCreation(){
+        instance.sampleRunWithExceptions();
+        String printout = outContent.toString();
+        String expRes = "********RECIEPT*********\n" + "\n" +
+                        "Purchase was made: " + saleTime.getDateAndTime().toString() + "\n" +
+                        "\nItems Bought: \n\n" + sale.getShoppingCart().toString();
+        assertTrue(printout.contains(expRes));
+    }
+  
 }

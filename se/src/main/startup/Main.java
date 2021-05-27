@@ -37,6 +37,9 @@ public class Main {
         //view.sampleRun();
         view.sampleRunWithExceptions();
         catalogInformationDisplayer.printData();
+
+    
+
     
         
 
