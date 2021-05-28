@@ -22,11 +22,11 @@ public class TotalRevenueView extends ObserverTemplateClass {
      */
     @Override
     public void doShowTotalIncome() {
-        print("***************CONSOLE LOGGER****************\n\n");
-        print("A sale was made at: " + saleTime.getDateAndTime() + "\n");
-        print("Total Revenue After Sale: " +  getCalculatedIncome().getSummary().toString());
-        print("\n");
-        print("*************CONSOLE LOGGER ENDS************\n");
+        print("***************CONSOLE LOGGER****************" + "\n\n" +
+        "A sale was made at: " + saleTime.getDateAndTime() + "\n\n" +
+        "Total Revenue After Sale: " +  getCalculatedIncome().getSummary().toString() +
+        "\n\n" +
+        "*************CONSOLE LOGGER ENDS************\n");
     }
 
     /**
@@ -36,11 +36,10 @@ public class TotalRevenueView extends ObserverTemplateClass {
      */
     @Override
     public void handleErrors(Exception exception) {
-        print("***************CONSOLE LOGGER****************\n\n");;
-        print("An error occured @ " + saleTime.getDateAndTime() + "\n");
-        print("The following happend: \n");
-        print(exception.getMessage());
-        print("*************CONSOLE LOGGER ENDS************\n"); 
+        print("***************CONSOLE LOGGER****************\n\n" +
+        "An error occured @ " + saleTime.getDateAndTime() + "\n\n" +
+        "The following happend: \n" + exception.getMessage() + "\n\n" +
+        "*************CONSOLE LOGGER ENDS************\n"); 
     }
 
     private void print(String output) {

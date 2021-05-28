@@ -1,4 +1,4 @@
-package tests.view;
+package tests.startup;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -13,19 +13,26 @@ import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
 import main.integration.SystemHandler;
 import main.integration.catalogs.CatalogHandler;
+import main.integration.catalogs.CatalogInformationDisplayer;
+import main.integration.catalogs.CompleteCatalog;
+import main.integration.catalogs.CustomerCatalog;
+import main.integration.catalogs.DiscountCatalog;
+import main.integration.catalogs.ItemCatalog;
 import main.model.Sale;
+import main.startup.Main;
 import main.util.Amount;
 import main.util.DateAndTime;
+import main.util.Discount;
 import main.view.SampleHelpMethods;
 import main.view.View;
 import main.model.ObserverTemplateClass;
 import main.model.Payment;
 import main.model.Receipt;
 
-public class ViewTest {
+public class MainTest {
     ByteArrayOutputStream outContent;
     PrintStream originalSysOut;
-    View instance;
+    View view;
     Sale sale; 
     DateAndTime saleTime;
     Receipt receipt;
@@ -33,6 +40,7 @@ public class ViewTest {
     Controller controller;
     Payment payment;
     Amount paidAmount;
+    Main instance;
 
     @Before
     public void setUp() {
@@ -44,7 +52,7 @@ public class ViewTest {
         originalSysOut = System.out;
         outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        instance = new View(controller, sample);
+        view = new View(controller, sample);
         paidAmount = new Amount();
         payment = new Payment(paidAmount, sale.getSummary());
     }
@@ -53,12 +61,12 @@ public class ViewTest {
     public void tearDown() {
         outContent = null;
         System.setOut(originalSysOut);
-        instance = null;
+        view = null;
     }
 
     @Test
     public void testSampleRunWithExceptionsRegisterItem() {
-        instance.sampleRunWithExceptions();
+        view.sampleRunWithExceptions();
         String printout = outContent.toString();
         String expResult =  "\nItem Name: Hammer" +
                             "\nItem Price: 300.0" +
@@ -71,7 +79,7 @@ public class ViewTest {
 
     @Test
     public void testSampleRunDisplayTotal(){
-        instance.sampleRunWithExceptions();
+        view.sampleRunWithExceptions();
         String printout = outContent.toString();
         String expRes = "\nCashier displays the total price with taxes:" + "\n" +
                          controller.displaySummary();
@@ -80,7 +88,7 @@ public class ViewTest {
 
     @Test
     public void testSampleRunConsoleLog(){
-        instance.sampleRunWithExceptions();
+        view.sampleRunWithExceptions();
         String printout = outContent.toString();
         String expRes = "***************CONSOLE LOGGER****************" + "\n\n" +
         "A sale was made at: " + saleTime.getDateAndTime() + "\n\n" +
@@ -92,7 +100,7 @@ public class ViewTest {
 
     @Test
     public void testSampleRunRecieptCreation(){
-        instance.sampleRunWithExceptions();
+        view.sampleRunWithExceptions();
         String printout = outContent.toString();
         String expRes = "********RECIEPT*********\n" + "\n" +
                         "Purchase was made: " + saleTime.getDateAndTime().toString() + "\n" +
@@ -102,10 +110,30 @@ public class ViewTest {
 
     @Test
     public void testSampleRunChangeToReturn(){
-        instance.sampleRunWithExceptions();
+        view.sampleRunWithExceptions();
         String printout = outContent.toString();
         String expRes = "Change to return: " + "749.32";
         assertTrue(printout.contains(expRes));
     }
+
+    @Test
+    public void testPrintCatalogInformation() {
+        CatalogInformationDisplayer infoDisplayer = new CatalogInformationDisplayer();
+        CustomerCatalog customerCatalog = new CustomerCatalog();
+        ItemCatalog itemCatalog = new ItemCatalog();
+        DiscountCatalog discountCatalog = new DiscountCatalog();
+        infoDisplayer.printData();
+        String printout = outContent.toString();
+        String expRes = "\n\nThe current members of the store: \n\n" +
+                        customerCatalog.getData().toString() +
+                        "\n\nThe current items in stock: \n\n" +
+                        itemCatalog.getData().toString() +
+                        "\n\nThe current discount levels available: \n\n" +
+                        discountCatalog.getData().toString(); 
+        assertTrue(printout.contains(expRes));
+
+    }
   
 }
+    
+

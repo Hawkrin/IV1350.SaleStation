@@ -1,12 +1,12 @@
 package tests.view;
 
 import static org.junit.Assert.assertTrue;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
 import main.controller.Controller;
 import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
@@ -27,7 +27,6 @@ public class TotalRevenueViewTest {
     Receipt receipt;
     ObserverTemplateClass otc;
     
-
     @Before
     public void setUp() {
         Controller controller = new Controller(CatalogHandler.getCatalogHandler(), SystemHandler.getSystemHandler(), ReceiptPrinter.getReceiptPrinter(), SalesLog.getSalesLog());
@@ -51,13 +50,26 @@ public class TotalRevenueViewTest {
     public void testdoShowTotalIncome(){
         instance.doShowTotalIncome();
         String printout = outContent.toString();
-        String expRes = "***************CONSOLE LOGGER****************\n\n" +
-                        "A sale was made at: " + logTime.getDateAndTime();
-                        /*"Total Revenue After Sale: " +  otc.getCalculatedIncome().getSummary().toString() +  "\n" +
-                        "*************CONSOLE LOGGER ENDS************\n"*/               
+        String expRes = "***************CONSOLE LOGGER****************" + "\n\n" +
+        "A sale was made at: " + logTime.getDateAndTime() + "\n\n" +
+        "Total Revenue After Sale: " +  "751.3599999999999" +
+        "\n\n" +
+        "*************CONSOLE LOGGER ENDS************\n";;          
         assertTrue(printout.contains(expRes));
     }
 
-   
-    
+    @Test
+    public void testhandleErrors() {
+        Exception exception = new Exception();
+        instance.handleErrors(exception);
+        String printout = outContent.toString();
+        String expRes = "***************CONSOLE LOGGER****************\n\n" +
+        "An error occured @ " + logTime.getDateAndTime() + "\n\n" +
+        "The following happend: \n" + exception.getMessage() + "\n\n" +
+        "*************CONSOLE LOGGER ENDS************\n";
+        assertTrue(printout.contains(expRes));
+
+    }
+
+
 }
