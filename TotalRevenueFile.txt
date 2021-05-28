@@ -1,8 +1,8 @@
 ***************FILE LOGGER****************
 
-A new sale was made @ 28 maj 2021 20:38:19
+A new sale was made @ 28 maj 2021 21:06:20
 Total Revenue After Sale: 0.0
 *************FILE LOGGER ENDS************
 
-**FILE LOGGER ENDS************
+***FILE LOGGER ENDS************
 

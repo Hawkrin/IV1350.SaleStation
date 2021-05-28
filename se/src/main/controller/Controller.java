@@ -73,7 +73,7 @@ public class Controller {
             return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + "\nPrice Summary: " + displaySummary();
         }
         catch(CatalogException CataExc) {
-            throw new OperationFailedException("Could not find the requested Item.", CataExc);
+            throw new OperationFailedException("Can't reach the ItemCatalog.", CataExc);
         }    
     }
 

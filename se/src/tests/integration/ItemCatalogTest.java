@@ -1,8 +1,13 @@
 package tests.integration;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.Test;
 
+import main.integration.InvalidIDException;
+import main.integration.ItemDTO;
 import main.integration.catalogs.ItemCatalog;
+import main.util.Amount;
 
 import static org.junit.Assert.*;
 
@@ -10,9 +15,13 @@ public class ItemCatalogTest {
     private int testItemIDTrue = 11111;
     private int testItemIDFalse = 22222;
     private int testItemIDZero = 0;
+    ItemDTO validItem;
+    ItemDTO invalidItem;
 
     @Test
     public void testItemInStock(){
+        invalidItem = new ItemDTO("Godis", new Amount(100), new Amount(0.9), 123123123);
+        validItem = new ItemDTO("Hammer", new Amount(300), new Amount(0.25), 11111);
         ItemCatalog itemCatalog = new ItemCatalog();
         boolean expResult = true;
         boolean result = itemCatalog.itemInStock(testItemIDTrue);
@@ -33,5 +42,13 @@ public class ItemCatalogTest {
         boolean expResult = false;
         boolean result = itemCatalog.itemInStock(testItemIDZero);
         assertEquals("The expected item does not  exist in the catalog", expResult, result);
+    }
+
+    @Test
+    public void testGetItemInvalidIDException() {
+        ItemCatalog customerCatalogA = new ItemCatalog();
+        int itemID = 111111111;
+        Amount quantity = new Amount(2);
+        assertThrows(InvalidIDException.class, () ->  customerCatalogA.getItem(itemID, quantity));   
     }
 }

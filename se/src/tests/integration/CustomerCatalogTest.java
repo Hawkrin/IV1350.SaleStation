@@ -2,6 +2,8 @@ package tests.integration;
 
 import org.junit.jupiter.api.Test;
 
+import main.integration.CustomerDTO;
+import main.integration.InvalidIDException;
 import main.integration.catalogs.CustomerCatalog;
 
 import static org.junit.Assert.*;
@@ -10,12 +12,18 @@ public class CustomerCatalogTest {
     private int customerExistInSystem = 123456789;
     private int customerNotExistInSystem = 987654321;
     private int customerIDIsZero = 0;
+    CustomerDTO validCustomer;
+    CustomerDTO invalidCustomer;
+
 
     @Test
     public void testcustomerInRegister(){
-        CustomerCatalog customerCatalog = new CustomerCatalog();
+        CustomerCatalog customerCatalogB = new CustomerCatalog();
+        invalidCustomer = new CustomerDTO("hejsan svejsan", 123123123);
+        validCustomer = new CustomerDTO("Karl Karlsson", 123456789);
+        customerCatalogB = new CustomerCatalog();
         boolean expResult = true;
-        boolean result = customerCatalog.customerInRegister(customerExistInSystem);
+        boolean result = customerCatalogB.customerInRegister(customerExistInSystem);
         assertEquals("The expected customer does not  exist in the catalog.", expResult, result);
     }
 
@@ -35,5 +43,11 @@ public class CustomerCatalogTest {
         assertEquals("The expected customer does exist in the catalog.", expResult, result);
     }
 
+    @Test
+    public void testGetCustomerInvalidIDException() {
+        CustomerCatalog customerCatalogA = new CustomerCatalog();
+        int customerID = 111111111;
+        assertThrows(InvalidIDException.class, () ->  customerCatalogA.getCustomer(invalidCustomer, customerID));   
+    }
     
 }

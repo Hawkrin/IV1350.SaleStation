@@ -1,7 +1,6 @@
 package tests.view;
 
 import static org.junit.Assert.assertTrue;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.After;
@@ -31,6 +30,7 @@ public class SampleHelpMethodTest {
     Controller controller;
     ItemCatalog itemCatalog;
     DateAndTime logTime;
+    
 
     @Before
     public void setUp() {
@@ -43,6 +43,7 @@ public class SampleHelpMethodTest {
         summary = new Summary();
         itemCatalog = new ItemCatalog();
         logTime = new DateAndTime();
+
         
     }
 
@@ -111,10 +112,5 @@ public class SampleHelpMethodTest {
                         "*******************";
         assertTrue(printout.contains(expRes));
     }
-
-
-
-
-                        
-    
+   
 }

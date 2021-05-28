@@ -50,7 +50,7 @@ public class ItemCatalog implements CatalogTemplate {
             return new Item(availableItems.get(itemID), itemQuantity, itemID);
         }
         if(itemInStock(itemID) == false) {
-            throw new InvalidIDException("No item with the ID: " + itemID + "exists in stock");
+            throw new InvalidIDException("No item with the ID: " + itemID + " exists in stock");
         }
         throw new CatalogException("Could not reach the database");
     }

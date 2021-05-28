@@ -8,7 +8,6 @@ public class Receipt {
     private Sale sale;
     private  DateAndTime saleTime = new DateAndTime();
     
-   
     /**
      * Creates a new instance, representing a reciept
      * 

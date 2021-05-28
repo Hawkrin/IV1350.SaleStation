@@ -1,13 +1,16 @@
 package tests.view;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.jupiter.api.Disabled;
+import org.junit.rules.ExpectedException;
 import main.controller.Controller;
 import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
@@ -55,6 +58,9 @@ public class ViewTest {
         System.setOut(originalSysOut);
         instance = null;
     }
+
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void testSampleRunWithExceptionsRegisterItem() {
@@ -107,5 +113,14 @@ public class ViewTest {
         String expRes = "Change to return: " + "749.32";
         assertTrue(printout.contains(expRes));
     }
+
+    @Test
+    public void testSampleRunWithExceptionsIllegalStateException() {
+        //controller.startNewSale();
+        exception.expect(IllegalStateException.class);
+        instance.sampleRunWithExceptions();
+    }
+
+
   
 }
