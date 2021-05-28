@@ -11,7 +11,10 @@ import main.util.Customer;
  */
 public class CustomerCatalog implements CatalogTemplate {
     private HashMap<Integer, CustomerDTO> customerRegistry = new HashMap<>();
+    private HashMap <Integer, String> customerGDPRAgreement = new HashMap<>();
     CustomerCatalog customerCatalog;
+    String approve;
+    String decline;
 
     public CustomerCatalog() {
         membership();
@@ -35,6 +38,16 @@ public class CustomerCatalog implements CatalogTemplate {
     }
 
     /**
+     * Checks if the customer have agreed to GDPR. If not, the customer data can't be retrieved
+     * 
+     * @param customerID the ID of a certain customer
+     * @return If customer has agreed <code>true</code> else <code>false</code>
+     */
+    public boolean customerGDPRError(int customerID){
+        return customerGDPRAgreement.containsKey(customerID);    
+    }
+
+    /**
      * if the customers ID is in the database, the information about the customer
      * is retrieved
      * 
@@ -51,7 +64,10 @@ public class CustomerCatalog implements CatalogTemplate {
         if(customerInRegister(customerID) == false) {
             throw new InvalidIDException("The customer with ID: " + customerID + "doesn't exist in the database");
         }
-        throw new CatalogException("Could not reach the database");
+        if(customerInRegister(customerID) && customerGDPRError(customerID) == false) {
+            throw new CatalogException("Could not reach the database");
+        }
+        return null;
     }
 
     @Override
@@ -67,8 +83,11 @@ public class CustomerCatalog implements CatalogTemplate {
 
     protected void membership() {
         customerRegistry.put(123456789, new CustomerDTO("Karl Karlsson", 123456789));
-        customerRegistry.put(98765321, new CustomerDTO("Mikael Mikaelsson", 123456789));
-        customerRegistry.put(11111111, new CustomerDTO("Daniel Danielsson", 111111111));
+        customerRegistry.put(98765321, new CustomerDTO("Mikael Mikaelsson", 98765321));
+        customerRegistry.put(11111111, new CustomerDTO("Daniel Danielsson", 11111111));
+
+        customerGDPRAgreement.put(123456789, approve);
+        customerGDPRAgreement.put(11111111, approve);
     }
 
   

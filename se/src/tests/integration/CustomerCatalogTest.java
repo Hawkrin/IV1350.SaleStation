@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import main.integration.CustomerDTO;
 import main.integration.InvalidIDException;
+import main.integration.catalogs.CatalogException;
 import main.integration.catalogs.CustomerCatalog;
 
 import static org.junit.Assert.*;
@@ -20,7 +21,7 @@ public class CustomerCatalogTest {
     public void testcustomerInRegister(){
         CustomerCatalog customerCatalogB = new CustomerCatalog();
         invalidCustomer = new CustomerDTO("hejsan svejsan", 123123123);
-        validCustomer = new CustomerDTO("Karl Karlsson", 123456789);
+        validCustomer = new CustomerDTO("Mikael Mikaelsson", 98765321);
         customerCatalogB = new CustomerCatalog();
         boolean expResult = true;
         boolean result = customerCatalogB.customerInRegister(customerExistInSystem);
@@ -48,6 +49,13 @@ public class CustomerCatalogTest {
         CustomerCatalog customerCatalogA = new CustomerCatalog();
         int customerID = 111111111;
         assertThrows(InvalidIDException.class, () ->  customerCatalogA.getCustomer(invalidCustomer, customerID));   
+    }
+
+    @Test
+    public void testGetCustomerCatalogException() {
+        CustomerCatalog customerCatalogA = new CustomerCatalog();
+        int customerID = 98765321;
+        assertThrows(CatalogException.class, () ->  customerCatalogA.getCustomer(validCustomer, customerID));   
     }
     
 }
