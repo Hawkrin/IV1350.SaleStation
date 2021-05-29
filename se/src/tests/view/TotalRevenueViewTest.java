@@ -55,7 +55,7 @@ public class TotalRevenueViewTest {
         "Total Revenue After Sale: " +  "751.3599999999999" +
         "\n\n" +
         "*************CONSOLE LOGGER ENDS************\n";;          
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
     @Test
@@ -67,7 +67,7 @@ public class TotalRevenueViewTest {
         "An error occured @ " + logTime.getDateAndTime() + "\n\n" +
         "The following happend: \n" + exception.getMessage() + "\n\n" +
         "*************CONSOLE LOGGER ENDS************\n";
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
 
     }
 

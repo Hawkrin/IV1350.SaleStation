@@ -66,7 +66,7 @@ public class SampleHelpMethodTest {
         String expRes = sale.updateItems(newItem) + "\nItem Quantity: " + 
                         quantity.toString() + "\nPrice Summary: " + 
                         controller.displaySummary();
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
     @Test
@@ -81,7 +81,7 @@ public class SampleHelpMethodTest {
         "An error occured @ " + logTime.getDateAndTime() + "\n\n" +
         "The following happend: \n"  + "Call to registerItem was made before initiating a new sale." + "\n\n" +
         "*************CONSOLE LOGGER ENDS************\n";
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
     @Test
@@ -97,7 +97,7 @@ public class SampleHelpMethodTest {
                         "ERROR OCCURED " + "\n" +
                         "A new sale have to be started." + "\n" +
                         "*******************";
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
     @Disabled
@@ -108,7 +108,7 @@ public class SampleHelpMethodTest {
         instance.registerItem(11111, quantity);
         String printout = outContent.toString();
         String expRes = "The item with ID: 12343doesn't exist in the database";          
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
    
 }

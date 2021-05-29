@@ -53,7 +53,7 @@ public class ErrorMessageHandlerTest {
                         "ERROR OCCURED " + "\n" +
                         string + "\n" +
                         "*******************";
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }  
 
 }

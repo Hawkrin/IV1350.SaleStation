@@ -80,7 +80,7 @@ public class ReceiptPrinterTest {
                         "Purchase was made: " + saleTime.getDateAndTime().toString() + "\n" +
                         "\nItems Bought: \n\n" + sale.getShoppingCart().toString() + "\n" +
                         "\n*******RECIEPT END*******";
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
     @Test
@@ -88,7 +88,7 @@ public class ReceiptPrinterTest {
         instance.printReceipt(receipt);
         String printout = outContent.toString();
         String expRes = receipt.createReceipt().toString();
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
 

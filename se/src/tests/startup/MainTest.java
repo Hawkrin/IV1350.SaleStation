@@ -80,7 +80,7 @@ public class MainTest {
                             "\nItem ID: 11111" + 
                             "\nItem Quantity: 2.0" + "\n" +
                             "Price Summary: 600.5";
-        assertTrue(printout.contains(expResult));
+        assertTrue("A wrong print out is made", printout.contains(expResult));
     }
 
     @Test
@@ -95,7 +95,7 @@ public class MainTest {
         Item item = new Item(itemDTO, itemQuantity);
         String printout = outContent.toString();
         String expResult = item.toString(); 
-        assertTrue(printout.contains(expResult));
+        assertTrue("A wrong print out is made", printout.contains(expResult));
     }
 
     @Test
@@ -104,7 +104,7 @@ public class MainTest {
         String printout = outContent.toString();
         String expRes = "\nCashier displays the total price with taxes:" + "\n" +
                          controller.displaySummary();
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
     @Test
@@ -116,7 +116,7 @@ public class MainTest {
         "Total Revenue After Sale: " +  "751.3599999999999" +
         "\n\n" +
         "*************CONSOLE LOGGER ENDS************\n";     
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
     @Test
@@ -126,7 +126,7 @@ public class MainTest {
         String expRes = "********RECIEPT*********\n" + "\n" +
                         "Purchase was made: " + saleTime.getDateAndTime().toString() + "\n" +
                         "\nItems Bought: \n\n" + sale.getShoppingCart().toString();
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
     @Test
@@ -134,7 +134,7 @@ public class MainTest {
         view.sampleRunWithExceptions();
         String printout = outContent.toString();
         String expRes = "Change to return: " + "749.32";
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
     @Test
@@ -142,7 +142,7 @@ public class MainTest {
         view.sampleRunWithExceptions();
         String printout = outContent.toString();
         String expRes = payment.getChange().toString();
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
     @Test
@@ -159,7 +159,7 @@ public class MainTest {
                         itemCatalog.getData().toString() +
                         "\n\nThe current discount levels available: \n\n" +
                         discountCatalog.getData().toString(); 
-        assertTrue(printout.contains(expRes));
+        assertTrue("A wrong print out is made", printout.contains(expRes));
 
     }
   
