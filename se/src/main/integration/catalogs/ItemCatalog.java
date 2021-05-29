@@ -12,7 +12,7 @@ import main.util.Amount;
 public class ItemCatalog implements CatalogTemplate {
     private HashMap<Integer, ItemDTO> availableItems  = new HashMap<>();
     ItemCatalog itemcatalog;
-    private final int INVALID_NUMBER = 1337;
+    private final int DATABASE_UNREACHABLE = 1337;
 
     public ItemCatalog() {
         addItems();
@@ -47,17 +47,16 @@ public class ItemCatalog implements CatalogTemplate {
      *                              
      */
     public Item getItem(int itemID, Amount itemQuantity) throws InvalidIDException {
-        Item newItem = new Item(availableItems.get(itemID), itemQuantity, itemID);
-        if(itemInStock(itemID) == false) {
-            throw new InvalidIDException("No item with the ID: " + itemID + " exists in stock");
+        if(itemInStock(itemID)) {
+            return new Item(availableItems.get(itemID), itemQuantity, itemID);
         }
-        if (newItem.getItemID() != itemID){
-            throw new CatalogException("Gets the wrong item from database");
-        }
-        if (newItem.getItemID() == INVALID_NUMBER){
+        if (itemID == DATABASE_UNREACHABLE){
             throw new CatalogException("An item with that ID can't be retrived");
         }
-        return newItem;
+        if (itemInStock(itemID) == false){
+            throw new InvalidIDException("The item with ID: " + itemID + "doesn't exist in the database");
+        }
+        return null;
     }
 
     @Override

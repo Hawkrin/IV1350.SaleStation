@@ -52,10 +52,12 @@ public class CustomerCatalogTest {
     }
 
     @Test
-    public void testGetCustomerCatalogException() {
-        CustomerCatalog customerCatalogA = new CustomerCatalog();
+    public void testGetCustomerCatalogException() throws CatalogException {
+        CustomerCatalog customerCatalogB = new CustomerCatalog();
+        int DATABASE_UNREACHABLE = 1337;
         int customerID = 123456789;
-        assertThrows(CatalogException.class, () ->  customerCatalogA.getCustomer(validCustomer, customerID));   
+        assertThrows(CatalogException.class, () ->  customerCatalogB.getCustomer(validCustomer, 1337));   
     }
+
     
 }

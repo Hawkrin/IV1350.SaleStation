@@ -46,20 +46,18 @@ public class ItemCatalogTest {
 
     @Test
     public void testGetItemInvalidIDException() {
-        ItemCatalog customerCatalogA = new ItemCatalog();
+        ItemCatalog itemCatalogA = new ItemCatalog();
         int itemID = 111111111;
         Amount quantity = new Amount(2);
-        assertThrows(InvalidIDException.class, () ->  customerCatalogA.getItem(itemID, quantity));   
+        assertThrows(InvalidIDException.class, () ->  itemCatalogA.getItem(itemID, quantity));   
     }
 
     @Test
-    public void testGetItemCatalogException() {
-        ItemCatalog customerCatalogA = new ItemCatalog();
-        Item newItem = new Item(ItemCatalog.addItems().get(itemID), itemQuantity, itemID);
-        int INVALID_NUMBER = 1337;
-        int itemID = 11111;
+    public void testGetItemCatalogException() throws CatalogException {
+        ItemCatalog itemCatalogB = new ItemCatalog();
+        int DATABASE_UNREACHABLE = 1337;
         Amount quantity = new Amount(2);
-        assertThrows(CatalogException.class, () ->  customerCatalogA.getItem(itemID, quantity));   
+        assertThrows(CatalogException.class, () ->  itemCatalogB.getItem(DATABASE_UNREACHABLE, quantity));   
     }
 
    

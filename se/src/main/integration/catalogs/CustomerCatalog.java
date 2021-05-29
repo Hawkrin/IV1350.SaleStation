@@ -13,8 +13,8 @@ public class CustomerCatalog implements CatalogTemplate {
     private HashMap<Integer, CustomerDTO> customerRegistry = new HashMap<>();
     private HashMap <Integer, String> customerGDPRAgreement = new HashMap<>();
     CustomerCatalog customerCatalog;
-    String approve;
-    String decline;
+    
+    private final int DATABASE_UNREACHABLE = 1337;
 
     public CustomerCatalog() {
         membership();
@@ -51,10 +51,14 @@ public class CustomerCatalog implements CatalogTemplate {
         if(customerInRegister(customerID)) {
             return new Customer(customerRegistry.get(customerID), customerID);
         }
+        if (customerID == DATABASE_UNREACHABLE){
+            throw new CatalogException("Could not reach the database");
+        }
         if(customerInRegister(customerID) == false) {
             throw new InvalidIDException("The customer with ID: " + customerID + "doesn't exist in the database");
         }
-        throw new CatalogException("Could not reach the database");
+        return null;
+        
     }
 
     @Override
