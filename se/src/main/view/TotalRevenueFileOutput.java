@@ -59,5 +59,9 @@ public class TotalRevenueFileOutput extends ObserverTemplateClass  {
         logBuilder.append("*************FILE LOGGER ENDS************\n"); 
         logFile.println(logBuilder);    
     }
+
+    public Object TotalRevenueFileOutput() {
+        return null;
+    }
 }
 

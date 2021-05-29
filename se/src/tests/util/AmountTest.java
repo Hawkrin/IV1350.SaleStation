@@ -141,6 +141,5 @@ public class AmountTest {
         String expResult = Double.toString(StringNumber);
         String result = amount.toString();
         assertEquals(expResult, result, "Strings doesn't match");
-    }
-    
+    }    
 }
