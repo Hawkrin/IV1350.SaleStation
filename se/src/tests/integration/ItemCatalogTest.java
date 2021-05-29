@@ -3,7 +3,6 @@ package tests.integration;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 import main.integration.InvalidIDException;
-import main.integration.Item;
 import main.integration.ItemDTO;
 import main.integration.catalogs.CatalogException;
 import main.integration.catalogs.ItemCatalog;

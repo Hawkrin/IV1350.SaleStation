@@ -29,6 +29,7 @@ import org.junit.Before;
 public class ControllerTest {
     private Controller controller = new Controller(CatalogHandler.getCatalogHandler(), SystemHandler.getSystemHandler(), ReceiptPrinter.getReceiptPrinter(), SalesLog.getSalesLog());
     private final int INVALID_ITEM_ID = 01010;
+    private final int DATABASE_UNREACHABLE = 1337;
     ByteArrayOutputStream outContent;
     PrintStream originalSysOut;
     Sale sale;
@@ -169,7 +170,7 @@ public class ControllerTest {
         Amount itemQuantity = new Amount(1);
         Amount runningTotal = itemPrice.multiply(itemQuantity).add(taxRate.multiply(itemQuantity));
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
-        controller.registerItem(itemID, itemQuantity);;
+        controller.registerItem(itemID, itemQuantity);
         Amount paidAmount = new Amount(500);
         String expResult = "Change to return: " + paidAmount.subtract(runningTotal);
         String result = controller.salePayment(paidAmount);
@@ -202,5 +203,14 @@ public class ControllerTest {
         //controller.startNewSale();
         assertThrows(IllegalStateException.class, () ->  controller.salePayment(amount));  
     }
+
+    @Test
+    public void testRegisterItemOperationFailedException() throws InvalidIDException, OperationFailedException {
+        controller.startNewSale();
+        Amount itemQuantity = new Amount(1);
+        assertThrows(OperationFailedException.class, () ->  controller.registerItem(DATABASE_UNREACHABLE, itemQuantity));
+    }
+
+
 
 }
