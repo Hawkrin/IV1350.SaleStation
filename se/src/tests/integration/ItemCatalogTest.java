@@ -3,6 +3,7 @@ package tests.integration;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 import main.integration.InvalidIDException;
+import main.integration.Item;
 import main.integration.ItemDTO;
 import main.integration.catalogs.CatalogException;
 import main.integration.catalogs.ItemCatalog;
@@ -54,7 +55,8 @@ public class ItemCatalogTest {
     @Test
     public void testGetItemCatalogException() {
         ItemCatalog customerCatalogA = new ItemCatalog();
-        boolean oldItemID = false;
+        Item newItem = new Item(ItemCatalog.addItems().get(itemID), itemQuantity, itemID);
+        int INVALID_NUMBER = 1337;
         int itemID = 11111;
         Amount quantity = new Amount(2);
         assertThrows(CatalogException.class, () ->  customerCatalogA.getItem(itemID, quantity));   

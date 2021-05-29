@@ -21,7 +21,7 @@ public class CustomerCatalogTest {
     public void testcustomerInRegister(){
         CustomerCatalog customerCatalogB = new CustomerCatalog();
         invalidCustomer = new CustomerDTO("hejsan svejsan", 123123123);
-        validCustomer = new CustomerDTO("Mikael Mikaelsson", 98765321);
+        validCustomer = new CustomerDTO("Karl Karlsson", 123456789);
         customerCatalogB = new CustomerCatalog();
         boolean expResult = true;
         boolean result = customerCatalogB.customerInRegister(customerExistInSystem);
@@ -54,7 +54,7 @@ public class CustomerCatalogTest {
     @Test
     public void testGetCustomerCatalogException() {
         CustomerCatalog customerCatalogA = new CustomerCatalog();
-        int customerID = 98765321;
+        int customerID = 123456789;
         assertThrows(CatalogException.class, () ->  customerCatalogA.getCustomer(validCustomer, customerID));   
     }
     
