@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Disabled;
 import main.controller.Controller;
+import main.integration.Item;
+import main.integration.ItemDTO;
 import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
 import main.integration.SystemHandler;
@@ -24,6 +26,7 @@ import main.util.Amount;
 import main.util.DateAndTime;
 import main.util.Discount;
 import main.view.SampleHelpMethods;
+import main.view.TotalRevenueView;
 import main.view.View;
 import main.model.ObserverTemplateClass;
 import main.model.Payment;
@@ -36,11 +39,13 @@ public class MainTest {
     Sale sale; 
     DateAndTime saleTime;
     Receipt receipt;
-    ObserverTemplateClass otc;
+    TotalRevenueView totalRevenueView;
     Controller controller;
     Payment payment;
     Amount paidAmount;
     Main instance;
+    
+    
 
     @Before
     public void setUp() {
@@ -55,6 +60,7 @@ public class MainTest {
         view = new View(controller, sample);
         paidAmount = new Amount();
         payment = new Payment(paidAmount, sale.getSummary());
+        totalRevenueView = new TotalRevenueView();
     }
 
     @After
@@ -74,6 +80,21 @@ public class MainTest {
                             "\nItem ID: 11111" + 
                             "\nItem Quantity: 2.0" + "\n" +
                             "Price Summary: 600.5";
+        assertTrue(printout.contains(expResult));
+    }
+
+    @Test
+    public void testSampleRunWithExceptionsRegisterItemViaMethods() {
+        view.sampleRunWithExceptions();
+        String itemName = "Hammer";
+        Amount itemPrice = new Amount(300);
+        Amount taxRate = new Amount(0.25);
+        int itemID = 11111;
+        Amount itemQuantity = new Amount(2);
+        ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
+        Item item = new Item(itemDTO, itemQuantity);
+        String printout = outContent.toString();
+        String expResult = item.toString(); 
         assertTrue(printout.contains(expResult));
     }
 
@@ -113,6 +134,14 @@ public class MainTest {
         view.sampleRunWithExceptions();
         String printout = outContent.toString();
         String expRes = "Change to return: " + "749.32";
+        assertTrue(printout.contains(expRes));
+    }
+
+    @Test
+    public void testSampleRunChangeToReturnViaMethods(){
+        view.sampleRunWithExceptions();
+        String printout = outContent.toString();
+        String expRes = payment.getChange().toString();
         assertTrue(printout.contains(expRes));
     }
 

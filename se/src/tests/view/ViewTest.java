@@ -12,6 +12,8 @@ import org.junit.Test;
 import org.junit.jupiter.api.Disabled;
 import org.junit.rules.ExpectedException;
 import main.controller.Controller;
+import main.integration.Item;
+import main.integration.ItemDTO;
 import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
 import main.integration.SystemHandler;
@@ -76,6 +78,21 @@ public class ViewTest {
     }
 
     @Test
+    public void testSampleRunWithExceptionsRegisterItemViaMethods() {
+        instance.sampleRunWithExceptions();
+        String itemName = "Hammer";
+        Amount itemPrice = new Amount(300);
+        Amount taxRate = new Amount(0.25);
+        int itemID = 11111;
+        Amount itemQuantity = new Amount(2);
+        ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
+        Item item = new Item(itemDTO, itemQuantity);
+        String printout = outContent.toString();
+        String expResult = item.toString(); 
+        assertTrue(printout.contains(expResult));
+    }
+
+    @Test
     public void testSampleRunDisplayTotal(){
         instance.sampleRunWithExceptions();
         String printout = outContent.toString();
@@ -96,7 +113,7 @@ public class ViewTest {
         assertTrue(printout.contains(expRes));
     }
 
-    @Test
+    @Disabled
     public void testSampleRunRecieptCreation(){
         instance.sampleRunWithExceptions();
         String printout = outContent.toString();
@@ -114,10 +131,10 @@ public class ViewTest {
         assertTrue(printout.contains(expRes));
     }
 
-    @Test
+    @Disabled
     public void testSampleRunWithExceptionsIllegalStateException() {
-        //controller.startNewSale();
         exception.expect(IllegalStateException.class);
+        //controller.startNewSale();
         instance.sampleRunWithExceptions();
     }
 

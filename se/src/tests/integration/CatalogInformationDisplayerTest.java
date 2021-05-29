@@ -1,40 +1,33 @@
-package tests.view;
+package tests.integration;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Disabled;
 import main.controller.Controller;
 import main.integration.ReceiptPrinter;
 import main.integration.SalesLog;
 import main.integration.SystemHandler;
 import main.integration.catalogs.CatalogHandler;
-import main.util.DateAndTime;
-import main.view.ErrorMessageHandler;
-import main.view.SampleHelpMethods;
-import main.view.View;
+import main.integration.catalogs.CatalogInformationDisplayer;
+import main.integration.catalogs.CompleteCatalog;
 
-public class ErrorMessageHandlerTest {
-    ByteArrayOutputStream outContent;
-    PrintStream originalSysOut;
-    ErrorMessageHandler instance;
-    String string;
-    DateAndTime errorTime;
+public class CatalogInformationDisplayerTest {
+    private ByteArrayOutputStream outContent;
+    private PrintStream originalSysOut;
+    private CatalogInformationDisplayer instance;
+    private CompleteCatalog completeCatalog;
 
     @Before
     public void setUp() {
         Controller controller = new Controller(CatalogHandler.getCatalogHandler(), SystemHandler.getSystemHandler(), ReceiptPrinter.getReceiptPrinter(), SalesLog.getSalesLog());
-        SampleHelpMethods sample = new SampleHelpMethods(controller);
         originalSysOut = System.out;
         outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        instance = new ErrorMessageHandler();
-        string = new String();
-        errorTime = new DateAndTime();
+        instance = new CatalogInformationDisplayer();
+        completeCatalog = new CompleteCatalog();
     }
 
     @After
@@ -45,15 +38,11 @@ public class ErrorMessageHandlerTest {
     }
 
     @Test
-    public void testDisplayErrorMessage(){
-        instance.displayErrorMessage(string);
+    public void testPrintData(){
+        instance.printData();
         String printout = outContent.toString();
-        String expRes = "******WARNING******\n" +
-                        errorTime.getDateAndTime() + "\n" +
-                        "ERROR OCCURED " + "\n" +
-                        string + "\n" +
-                        "*******************";
+        String expRes = completeCatalog.getData().toString();
         assertTrue(printout.contains(expRes));
-    }  
-
+    }
+    
 }

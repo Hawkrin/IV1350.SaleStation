@@ -2,6 +2,14 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "C:\\Users\\malco\\OneDrive\\Documents\\KTH\\KURSER\\Objektorienterad Programmering\\project\\SalesStation\\se.kth.iv1350.progExe\\lib\\junit-platform-console-standalone-1.8.0-M1.jar\\junit-platform-console-standalone-1.6.0.jar",
-        "c:\\Users\\malco\\Downloads\\junit-platform-console-standalone-1.8.0-M1.jar"
+        "c:\\Users\\malco\\Downloads\\junit-platform-console-standalone-1.8.0-M1.jar",
+        "se/lib/easymock-4.3.jar",
+        "se/lib/easymock-4.3-javadoc.jar",
+        "se/lib/easymock-4.3-samples.jar",
+        "se/lib/easymock-4.3-sources.jar",
+        "se/lib/easymock-4.3-tests.jar",
+        "se/lib/junit-platform-console-standalone-1.8.0-M1.jar",
+        "se/lib/original-easymock-4.3.jar",
+        "se/lib/original-easymock-4.3-sources.jar"
     ]
 }

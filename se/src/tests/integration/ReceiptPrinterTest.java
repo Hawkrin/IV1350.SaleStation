@@ -83,6 +83,16 @@ public class ReceiptPrinterTest {
         assertTrue(printout.contains(expRes));
     }
 
+    @Test
+    public void testPrintReceiptViaMethods(){
+        instance.printReceipt(receipt);
+        String printout = outContent.toString();
+        String expRes = receipt.createReceipt().toString();
+        assertTrue(printout.contains(expRes));
+    }
+
+
+
     
     
 }

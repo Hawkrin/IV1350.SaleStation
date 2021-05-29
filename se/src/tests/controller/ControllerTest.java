@@ -14,6 +14,8 @@ import main.util.DateAndTime;
 import main.integration.ItemDTO;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
@@ -22,6 +24,7 @@ import java.io.PrintStream;
 import javax.xml.catalog.CatalogException;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 
 
 
@@ -36,7 +39,6 @@ public class ControllerTest {
     DateAndTime saleTime;
     Amount amount;
     
-
     @Before
     public void setUp() {
         sale = new Sale();
@@ -52,6 +54,9 @@ public class ControllerTest {
         System.setOut(originalSysOut);
         controller = null;
     }
+
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void registerItemWithException() throws InvalidIDException, OperationFailedException {
@@ -95,7 +100,7 @@ public class ControllerTest {
         Amount itemPrice = new Amount(300);
         Amount taxRate = new Amount(0.25);
         int itemID = 11111;
-        Amount itemQuantity = new Amount(1);
+        Amount itemQuantity = new Amount(2);
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         try{
         controller.registerItem(itemID, itemQuantity);
@@ -179,7 +184,7 @@ public class ControllerTest {
 
     @Test
     public void testRegisterItemUnkownItemIDException() throws InvalidIDException, OperationFailedException {
-        amount = new Amount(2);
+        Amount itemQuantity = new Amount(2);
         controller.startNewSale();
         assertThrows(InvalidIDException.class, () ->  controller.registerItem(12332, new Amount(2)));
     }
@@ -211,6 +216,5 @@ public class ControllerTest {
         assertThrows(OperationFailedException.class, () ->  controller.registerItem(DATABASE_UNREACHABLE, itemQuantity));
     }
 
-
-
+  
 }

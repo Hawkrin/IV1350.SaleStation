@@ -1,6 +1,6 @@
 ***************FILE LOGGER****************
 
-A new sale was made @ 29 maj 2021 19:21:52
+A new sale was made @ 29 maj 2021 20:17:58
 Total Revenue After Sale: 751.3599999999999
 *************FILE LOGGER ENDS************
 
