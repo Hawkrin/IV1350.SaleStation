@@ -1,6 +1,5 @@
 package tests.view;
 
-import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -8,7 +7,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Disabled;
-
 import main.controller.Controller;
 import main.integration.InvalidIDException;
 import main.integration.Item;
@@ -71,10 +69,8 @@ public class SampleHelpMethodTest {
 
     @Test
     public void testRegisterItemBeforeSaleStarted() throws InvalidIDException {
-        Exception exception = new Exception();
         //controller.startNewSale();
         quantity = new Amount(2);
-        Item newItem = itemCatalog.getItem(11111, quantity);
         instance.registerItem(11111, quantity);
         String printout = outContent.toString();
         String expRes = "***************CONSOLE LOGGER****************\n\n" +
@@ -86,10 +82,8 @@ public class SampleHelpMethodTest {
 
     @Test
     public void testRegisterItemBeforeSaleStartedErrorMessageHandlerMessage() throws InvalidIDException {
-        Exception exception = new Exception();
         //controller.startNewSale();
         quantity = new Amount(2);
-        Item newItem = itemCatalog.getItem(11111, quantity);
         instance.registerItem(11111, quantity);
         String printout = outContent.toString();
         String expRes = "******WARNING******\n" +
@@ -104,10 +98,9 @@ public class SampleHelpMethodTest {
     public void testRegisterItemUnknownItemRegistered() throws InvalidIDException {
         controller.startNewSale();
         quantity = new Amount(2);
-        Item newItem = itemCatalog.getItem(12343, quantity);
         instance.registerItem(11111, quantity);
         String printout = outContent.toString();
-        String expRes = "The item with ID: 12343doesn't exist in the database";          
+        String expRes = "The item with ID: 12343 doesn't exist in the database";          
         assertTrue("A wrong print out is made", printout.contains(expRes));
     }
    

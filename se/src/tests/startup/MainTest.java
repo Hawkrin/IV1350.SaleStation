@@ -1,13 +1,11 @@
 package tests.startup;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Disabled;
 import main.controller.Controller;
 import main.integration.Item;
 import main.integration.ItemDTO;
@@ -16,7 +14,6 @@ import main.integration.SalesLog;
 import main.integration.SystemHandler;
 import main.integration.catalogs.CatalogHandler;
 import main.integration.catalogs.CatalogInformationDisplayer;
-import main.integration.catalogs.CompleteCatalog;
 import main.integration.catalogs.CustomerCatalog;
 import main.integration.catalogs.DiscountCatalog;
 import main.integration.catalogs.ItemCatalog;
@@ -24,11 +21,9 @@ import main.model.Sale;
 import main.startup.Main;
 import main.util.Amount;
 import main.util.DateAndTime;
-import main.util.Discount;
 import main.view.SampleHelpMethods;
 import main.view.TotalRevenueView;
 import main.view.View;
-import main.model.ObserverTemplateClass;
 import main.model.Payment;
 import main.model.Receipt;
 
@@ -127,7 +122,8 @@ public class MainTest {
         String printout = outContent.toString();
         String expRes = "********RECIEPT*********\n" + "\n" +
                         "Purchase was made: " + saleTime.getDateAndTime().toString() + "\n" +
-                        "\nItems Bought: \n\n" + sale.getShoppingCart().toString();
+                        "\nItems Bought: \n\n" + sale.getShoppingCart().toString() + "\n" +
+                        "\n*******RECIEPT END*******";
         assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 

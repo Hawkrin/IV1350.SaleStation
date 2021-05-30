@@ -31,5 +31,5 @@ public class CashRegisterTest {
         assertEquals("The balances does not match.", expResult, result);
     }
         
-    }
+}
 

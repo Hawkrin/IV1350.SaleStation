@@ -11,7 +11,6 @@ import main.util.Customer;
  */
 public class CustomerCatalog implements CatalogTemplate {
     private HashMap<Integer, CustomerDTO> customerRegistry = new HashMap<>();
-    private HashMap <Integer, String> customerGDPRAgreement = new HashMap<>();
     CustomerCatalog customerCatalog;
     
     private final int DATABASE_UNREACHABLE = 1337;

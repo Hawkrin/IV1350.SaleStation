@@ -1,20 +1,18 @@
 package tests.integration;
 
 import org.junit.jupiter.api.Test;
-
 import main.integration.CustomerDTO;
 import main.integration.InvalidIDException;
 import main.integration.catalogs.CatalogException;
 import main.integration.catalogs.CustomerCatalog;
-
 import static org.junit.Assert.*;
 
 public class CustomerCatalogTest {
     private int customerExistInSystem = 123456789;
     private int customerNotExistInSystem = 987654321;
     private int customerIDIsZero = 0;
-    CustomerDTO validCustomer;
-    CustomerDTO invalidCustomer;
+    private CustomerDTO validCustomer;
+    private CustomerDTO invalidCustomer;
 
 
     @Test
@@ -55,8 +53,7 @@ public class CustomerCatalogTest {
     public void testGetCustomerCatalogException() throws CatalogException {
         CustomerCatalog customerCatalogB = new CustomerCatalog();
         int DATABASE_UNREACHABLE = 1337;
-        int customerID = 123456789;
-        assertThrows(CatalogException.class, () ->  customerCatalogB.getCustomer(validCustomer, 1337));   
+        assertThrows(CatalogException.class, () ->  customerCatalogB.getCustomer(validCustomer, DATABASE_UNREACHABLE));   
     }
 
     

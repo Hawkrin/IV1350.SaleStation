@@ -1,16 +1,6 @@
 ***************FILE LOGGER****************
 
-An error occured @ 30 maj 2021 21:50:48
-The following happend: 
-displaySummary was called before a new sale was initiated.
+A new sale was made @ 30 maj 2021 23:26:24
+Total Revenue After Sale: 751.3599999999999
 *************FILE LOGGER ENDS************
-
-***************FILE LOGGER****************
-
-An error occured @ 30 maj 2021 21:50:48
-The following happend: 
-salePayment was called before a new sale was initiated.
-*************FILE LOGGER ENDS************
-
-**
 

@@ -10,18 +10,15 @@ import static org.junit.Assert.*;
 
 
 public class ItemTest {
-    private Item testItemHammerWithoutQuantity;
     private Item testItemNailsWithQuantity;
 
     @BeforeEach
     void setUp() {
-        testItemHammerWithoutQuantity = new Item(new ItemDTO("Hammer", new Amount(300), new Amount(0.25), 11111));
         testItemNailsWithQuantity = new Item(new ItemDTO("Nails", new Amount(50), new Amount(0.06), 11112), new Amount(5));
     }
 
     @AfterEach
     void tearDown() {
-        testItemHammerWithoutQuantity = null;
         testItemNailsWithQuantity = null;
     }
 
@@ -34,7 +31,7 @@ public class ItemTest {
         Amount itemQuantity = new Amount(20);
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         Item testItem = new Item(itemDTO, itemQuantity, itemID);
-        String expResult = itemDTO.toString() + "item Quantity: " + itemQuantity;
+        String expResult = itemDTO.toString() + "\n" + "Item Quantity: " + itemQuantity + "\n";
         String result = testItem.toString();
         assertEquals("Strings are not equal.", expResult, result);
     }
@@ -62,7 +59,7 @@ public class ItemTest {
         Amount itemQuantity = new Amount(20);
         ItemDTO itemDTO = new ItemDTO(itemName, itemPrice, taxRate, itemID);
         Item testItem = new Item(itemDTO, itemQuantity, itemID);
-        String expResult = itemDTO.toString() + "HEJ item Quantity: " + itemQuantity;
+        String expResult = itemDTO.toString() + "\n" + "Item Quantity: " + itemQuantity;
         String result = testItem.toString();
         assertNotEquals("Strings are not empty.", expResult, result);
     }
@@ -71,8 +68,8 @@ public class ItemTest {
     void testIncreaseQuantity() {
         Amount operand1 = new Amount(5);
         Amount operand2 = new Amount(10);
-        Amount expResult = operand1.add(operand2);
         testItemNailsWithQuantity.increaseQuantity(operand2);
+        Amount expResult = operand1.add(operand2);
         Amount result = testItemNailsWithQuantity.getItemQuantity();
         assertEquals("The increased amount of an Item doesn't match the expected increase", expResult, result);
     }  

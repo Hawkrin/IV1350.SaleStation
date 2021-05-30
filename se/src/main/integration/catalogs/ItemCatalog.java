@@ -54,7 +54,7 @@ public class ItemCatalog implements CatalogTemplate {
             throw new CatalogException("An item with that ID can't be retrived");
         }
         if (itemInStock(itemID) == false){
-            throw new InvalidIDException("The item with ID: " + itemID + "doesn't exist in the database");
+            throw new InvalidIDException("The item with ID: " + itemID + " doesn't exist in the database");
         }
         return null;
     }
