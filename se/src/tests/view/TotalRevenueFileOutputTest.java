@@ -50,23 +50,7 @@ public class TotalRevenueFileOutputTest {
             System.out.println("Could not create logger.");
             exception.printStackTrace();
         }
+        
     }
 
-    @Test
-    public void testTotalRevenueFileConstructorException() throws IOException {
-        instance = new TotalRevenueFileOutput();
-        try {
-            logFile = new PrintWriter(new FileWriter(NAME_OF_LOG_FILE), false);
-            logFile = null;
-        }
-        catch(IOException exception){
-            System.out.println("Could not create logger.");
-            exception.printStackTrace();
-        }
-        assertThrows(IOException.class, () ->  instance.TotalRevenueFileOutput());
-        
-        
-
-    }
-    
 }

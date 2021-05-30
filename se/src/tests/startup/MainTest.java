@@ -44,6 +44,7 @@ public class MainTest {
     Payment payment;
     Amount paidAmount;
     Main instance;
+    ReceiptPrinter printer;
     
     
 
@@ -61,6 +62,7 @@ public class MainTest {
         paidAmount = new Amount();
         payment = new Payment(paidAmount, sale.getSummary());
         totalRevenueView = new TotalRevenueView();
+        printer = new ReceiptPrinter();
     }
 
     @After
@@ -126,6 +128,14 @@ public class MainTest {
         String expRes = "********RECIEPT*********\n" + "\n" +
                         "Purchase was made: " + saleTime.getDateAndTime().toString() + "\n" +
                         "\nItems Bought: \n\n" + sale.getShoppingCart().toString();
+        assertTrue("A wrong print out is made", printout.contains(expRes));
+    }
+
+    @Test
+    public void testPrintReceiptViaMethods(){
+        printer.printReceipt(receipt);
+        String printout = outContent.toString();
+        String expRes = receipt.createReceipt().toString();
         assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 

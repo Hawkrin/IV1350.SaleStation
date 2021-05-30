@@ -38,11 +38,13 @@ public class ViewTest {
     Controller controller;
     Payment payment;
     Amount paidAmount;
+    SampleHelpMethods sample;
+    
 
     @Before
     public void setUp() {
         controller = new Controller(CatalogHandler.getCatalogHandler(), SystemHandler.getSystemHandler(), ReceiptPrinter.getReceiptPrinter(), SalesLog.getSalesLog());
-        SampleHelpMethods sample = new SampleHelpMethods(controller);
+        sample = new SampleHelpMethods(controller);
         sale = new Sale();
         saleTime = new DateAndTime();
         receipt = new Receipt(sale);
@@ -51,7 +53,7 @@ public class ViewTest {
         System.setOut(new PrintStream(outContent));
         instance = new View(controller, sample);
         paidAmount = new Amount();
-        payment = new Payment(paidAmount, sale.getSummary());
+        payment = new Payment(paidAmount, sale.getSummary());    
     }
 
     @After
@@ -129,6 +131,59 @@ public class ViewTest {
         String printout = outContent.toString();
         String expRes = "Change to return: " + "749.32";
         assertTrue("A wrong print out is made", printout.contains(expRes));
+    }
+
+    @Test
+    public void testDisplaySummarytIllegalStateException() {
+        //controller.startNewSale();
+        assertThrows(IllegalStateException.class, () ->  controller.displaySummary());  
+    }
+
+    @Test
+    public void testSalePaymentIllegalStateException() {
+        Amount amount = new Amount();
+        //controller.startNewSale();
+        assertThrows(IllegalStateException.class, () ->  controller.salePayment(amount));  
+    }
+
+    @Test
+    public void testSalePaymentIllegalStateException2() {
+        System.out.println("New Sale Started:");
+        //controller.startNewSale();
+        System.out.println("\nCashier enter items:\n");
+        sample.registerItem(11111, new Amount(2));
+        sample.registerItem(11112, new Amount(3));
+        try{
+            System.out.println("\nCashier displays the total price with taxes:" + "\n" + controller.displaySummary());
+            System.out.println("\nCashier enters the amount paid by the customer.\n");
+        }
+        catch(IllegalStateException exception) {}
+        try{
+            System.out.println("\nA Receipt is Printed: \n");
+            System.out.println(controller.salePayment(new Amount(1500)));
+        }
+        catch(IllegalStateException exception) {}
+        assertThrows(IllegalStateException.class, () ->  controller.salePayment(new Amount(1500)));  
+    }
+
+    @Test
+    public void testDisplaySummarytIllegalStateException2() {
+        System.out.println("New Sale Started:");
+        //controller.startNewSale();
+        System.out.println("\nCashier enter items:\n");
+        sample.registerItem(11111, new Amount(2));
+        sample.registerItem(11112, new Amount(3));
+        try{
+            System.out.println("\nCashier displays the total price with taxes:" + "\n" + controller.displaySummary());
+            System.out.println("\nCashier enters the amount paid by the customer.\n");
+        }
+        catch(IllegalStateException exception) {}
+        try{
+            System.out.println("\nA Receipt is Printed: \n");
+            System.out.println(controller.salePayment(new Amount(1500)));
+        }
+        catch(IllegalStateException exception) {}
+        assertThrows(IllegalStateException.class, () ->  controller.displaySummary());  
     }
 
     @Disabled
