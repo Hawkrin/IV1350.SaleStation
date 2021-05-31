@@ -1,6 +1,7 @@
 package main.integration.catalogs;
 
 import java.util.HashMap;
+import java.util.Map;
 import main.integration.InvalidIDException;
 import main.integration.Item;
 import main.integration.ItemDTO;
@@ -11,8 +12,8 @@ import main.util.Amount;
  */
 public class ItemCatalog implements CatalogTemplate {
     private HashMap<Integer, ItemDTO> availableItems  = new HashMap<>();
-    ItemCatalog itemcatalog;
-    private final int DATABASE_UNREACHABLE = 1337;
+    ItemCatalog iteCatalog;
+    private static final int DATABASE_UNREACHABLE = 1337;
 
     public ItemCatalog() {
         addItems();
@@ -23,7 +24,7 @@ public class ItemCatalog implements CatalogTemplate {
      * 
      * @return the list of available items
      */
-    public HashMap<Integer, ItemDTO> getAvailabelItems() { return  availableItems; }
+    public Map<Integer, ItemDTO> getAvailabelItems() { return  availableItems; }
 
     /**
      * Checks if the searched itemID is currently in the database
@@ -53,7 +54,7 @@ public class ItemCatalog implements CatalogTemplate {
         if (itemID == DATABASE_UNREACHABLE){
             throw new CatalogException("An item with that ID can't be retrived");
         }
-        if (itemInStock(itemID) == false){
+        if (!itemInStock(itemID)){
             throw new InvalidIDException("The item with ID: " + itemID + " doesn't exist in the database");
         }
         return null;
@@ -61,7 +62,7 @@ public class ItemCatalog implements CatalogTemplate {
 
     @Override
     public void setData() {
-        itemcatalog.addItems();   
+        iteCatalog.addItems();   
     }
 
     @Override

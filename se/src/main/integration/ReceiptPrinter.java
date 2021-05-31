@@ -7,7 +7,7 @@ import main.model.Receipt;
 public class ReceiptPrinter {
     private static ReceiptPrinter INSTANCE = new ReceiptPrinter();
 
-    public ReceiptPrinter() {}
+    public ReceiptPrinter() throws UnsupportedOperationException {}
 
     /**
      * Gets the instance of a ReceiptPrinter

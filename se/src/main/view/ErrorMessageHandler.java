@@ -14,7 +14,7 @@ public class ErrorMessageHandler {
     /**
      * Creates an instance of the ErrorMessageHandler
      */
-    public ErrorMessageHandler() {}
+    public ErrorMessageHandler() throws UnsupportedOperationException {}
 
     /**
      * Gets the errorMessage

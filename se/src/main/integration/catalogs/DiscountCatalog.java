@@ -1,6 +1,7 @@
 package main.integration.catalogs;
 
 import java.util.HashMap;
+import java.util.Map;
 import main.util.Amount;
 
 /**
@@ -8,7 +9,7 @@ import main.util.Amount;
  */
 public class DiscountCatalog implements CatalogTemplate {
     private HashMap<String, Amount> discountList = new HashMap<>();
-    DiscountCatalog discountCatalog;
+    DiscountCatalog discCatalog;
 
     /**
      * Creates an instance of a DiscountCatalog
@@ -22,11 +23,11 @@ public class DiscountCatalog implements CatalogTemplate {
      * 
      * @return the discount percent for the customer
      */
-    public HashMap<String, Amount> getDiscountPercent() { return this.discountList; }
+    public Map<String, Amount> getDiscountPercent() { return this.discountList; }
 
     @Override
     public void setData() {
-        discountCatalog.availableDiscount();   
+        discCatalog.availableDiscount();   
     }
 
     @Override

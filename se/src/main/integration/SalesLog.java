@@ -22,6 +22,6 @@ public class SalesLog {
      * 
      * @param sale the recently finishied {@link Sale}
      */
-    public void updateSalesLog(Sale sale){}
+    public void updateSalesLog(Sale sale) throws UnsupportedOperationException{}
     
 }

@@ -18,11 +18,11 @@ public class CompleteCatalog implements CatalogTemplate {
     @Override
     public String getData() {
         return "\n\nThe current members of the store: \n\n" +
-                customercatalog.getData().toString() +
+                customercatalog.getData() +
                 "\n\nThe current items in stock: \n\n" +
-                itemcatalog.getData().toString() +
+                itemcatalog.getData() +
                 "\n\nThe current discount levels available: \n\n" +
-                discountcatalog.getData().toString();  
+                discountcatalog.getData();  
     }
 
   

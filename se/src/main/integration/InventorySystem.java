@@ -23,7 +23,7 @@ public class InventorySystem {
      * 
      * @param sale the recently finishied {@link Sale}
      */
-    public void updateInventory(Sale sale){}
+    public void updateInventory(Sale sale) throws UnsupportedOperationException{}
 
     private void itemsInStock() {
         inventoryStock.add(new ItemDTO("Hammer", new Amount(300), new Amount(0.25), 11111));

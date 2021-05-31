@@ -70,7 +70,7 @@ public class Item {
      */
     @Override
     public String toString() {
-        StringBuilder itemPresentation = new StringBuilder();
+        var itemPresentation = new StringBuilder();
         itemPresentation.append(this.itemInformation);
         itemPresentation.append("\nItem Quantity: " + this.itemQuantity + "\n");
         return itemPresentation.toString();

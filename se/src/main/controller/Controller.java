@@ -21,8 +21,8 @@ public class Controller {
     private AccountingSystem accountingSystem;
     private InventorySystem inventorySystem;
     private ItemCatalog itemCatalog;
-    private DiscountCatalog discountCatalog;
-    private CustomerCatalog customercatalog;
+    DiscountCatalog discountCatalog;
+    CustomerCatalog customercatalog;
     private SalesLog salesLog;
     private ReceiptPrinter receiptPrinter;
     private List<PaymentObserver> paymentObservers = new ArrayList<>();
@@ -72,8 +72,8 @@ public class Controller {
             Item newItem = itemCatalog.getItem(itemID, quantity);
             return sale.updateItems(newItem) + "\nItem Quantity: " + quantity.toString() + "\nPrice Summary: " + displaySummary();
         }
-        catch(CatalogException CataExc) {
-            throw new OperationFailedException("Can't reach the ItemCatalog.", CataExc);
+        catch(CatalogException cataExc) {
+            throw new OperationFailedException("Can't reach the ItemCatalog.", cataExc);
         }    
     }
 

@@ -1,6 +1,7 @@
 package main.model;
 
 import java.util.HashMap;
+import java.util.Map;
 import main.integration.Item;
 
 /**
@@ -29,7 +30,7 @@ public class Sale {
      * 
      * @return the list of items
      */
-    public HashMap<Integer, Item> getShoppingCart() { return shoppingCart; }
+    public Map<Integer, Item> getShoppingCart() { return shoppingCart; }
 
     /**
      * Registers items and adds them to the shoppingcart
@@ -52,7 +53,7 @@ public class Sale {
     }
 
     private void updateItemQuantityAndPrice(Item item)  {
-        Item itemAlreadyExist = shoppingCart.get(item.getItemID());
+        var itemAlreadyExist = shoppingCart.get(item.getItemID());
         itemAlreadyExist.increaseQuantity(item.getItemQuantity());
         shoppingCart.put(itemAlreadyExist.getItemID(), itemAlreadyExist);
         summary.summarizeSale(item);

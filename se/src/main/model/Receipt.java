@@ -26,7 +26,7 @@ public class Receipt {
         StringBuilder builder = new StringBuilder();
         appendLine(builder, "********RECIEPT*********\n");
         builder.append("Purchase was made: ");
-        appendLine(builder, saleTime.getDateAndTime().toString());
+        appendLine(builder, saleTime.getDateAndTime());
         builder.append("\nItems Bought: \n\n");
         appendLine(builder, sale.getShoppingCart().toString());
         appendLine(builder, "\n*******RECIEPT END*******");

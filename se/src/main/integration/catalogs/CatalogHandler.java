@@ -4,7 +4,7 @@ package main.integration.catalogs;
  * This class handles all catalogs which are being created
  */
 public class CatalogHandler {
-    private static CatalogHandler INSTANCE = new CatalogHandler();
+    private static final CatalogHandler INSTANCE = new CatalogHandler();
     private DiscountCatalog discountCatalog = new DiscountCatalog();
     private ItemCatalog itemCatalog = new ItemCatalog();
     private CustomerCatalog customerCatalog = new CustomerCatalog();

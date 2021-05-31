@@ -3,7 +3,6 @@ package main.view;
 import main.model.ObserverTemplateClass;
 import main.util.DateAndTime;
 
-
 /**
  * Displays the total revenue after a payment is done
  */
@@ -13,7 +12,7 @@ public class TotalRevenueView extends ObserverTemplateClass {
     /**
      * Creates a new instance of TotalRevenue
      */
-    public TotalRevenueView(){}
+    public TotalRevenueView() throws UnsupportedOperationException {}
 
     /**
      * Shows total income after a sale in the console

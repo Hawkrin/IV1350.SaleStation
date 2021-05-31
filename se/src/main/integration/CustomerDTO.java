@@ -49,7 +49,7 @@ public class CustomerDTO {
      */
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
+        var builder = new StringBuilder();
         builder.append("Customer Name: " + customerName);
         builder.append("\nCustomer ID: " + customerID);
         return builder.toString();

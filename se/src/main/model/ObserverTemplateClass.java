@@ -45,7 +45,7 @@ public abstract class ObserverTemplateClass implements PaymentObserver {
      * 
      * @throws Exception if a sale hasn't been made
      */
-    protected  abstract  void  doShowTotalIncome () throws Exception;
+    protected  abstract  void  doShowTotalIncome () throws IllegalStateException;
 
     /**
      * Displays an error if a sale cant be done

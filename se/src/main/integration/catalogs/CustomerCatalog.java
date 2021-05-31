@@ -1,7 +1,7 @@
 package main.integration.catalogs;
 
 import java.util.HashMap;
-
+import java.util.Map;
 import main.integration.CustomerDTO;
 import main.integration.InvalidIDException;
 import main.util.Customer;
@@ -11,7 +11,7 @@ import main.util.Customer;
  */
 public class CustomerCatalog implements CatalogTemplate {
     private HashMap<Integer, CustomerDTO> customerRegistry = new HashMap<>();
-    CustomerCatalog customerCatalog;
+    CustomerCatalog custCatalog;
     
     private final int DATABASE_UNREACHABLE = 1337;
 
@@ -24,7 +24,7 @@ public class CustomerCatalog implements CatalogTemplate {
      * 
      * @return the list of customers
      */
-    public HashMap<Integer, CustomerDTO> getCustomerRegistry() { return customerRegistry; }
+    public Map<Integer, CustomerDTO> getCustomerRegistry() { return customerRegistry; }
 
     /**
      * Checks if the customerID is in the database
@@ -53,7 +53,7 @@ public class CustomerCatalog implements CatalogTemplate {
         if (customerID == DATABASE_UNREACHABLE){
             throw new CatalogException("Could not reach the database");
         }
-        if(customerInRegister(customerID) == false) {
+        if(!customerInRegister(customerID)) {
             throw new InvalidIDException("The customer with ID: " + customerID + "doesn't exist in the database");
         }
         return null;
@@ -62,7 +62,7 @@ public class CustomerCatalog implements CatalogTemplate {
 
     @Override
     public void setData() {
-        customerCatalog.membership();   
+        custCatalog.membership();   
     }
 
     @Override
