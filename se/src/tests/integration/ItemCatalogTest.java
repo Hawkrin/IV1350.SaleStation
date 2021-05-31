@@ -12,11 +12,11 @@ public class ItemCatalogTest {
     private int testItemIDTrue = 11111;
     private int testItemIDFalse = 22222;
     private int testItemIDZero = 0;
-    private ItemCatalog itemCatalog;
+    private static final int DATABASE_UNREACHABLE = 1337;
 
     @Test
     public void testItemInStock(){
-        itemCatalog = new ItemCatalog();
+        ItemCatalog itemCatalog = new ItemCatalog();
         boolean expResult = true;
         boolean result = itemCatalog.itemInStock(testItemIDTrue);
         assertEquals("The expected item does not  exist in the catalog.", expResult, result);
@@ -48,7 +48,6 @@ public class ItemCatalogTest {
     @Test
     public void testGetItemCatalogException() throws CatalogException {
         ItemCatalog itemCatalogB = new ItemCatalog();
-        int DATABASE_UNREACHABLE = 1337;
         Amount quantity = new Amount(2);
         assertThrows(CatalogException.class, () ->  itemCatalogB.getItem(DATABASE_UNREACHABLE, quantity));   
     }

@@ -118,27 +118,27 @@ public class AmountTest {
 
     @Test
     public void toStringPositiveNumber() {
-        double StringNumber = 20;
-        Amount amount = new Amount(StringNumber);
-        String expResult = Double.toString(StringNumber);
+        double stringNumber = 20;
+        Amount amount = new Amount(stringNumber);
+        String expResult = Double.toString(stringNumber);
         String result = amount.toString();
         assertEquals(expResult, result, "Strings doesn't match");
     }
 
     @Test
     public void toStringNegativeNumber() {
-        double StringNumber = -20;
-        Amount amount = new Amount(StringNumber);
-        String expResult = Double.toString(StringNumber);
+        double stringNumber = -20;
+        Amount amount = new Amount(stringNumber);
+        String expResult = Double.toString(stringNumber);
         String result = amount.toString();
         assertEquals(expResult, result, "Strings doesn't match");
     }
 
     @Test
     public void toStringZeroNumber() {
-        double StringNumber = 0;
-        Amount amount = new Amount(StringNumber);
-        String expResult = Double.toString(StringNumber);
+        double stringNumber = 0;
+        Amount amount = new Amount(stringNumber);
+        String expResult = Double.toString(stringNumber);
         String result = amount.toString();
         assertEquals(expResult, result, "Strings doesn't match");
     }    

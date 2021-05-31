@@ -20,8 +20,8 @@ import org.junit.Before;
 
 public class ControllerTest {
     private Controller controller = new Controller(CatalogHandler.getCatalogHandler(), SystemHandler.getSystemHandler(), ReceiptPrinter.getReceiptPrinter(), SalesLog.getSalesLog());
-    private final int INVALID_ITEM_ID = 01010;
-    private final int DATABASE_UNREACHABLE = 1337;
+    private static final int INVALID_ITEM_ID = 01010;
+    private static final int DATABASE_UNREACHABLE = 1337;
     ByteArrayOutputStream outContent;
     PrintStream originalSysOut;
     private Amount amount;
@@ -86,8 +86,7 @@ public class ControllerTest {
         String result = controller.displaySummary();
         assertEquals("The sums doesnt match.", expResult, result);
         } 
-        catch(OperationFailedException exception){}
-        catch(InvalidIDException exception){}
+        catch(OperationFailedException | InvalidIDException exception){}
     }
 
     @Disabled
@@ -118,8 +117,7 @@ public class ControllerTest {
         String result = controller.salePayment(paidAmount);
         assertEquals("The change returned doesnt match", expResult, result);
         }
-        catch(OperationFailedException exception){}
-        catch(InvalidIDException exception){}
+        catch(OperationFailedException | InvalidIDException exception){}
     }
 
     @Test

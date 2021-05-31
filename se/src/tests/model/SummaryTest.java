@@ -1,7 +1,6 @@
 package tests.model;
 
 import main.integration.Item;
-
 import main.model.Summary;
 import main.util.Amount;
 import main.integration.ItemDTO;
@@ -15,12 +14,12 @@ public class SummaryTest {
     Summary summary;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         summary = new Summary();
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         summary = null;
     }
 

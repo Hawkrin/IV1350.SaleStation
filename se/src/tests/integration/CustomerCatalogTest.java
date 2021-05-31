@@ -8,6 +8,7 @@ import main.integration.catalogs.CustomerCatalog;
 import static org.junit.Assert.*;
 
 public class CustomerCatalogTest {
+    private static final int DATABASE_UNREACHABLE = 1337;
     private int customerExistInSystem = 123456789;
     private int customerNotExistInSystem = 987654321;
     private int customerIDIsZero = 0;
@@ -17,12 +18,11 @@ public class CustomerCatalogTest {
 
     @Test
     public void testcustomerInRegister(){
-        CustomerCatalog customerCatalogB = new CustomerCatalog();
+        CustomerCatalog customerCatalog = new CustomerCatalog();
         invalidCustomer = new CustomerDTO("hejsan svejsan", 123123123);
         validCustomer = new CustomerDTO("Karl Karlsson", 123456789);
-        customerCatalogB = new CustomerCatalog();
         boolean expResult = true;
-        boolean result = customerCatalogB.customerInRegister(customerExistInSystem);
+        boolean result = customerCatalog.customerInRegister(customerExistInSystem);
         assertEquals("The expected customer does not  exist in the catalog.", expResult, result);
     }
 
@@ -52,7 +52,6 @@ public class CustomerCatalogTest {
     @Test
     public void testGetCustomerCatalogException() throws CatalogException {
         CustomerCatalog customerCatalogB = new CustomerCatalog();
-        int DATABASE_UNREACHABLE = 1337;
         assertThrows(CatalogException.class, () ->  customerCatalogB.getCustomer(validCustomer, DATABASE_UNREACHABLE));   
     }
 

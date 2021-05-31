@@ -121,7 +121,7 @@ public class MainTest {
         view.sampleRunWithExceptions();
         String printout = outContent.toString();
         String expRes = "********RECIEPT*********\n" + "\n" +
-                        "Purchase was made: " + saleTime.getDateAndTime().toString() + "\n" +
+                        "Purchase was made: " + saleTime.getDateAndTime() + "\n" +
                         "\nItems Bought: \n\n" + sale.getShoppingCart().toString() + "\n" +
                         "\n*******RECIEPT END*******";
         assertTrue("A wrong print out is made", printout.contains(expRes));
@@ -131,7 +131,7 @@ public class MainTest {
     public void testPrintReceiptViaMethods(){
         printer.printReceipt(receipt);
         String printout = outContent.toString();
-        String expRes = receipt.createReceipt().toString();
+        String expRes = receipt.createReceipt();
         assertTrue("A wrong print out is made", printout.contains(expRes));
     }
 
@@ -160,11 +160,11 @@ public class MainTest {
         infoDisplayer.printData();
         String printout = outContent.toString();
         String expRes = "\n\nThe current members of the store: \n\n" +
-                        customerCatalog.getData().toString() +
+                        customerCatalog.getData() +
                         "\n\nThe current items in stock: \n\n" +
-                        itemCatalog.getData().toString() +
+                        itemCatalog.getData() +
                         "\n\nThe current discount levels available: \n\n" +
-                        discountCatalog.getData().toString(); 
+                        discountCatalog.getData(); 
         assertTrue("A wrong print out is made", printout.contains(expRes));
 
     }

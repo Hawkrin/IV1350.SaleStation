@@ -68,7 +68,7 @@ public class SampleHelpMethodTest {
     }
 
     @Test
-    public void testRegisterItemBeforeSaleStarted() throws InvalidIDException {
+    public void testRegisterItemBeforeSaleStarted() {
         //controller.startNewSale();
         quantity = new Amount(2);
         instance.registerItem(11111, quantity);
@@ -81,7 +81,7 @@ public class SampleHelpMethodTest {
     }
 
     @Test
-    public void testRegisterItemBeforeSaleStartedErrorMessageHandlerMessage() throws InvalidIDException {
+    public void testRegisterItemBeforeSaleStartedErrorMessageHandlerMessage() {
         //controller.startNewSale();
         quantity = new Amount(2);
         instance.registerItem(11111, quantity);
@@ -95,7 +95,7 @@ public class SampleHelpMethodTest {
     }
 
     @Disabled
-    public void testRegisterItemUnknownItemRegistered() throws InvalidIDException {
+    public void testRegisterItemUnknownItemRegistered() {
         controller.startNewSale();
         quantity = new Amount(2);
         instance.registerItem(11111, quantity);

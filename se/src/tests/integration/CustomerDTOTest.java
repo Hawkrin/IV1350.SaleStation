@@ -6,7 +6,6 @@ import static org.junit.Assert.*;
 
 public class CustomerDTOTest {
 
-    
     @Test
     void testToString() {
         String customerName = "Karl Karlsson";

@@ -6,12 +6,6 @@ import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Disabled;
-import main.controller.Controller;
-import main.integration.ReceiptPrinter;
-import main.integration.SalesLog;
-import main.integration.SystemHandler;
-import main.integration.catalogs.CatalogHandler;
 import main.model.ObserverTemplateClass;
 import main.model.Receipt;
 import main.model.Sale;
@@ -29,7 +23,6 @@ public class TotalRevenueViewTest {
     
     @Before
     public void setUp() {
-        Controller controller = new Controller(CatalogHandler.getCatalogHandler(), SystemHandler.getSystemHandler(), ReceiptPrinter.getReceiptPrinter(), SalesLog.getSalesLog());
         sale = new Sale();
         logTime = new DateAndTime();
         receipt = new Receipt(sale);

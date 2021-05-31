@@ -6,10 +6,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.jupiter.api.Disabled;
-import org.junit.rules.ExpectedException;
 import main.controller.Controller;
 import main.integration.Item;
 import main.integration.ItemDTO;
@@ -61,9 +59,6 @@ public class ViewTest {
         System.setOut(originalSysOut);
         instance = null;
     }
-
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
 
     @Test
     public void testSampleRunWithExceptionsRegisterItem() {
@@ -119,7 +114,7 @@ public class ViewTest {
         instance.sampleRunWithExceptions();
         String printout = outContent.toString();
         String expRes = "********RECIEPT*********\n" + "\n" +
-                        "Purchase was made: " + saleTime.getDateAndTime().toString() + "\n" +
+                        "Purchase was made: " + saleTime.getDateAndTime() + "\n" +
                         "\nItems Bought: \n\n" + sale.getShoppingCart().toString();
         assertTrue("A wrong print out is made", printout.contains(expRes));
     }
@@ -184,14 +179,4 @@ public class ViewTest {
         catch(IllegalStateException exception) {}
         assertThrows(IllegalStateException.class, () ->  controller.displaySummary());  
     }
-
-    @Disabled
-    public void testSampleRunWithExceptionsIllegalStateException() {
-        exception.expect(IllegalStateException.class);
-        //controller.startNewSale();
-        instance.sampleRunWithExceptions();
-    }
-
-
-  
 }

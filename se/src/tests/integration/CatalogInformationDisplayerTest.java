@@ -36,7 +36,7 @@ public class CatalogInformationDisplayerTest {
     public void testPrintData(){
         instance.printData();
         String printout = outContent.toString();
-        String expRes = completeCatalog.getData().toString();
+        String expRes = completeCatalog.getData();
         assertTrue(printout.contains(expRes));
     }   
 }

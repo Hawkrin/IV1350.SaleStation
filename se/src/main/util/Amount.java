@@ -5,7 +5,6 @@ package main.util;
  */
 public class Amount {
     private final double amount;
-    
 
     /**
      * Creates an instance, representing an amount
@@ -16,7 +15,7 @@ public class Amount {
         this.amount = amount;
     }
 
-     /**
+    /**
      * Creates a new instance, representing the amount 0.
      */
     public Amount() {

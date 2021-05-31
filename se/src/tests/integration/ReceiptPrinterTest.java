@@ -14,8 +14,6 @@ import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Disabled;
-
 import main.util.DateAndTime;
 
 public class ReceiptPrinterTest {
@@ -57,7 +55,7 @@ public class ReceiptPrinterTest {
         instance.printReceipt(receipt);
         String result = outContent.toString();
         String expResult = "********RECIEPT*********\n" + "\n" +
-                           "Purchase was made: " + saleTime.getDateAndTime().toString() + "\n" +
+                           "Purchase was made: " + saleTime.getDateAndTime() + "\n" +
                            "\nItems Bought: \n\n" + sale.getShoppingCart().toString() + "\n" +
                            "\n*******RECIEPT END*******";
         assertEquals("Output is not equal to string with the same state.", expResult, result);
@@ -75,7 +73,7 @@ public class ReceiptPrinterTest {
         sale.updateItems(item);
         instance.printReceipt(receipt);
         String result = outContent.toString();
-        String expResult = receipt.createReceipt().toString();
+        String expResult = receipt.createReceipt();
         assertEquals("Output is not equal to string with the same state.", expResult, result);
     }
 
@@ -84,7 +82,7 @@ public class ReceiptPrinterTest {
         instance.printReceipt(receipt);
         String printout = outContent.toString();
         String expResult = "********RECIEPT*********\n" + "\n" +
-                        "Purchase was made: " + saleTime.getDateAndTime().toString() + "\n" +
+                        "Purchase was made: " + saleTime.getDateAndTime() + "\n" +
                         "\nItems Bought: \n\n" + sale.getShoppingCart().toString() + "\n" +
                         "\n*******RECIEPT END*******";
         assertTrue("A wrong print out is made", printout.contains(expResult));
@@ -94,7 +92,7 @@ public class ReceiptPrinterTest {
     public void testPrintReceiptOutputViaMethods(){
         instance.printReceipt(receipt);
         String printout = outContent.toString();
-        String expResult = receipt.createReceipt().toString();
+        String expResult = receipt.createReceipt();
         assertTrue("A wrong print out is made", printout.contains(expResult));
     }
 

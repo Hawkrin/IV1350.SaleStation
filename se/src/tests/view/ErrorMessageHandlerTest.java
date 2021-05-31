@@ -24,7 +24,6 @@ public class ErrorMessageHandlerTest {
         outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         instance = new ErrorMessageHandler();
-        string = new String();
         errorTime = new DateAndTime();
     }
 
