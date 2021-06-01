@@ -54,10 +54,8 @@ public class ControllerTest {
         String result = controller.registerItem(itemID, itemQuantity);
         assertEquals("Strings doesnt match.", expResult, result);
         }
-        catch (OperationFailedException exception){}
-        catch (InvalidIDException exception){}
+        catch (OperationFailedException | InvalidIDException exception){}
     }
-
 
     @Disabled
     public void registerItemWithoutException() throws InvalidIDException, OperationFailedException {
@@ -151,14 +149,14 @@ public class ControllerTest {
     }
 
     @Test
-    public void testRegisterItemUnkownItemIDException() throws InvalidIDException, OperationFailedException {
+    public void testRegisterItemUnkownItemIDException() {
         amount = new Amount(2);
         controller.startNewSale();
         assertThrows(InvalidIDException.class, () ->  controller.registerItem(INVALID_ITEM_ID, amount));
     }
 
     @Test
-    public void testRegisterItemIllegalStateException() throws InvalidIDException, OperationFailedException {
+    public void testRegisterItemIllegalStateException() {
         amount = new Amount(2);
         //controller.startNewSale();
         assertThrows(IllegalStateException.class, () ->  controller.registerItem(11111, amount));
@@ -178,7 +176,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void testRegisterItemOperationFailedException() throws InvalidIDException, OperationFailedException {
+    public void testRegisterItemOperationFailedException() {
         controller.startNewSale();
         Amount itemQuantity = new Amount(1);
         assertThrows(OperationFailedException.class, () ->  controller.registerItem(DATABASE_UNREACHABLE, itemQuantity));
