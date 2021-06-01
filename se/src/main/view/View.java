@@ -30,38 +30,38 @@ public class View {
      * 
      */
     public void sampleRun() {
-        System.out.println("New Sale Started:");
+        print("New Sale Started:");
         ctrl.startNewSale();
-        System.out.println("\nCashier enter items:\n");
+        print("\nCashier enter items:\n");
         sample.registerItem(11111, new Amount(2));
-        System.out.println("\n");
+        print("\n");
         sample.registerItem(11112, new Amount(3));
-        System.out.println("\nCashier displays the total with taxes:");
-        System.out.println(ctrl.displaySummary());
-        System.out.println("\nCashier enters the amount paid by the customer.\n");
-        System.out.println("\nA Receipt is Printed: \n");
-        System.out.println(ctrl.salePayment(new Amount(1500)));
+        print("\nCashier displays the total with taxes:");
+        print(ctrl.displaySummary());
+        print("\nCashier enters the amount paid by the customer.\n");
+        print("\nA Receipt is Printed: \n");
+        print(ctrl.salePayment(new Amount(1500)));
     }
 
     /**
      * Makes a sample run of the application
      */
     public void sampleRunWithExceptions() {
-        System.out.println("New Sale Started:");
+        print("New Sale Started:");
         ctrl.startNewSale();
-        System.out.println("\nCashier enter items:\n");
+        print("\nCashier enter items:\n");
         sample.registerItem(11111, new Amount(2));
         sample.registerItem(11112, new Amount(3));
         try{
-            System.out.println("\nCashier displays the total price with taxes:" + "\n" + ctrl.displaySummary());
-            System.out.println("\nCashier enters the amount paid by the customer.\n");
+            print("\nCashier displays the total price with taxes:" + "\n" + ctrl.displaySummary());
+            print("\nCashier enters the amount paid by the customer.\n");
         }
         catch(IllegalStateException exception) {
             handleException("A new sale have to be started", exception);
         }
         try{
-            System.out.println("\nA Receipt is Printed: \n");
-            System.out.println(ctrl.salePayment(new Amount(1500)));
+            print("\nA Receipt is Printed: \n");
+            print(ctrl.salePayment(new Amount(1500)));
         }
         catch(IllegalStateException exception) {
             handleException("A new sale have to be started", exception);
@@ -72,6 +72,10 @@ public class View {
         errorMsgHandler.displayErrorMessage(message);;
         revenueViewFile.handleErrors(exception);
         revenueView.handleErrors(exception);
+    }
+
+    private void print(String output) {
+        System.out.println(output);
     }
     
 }

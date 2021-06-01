@@ -57,7 +57,7 @@ public class ReceiptPrinterTest {
         String expResult = "********RECIEPT*********\n" + "\n" +
                            "Purchase was made: " + saleTime.getDateAndTime() + "\n" +
                            "\nItems Bought: \n\n" + sale.getShoppingCart().toString() + "\n" +
-                           "\n*******RECIEPT END*******";
+                           "\n*******RECIEPT END*******\n" + "\n";
         assertEquals("Output is not equal to string with the same state.", expResult, result);
     }
 
@@ -84,7 +84,7 @@ public class ReceiptPrinterTest {
         String expResult = "********RECIEPT*********\n" + "\n" +
                         "Purchase was made: " + saleTime.getDateAndTime() + "\n" +
                         "\nItems Bought: \n\n" + sale.getShoppingCart().toString() + "\n" +
-                        "\n*******RECIEPT END*******";
+                        "\n*******RECIEPT END*******\n" + "\n";
         assertTrue("A wrong print out is made", printout.contains(expResult));
     }
 
