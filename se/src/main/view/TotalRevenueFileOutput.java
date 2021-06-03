@@ -23,7 +23,7 @@ public class TotalRevenueFileOutput extends ObserverTemplateClass  {
             logFile = new PrintWriter(new FileWriter(NAME_OF_LOG_FILE), true);
         } 
         catch (IOException exception) {
-            System.out.println("Error while creating the log.");
+            System.err.println("Error while creating the log.");
             exception.printStackTrace();
         }
     }

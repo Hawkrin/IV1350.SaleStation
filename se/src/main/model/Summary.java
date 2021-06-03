@@ -11,13 +11,13 @@ public class Summary {
     private Amount totalWithoutTax;
     private Amount totalTax;
     private Amount totalDiscount;
-    private Amount summary;
+    private Amount sum;
 
     /**
      *  Creates a new instance, representing the total.
      */
     public Summary(){
-        this.summary = new Amount();
+        this.sum = new Amount();
         this.totalTax = new Amount();
         this.totalWithoutTax = new Amount();
         this.totalDiscount = new Amount();
@@ -49,7 +49,7 @@ public class Summary {
      * 
      * @return total price of products with taxes
      */
-    public Amount getSummary() { return summary.add(totalTax) ; }
+    public Amount getSummary() { return sum.add(totalTax) ; }
 
     /**
      * Updates the total and the totalTax by adding it with another total.
@@ -57,7 +57,7 @@ public class Summary {
      * @param summary The total that will be added to this total.
      */
     public void updateTotal(Summary summary){
-        this.summary = this.summary.add(summary.getSummary());
+        this.sum = this.sum.add(summary.getSummary());
         this.totalTax = this.totalTax.add(summary.getTotalTax());
     }
 
@@ -72,6 +72,6 @@ public class Summary {
         Amount itemTaxRate = item.getItemDTO().getTaxRate();
 
         this.totalTax = this.totalTax.add(numberOfItems.multiply(itemTaxRate));
-        this.summary = this.summary.add(numberOfItems.multiply(itemPrice));
+        this.sum = this.sum.add(numberOfItems.multiply(itemPrice));
     } 
 }

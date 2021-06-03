@@ -3,7 +3,6 @@ package main.view;
 import main.controller.*;
 import main.integration.InvalidIDException;
 import main.util.Amount;
-
 /**
  * This class exists to help executing a sample of the application in the View class.
  */

@@ -42,7 +42,7 @@ public class TotalRevenueView extends ObserverTemplateClass {
     }
 
     private void print(String output) {
-        System.out.println(output);
+        System.err.println(output);
     }
  
 }
